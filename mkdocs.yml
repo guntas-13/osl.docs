@@ -1,0 +1,68 @@
+site_name: osl.
+site_url: https://guntas-13.github.io/osl.docs
+site_author: Guntas Singh Saran
+
+repo_name: mshandilya/osl.
+repo_url: https://github.com/mshandilya/osl.
+
+copyright: Copyright &copy; 2025 - 2026 Guntas Singh Saran
+
+theme:
+  name: material
+  # custom_dir: material/overrides
+  # features:
+  #   - announce.dismiss
+  #   - content.action.edit
+  #   - content.action.view
+  #   - content.code.annotate
+  #   - content.code.copy
+  #   # - content.code.select
+  #   # - content.footnote.tooltips
+  #   # - content.tabs.link
+  #   - content.tooltips
+  #   # - header.autohide
+  #   # - navigation.expand
+  #   - navigation.footer
+  #   - navigation.indexes
+  #   # - navigation.instant
+  #   # - navigation.instant.prefetch
+  #   # - navigation.instant.progress
+  #   # - navigation.prune
+  #   - navigation.sections
+  #   - navigation.tabs
+  #   # - navigation.tabs.sticky
+  #   - navigation.top
+  #   - navigation.tracking
+  #   - search.highlight
+  #   - search.share
+  #   - search.suggest
+  #   - toc.follow
+  #   # - toc.integrate
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+nav:
+  - Home: index.md
+  - Progress:
+      - Home: progress.md
+      - Week 1: week1.md
