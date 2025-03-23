@@ -105,9 +105,9 @@ nav:
       - Grammar: documentation/grammar.md
       - AST Nodes: documentation/ast_nodes.md
       - Syntax: documentation/syntax.md
-      - Doc 1: documentation/doc1.md
-      - Doc 2: documentation/doc2.md
-      - MkDocs Documentation: documentation/doc.md
+      # - Doc 1: documentation/doc1.md
+      # - Doc 2: documentation/doc2.md
+      # - MkDocs Documentation: documentation/doc.md
   - Progress:
       - Home: progress/progress.md
       - Week 1: progress/week1.md
