@@ -1,69 +1,115 @@
-site_name: osl.
+site_name: docs
 site_url: https://guntas-13.github.io/osl.docs
 site_author: Guntas Singh Saran
 
 repo_name: mshandilya/osl.
 repo_url: https://github.com/mshandilya/osl.
 
-copyright: Copyright &copy; 2025 - 2026 Guntas Singh Saran
+copyright: Copyright &copy; 2025 - 2026 Guntas Singh Saran | Kishan Ved | Kristopher Paul | Mrigankashekhar Shandilya
+
+plugins:
+  - search
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/guntas-13
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/guntas-singh-saran-2b8811179/
+    - icon: fontawesome/brands/discord
+      link: https://www.discord.com/users/1025808683382345768
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:guntassingh.saran@iitgn.ac.in
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+    feedback:
+      title: Love the UnAmbiguity?
+      ratings:
+        - icon: material/heart
+          name: loved it!
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/heart-broken
+          name: It could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve it by
+            writing to <a href="mailto:guntassingh.saran@iitgn.ac.in" target="_blank" rel="noopener">guntassingh.saran@iitgn.ac.in</a>.
 
 theme:
   name: material
-  # custom_dir: material/overrides
-  # features:
-  #   - announce.dismiss
-  #   - content.action.edit
-  #   - content.action.view
-  #   - content.code.annotate
-  #   - content.code.copy
-  #   # - content.code.select
-  #   # - content.footnote.tooltips
-  #   # - content.tabs.link
-  #   - content.tooltips
-  #   # - header.autohide
-  #   # - navigation.expand
-  #   - navigation.footer
-  #   - navigation.indexes
-  #   # - navigation.instant
-  #   # - navigation.instant.prefetch
-  #   # - navigation.instant.progress
-  #   # - navigation.prune
-  #   - navigation.sections
-  #   - navigation.tabs
-  #   # - navigation.tabs.sticky
-  #   - navigation.top
-  #   - navigation.tracking
-  #   - search.highlight
-  #   - search.share
-  #   - search.suggest
-  #   - toc.follow
-  #   # - toc.integrate
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    # - navigation.footer
+  logo: assets/oslNameLogo.svg
+  favicon: assets/oslMascotLogo.svg
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+    repo: fontawesome/brands/git-alt
   palette:
-    - media: "(prefers-color-scheme)"
+    - scheme: default
+      primary: cyan
+      accent: cyan
       toggle:
-        icon: material/link
-        name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-7
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: indigo
+
+    - scheme: slate
+      primary: cyan
+      accent: cyan
       toggle:
-        icon: material/toggle-switch-off
-        name: Switch to system preference
+        icon: material/brightness-4
+        name: Switch to light mode
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Poppins
+    code: JetBrains Mono
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.blocks.caption
+  - pymdownx.betterem
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 
 nav:
   - Home: index.md
+  - Documentaion:
+      - Grammar: documentation/grammar.md
+      - Doc 1: documentation/doc1.md
+      - Doc 2: documentation/doc2.md
+      - MkDocs Documentation: documentation/doc.md
   - Progress:
-      - Home: progress.md
-      - Week 1: week1.md
-      - Week 2: week2.md
+      - Home: progress/progress.md
+      - Week 1: progress/week1.md
+      - Week 2: progress/week2.md
+
+extra_css:
+  - stylesheets/extra.css
