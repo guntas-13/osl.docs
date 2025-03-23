@@ -10,13 +10,13 @@
         <meta name="author" content="Guntas Singh Saran">
       
       
-        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/progress/week1/">
+        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/ast_nodes/">
       
       
-        <link rel="prev" href="../progress/">
+        <link rel="prev" href="../grammar/">
       
       
-        <link rel="next" href="../week2/">
+        <link rel="next" href="../syntax/">
       
       
       <link rel="icon" href="../../assets/oslMascotLogo.svg">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Week 1 - docs</title>
+        <title>AST Nodes - docs</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-1-progress" class="md-skip">
+        <a href="#abstract-binding-tree-abt-nodes" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 1
+              AST Nodes
             
           </span>
         </div>
@@ -289,17 +289,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -313,7 +315,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Documentation
@@ -327,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/grammar/" class="md-nav__link">
+      <a href="../grammar/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3.9 35 17.2 41.8s35-.9 41.8-17.2l5.2-12.3h90.7l5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0m18.7 160H93.4l18.6-44.8zM256 32v192c0 17.7 14.3 32 32 32h80c44.2 0 80-35.8 80-80 0-23.1-9.8-43.8-25.4-58.4 6-11.2 9.4-24 9.4-37.6 0-44.2-35.8-80-80-80h-64c-17.7 0-32 14.3-32 32m96 64h-32V64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16m-32 64h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-48zm246.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0z"/></svg>
@@ -347,10 +349,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../documentation/ast_nodes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
+  
+  <span class="md-ellipsis">
+    AST Nodes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -361,6 +385,260 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ast-base-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      AST Base Class
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expression-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expression Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expression Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-literal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number Literal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unary-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unary Operation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Flow Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Control Flow Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      If Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-without-else-unmatched-if" class="md-nav__link">
+    <span class="md-ellipsis">
+      If Without Else (Unmatched If)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-and-assignment-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable and Assignment Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable and Assignment Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#let-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Let Binding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Reference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statement-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statement Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statement Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequence-of-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence of Statements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Print Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return Statement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#program-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program Node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Program Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -373,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/syntax/" class="md-nav__link">
+      <a href="../syntax/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -396,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/doc1/" class="md-nav__link">
+      <a href="../doc1/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -419,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/doc2/" class="md-nav__link">
+      <a href="../doc2/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -442,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/doc/" class="md-nav__link">
+      <a href="../doc/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.7 12.9 14 18.6h-2.3v-2.3l5.7-5.7zm3.4-.8c0 .3-.3.6-.6.9L20 15.5l-.9-.9 2.6-2.6-.6-.6-.7.7-2.3-2.3 2.2-2.1c.2-.2.6-.2.9 0l1.4 1.4c.2.2.2.6 0 .9-.2.2-.4.4-.4.6s.2.4.4.6c.3.3.6.6.5.9M3 20V4h7v5h5v1.5l2-2V8l-6-6H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm8-2.9c-.2 0-.4.1-.5.1L10 15H8.5l-2.1 1.7L7 14H5.5l-1 5H6l2.9-2.6.6 2.3h1l.5-.1z"/></svg>
@@ -469,19 +747,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -495,7 +771,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Progress
@@ -509,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../progress/" class="md-nav__link">
+      <a href="../../progress/progress/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 13c.34 0 .67.04 1 .09V8H4v13h9.35c-.22-.63-.35-1.3-.35-2 0-3.31 2.69-6 6-6M9 13v-1.5c0-.28.22-.5.5-.5h5c.28 0 .5.22.5.5V13zm12-6H3V3h18zm1.5 10.25L17.75 22 15 19l1.16-1.16 1.59 1.59 3.59-3.59z"/></svg>
@@ -529,19 +805,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../progress/week1/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03v2.02c4.39.54 7.5 4.53 6.96 8.92-.46 3.64-3.32 6.53-6.96 6.96v2c5.5-.55 9.5-5.43 8.95-10.93-.45-4.75-4.22-8.5-8.95-8.97m-2 .03c-1.95.19-3.81.94-5.33 2.2L7.1 5.74c1.12-.9 2.47-1.48 3.9-1.68zM4.26 5.67A9.9 9.9 0 0 0 2.05 11h2c.19-1.42.75-2.77 1.64-3.9zM2.06 13c.2 1.96.97 3.81 2.21 5.33l1.42-1.43A8 8 0 0 1 4.06 13zm5.04 5.37-1.43 1.37A10 10 0 0 0 11 22v-2a8 8 0 0 1-3.9-1.63m9.72-3.18-4.11-4.11c.41-1.04.18-2.26-.68-3.11-.9-.91-2.25-1.09-3.34-.59l1.94 1.94-1.35 1.36-1.99-1.95c-.54 1.09-.29 2.44.59 3.35.86.86 2.08 1.08 3.12.68l4.11 4.1c.18.19.45.19.63 0l1.04-1.03c.22-.18.22-.5.04-.64"/></svg>
@@ -552,7 +819,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -565,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week2/" class="md-nav__link">
+      <a href="../../progress/week2/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03v2.02c4.39.54 7.5 4.53 6.96 8.92-.46 3.64-3.32 6.53-6.96 6.96v2c5.5-.55 9.5-5.43 8.95-10.93-.45-4.75-4.22-8.5-8.95-8.97m-2 .03c-1.95.19-3.81.94-5.33 2.2L7.1 5.74c1.12-.9 2.47-1.48 3.9-1.68zM4.26 5.67A9.9 9.9 0 0 0 2.05 11h2c.19-1.42.75-2.77 1.64-3.9zM2.06 13c.2 1.96.97 3.81 2.21 5.33l1.42-1.43A8 8 0 0 1 4.06 13zm5.04 5.37-1.43 1.37A10 10 0 0 0 11 22v-2a8 8 0 0 1-3.9-1.63m9.72-3.18-4.11-4.11c.41-1.04.18-2.26-.68-3.11-.9-.91-2.25-1.09-3.34-.59l1.94 1.94-1.35 1.36-1.99-1.95c-.54 1.09-.29 2.44.59 3.35.86.86 2.08 1.08 3.12.68l4.11 4.1c.18.19.45.19.63 0l1.04-1.03c.22-.18.22-.5.04-.64"/></svg>
@@ -671,6 +937,248 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ast-base-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      AST Base Class
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expression-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expression Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expression Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-literal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number Literal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unary-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unary Operation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Flow Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Control Flow Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      If Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-without-else-unmatched-if" class="md-nav__link">
+    <span class="md-ellipsis">
+      If Without Else (Unmatched If)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-and-assignment-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable and Assignment Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable and Assignment Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#let-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Let Binding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Reference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statement-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statement Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statement Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequence-of-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence of Statements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Print Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return Statement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#program-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program Node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Program Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -687,7 +1195,123 @@
   
 
 
-<h1 id="week-1-progress">Week 1 Progress<a class="headerlink" href="#week-1-progress" title="Permanent link">&para;</a></h1>
+<h1 id="abstract-binding-tree-abt-nodes">Abstract Binding Tree (ABT) Nodes<a class="headerlink" href="#abstract-binding-tree-abt-nodes" title="Permanent link">&para;</a></h1>
+<p>The Abstract Binding Tree (ABT) consists of various nodes that represent different constructs in the language. Below is a list of the primary node types along with their descriptions.</p>
+<h2 id="ast-base-class">AST Base Class<a class="headerlink" href="#ast-base-class" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">AST</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">pass</span>
+</span></code></pre></div>
+<h2 id="expression-nodes">Expression Nodes<a class="headerlink" href="#expression-nodes" title="Permanent link">&para;</a></h2>
+<h3 id="binary-operation">Binary Operation<a class="headerlink" href="#binary-operation" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">BinOp</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">op</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">left</span><span class="p">:</span> <span class="n">AST</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">right</span><span class="p">:</span> <span class="n">AST</span>
+</span></code></pre></div>
+Represents a binary operation with an operator (<code>op</code>) and two operands (<code>left</code> and <code>right</code>).</p>
+<h3 id="number-literal">Number Literal<a class="headerlink" href="#number-literal" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Number</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">val</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> 
+</span></code></pre></div>
+Represents a numeric literal.</p>
+<h3 id="unary-operation">Unary Operation<a class="headerlink" href="#unary-operation" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">UnOp</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">op</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">right</span><span class="p">:</span> <span class="n">AST</span>
+</span></code></pre></div>
+Represents a unary operation with an operator (<code>op</code>) and a single operand (<code>right</code>).</p>
+<h2 id="control-flow-nodes">Control Flow Nodes<a class="headerlink" href="#control-flow-nodes" title="Permanent link">&para;</a></h2>
+<h3 id="if-statement">If Statement<a class="headerlink" href="#if-statement" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">If</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">condition</span><span class="p">:</span> <span class="n">AST</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">then_body</span><span class="p">:</span> <span class="n">AST</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">else_body</span><span class="p">:</span> <span class="n">AST</span>
+</span></code></pre></div>
+Represents an <code>if</code> statement with a condition, a <code>then</code> block, and an <code>else</code> block.</p>
+<h3 id="if-without-else-unmatched-if">If Without Else (Unmatched If)<a class="headerlink" href="#if-without-else-unmatched-if" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">IfUnM</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">condition</span><span class="p">:</span> <span class="n">AST</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">then_body</span><span class="p">:</span> <span class="n">AST</span>
+</span></code></pre></div>
+Represents an <code>if</code> statement without an <code>else</code> block.</p>
+<h2 id="variable-and-assignment-nodes">Variable and Assignment Nodes<a class="headerlink" href="#variable-and-assignment-nodes" title="Permanent link">&para;</a></h2>
+<h3 id="let-binding">Let Binding<a class="headerlink" href="#let-binding" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Let</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">var</span><span class="p">:</span> <span class="n">AST</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">e1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
+</span></code></pre></div>
+Represents a <code>let</code> binding where <code>var</code> is assigned an optional expression <code>e1</code>.</p>
+<h3 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Assign</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">var</span><span class="p">:</span> <span class="n">AST</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">e1</span><span class="p">:</span> <span class="n">AST</span>
+</span></code></pre></div>
+Represents an assignment of <code>e1</code> to <code>var</code>.</p>
+<h3 id="variable-reference">Variable Reference<a class="headerlink" href="#variable-reference" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Variable</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">varName</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+</span></code></pre></div>
+Represents a variable reference with a name (<code>varName</code>) and an optional unique identifier (<code>id</code>).</p>
+<h2 id="function-nodes">Function Nodes<a class="headerlink" href="#function-nodes" title="Permanent link">&para;</a></h2>
+<h3 id="function-definition">Function Definition<a class="headerlink" href="#function-definition" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">LetFun</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">name</span><span class="p">:</span> <span class="n">AST</span>   <span class="c1"># considering functions as first-class just like variables else it&#39;ll be str</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">params</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">body</span><span class="p">:</span> <span class="n">AST</span>
+</span></code></pre></div>
+Represents a function definition with a name, a list of parameters, and a body.</p>
+<h3 id="function-call">Function Call<a class="headerlink" href="#function-call" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">CallFun</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">fn</span><span class="p">:</span> <span class="n">AST</span>     <span class="c1"># considering functions as first-class just like variables else it&#39;ll be str</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
+</span></code></pre></div>
+Represents a function call with a function (<code>fn</code>) and a list of arguments.</p>
+<h3 id="function-object">Function Object<a class="headerlink" href="#function-object" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">FunObj</span><span class="p">:</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">params</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">body</span><span class="p">:</span> <span class="n">AST</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span>
+</span></code></pre></div>
+Represents a function object, including parameters, a body, and an environment for closures.</p>
+<h2 id="statement-nodes">Statement Nodes<a class="headerlink" href="#statement-nodes" title="Permanent link">&para;</a></h2>
+<h3 id="sequence-of-statements">Sequence of Statements<a class="headerlink" href="#sequence-of-statements" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Statements</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">stmts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
+</span></code></pre></div>
+Represents a sequence of statements.</p>
+<h3 id="print-statement">Print Statement<a class="headerlink" href="#print-statement" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">PrintStmt</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="n">expr</span><span class="p">:</span> <span class="n">AST</span>
+</span></code></pre></div>
+Represents a print statement for evaluating and displaying an expression.</p>
+<h3 id="return-statement">Return Statement<a class="headerlink" href="#return-statement" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">ReturnStmt</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="n">expr</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
+</span></code></pre></div>
+Represents a return statement, optionally returning an expression.</p>
+<h2 id="program-node">Program Node<a class="headerlink" href="#program-node" title="Permanent link">&para;</a></h2>
+<h3 id="program">Program<a class="headerlink" href="#program" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@dataclass</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">decls</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
+</span></code></pre></div>
+Represents the root node of the program, containing a list of declarations.</p>
 
 
 
