@@ -10,13 +10,13 @@
         <meta name="author" content="Guntas Singh Saran">
       
       
-        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/progress/week1/">
+        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/syntax/">
       
       
-        <link rel="prev" href="../progress/">
+        <link rel="prev" href="../ast_nodes/">
       
       
-        <link rel="next" href="../week2/">
+        <link rel="next" href="../doc1/">
       
       
       <link rel="icon" href="../../assets/oslMascotLogo.svg">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Week 1 - docs</title>
+        <title>Syntax - docs</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-1-progress" class="md-skip">
+        <a href="#syntax-of-osl" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 1
+              Syntax
             
           </span>
         </div>
@@ -289,17 +289,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -313,7 +315,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Documentation
@@ -327,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/grammar/" class="md-nav__link">
+      <a href="../grammar/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3.9 35 17.2 41.8s35-.9 41.8-17.2l5.2-12.3h90.7l5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0m18.7 160H93.4l18.6-44.8zM256 32v192c0 17.7 14.3 32 32 32h80c44.2 0 80-35.8 80-80 0-23.1-9.8-43.8-25.4-58.4 6-11.2 9.4-24 9.4-37.6 0-44.2-35.8-80-80-80h-64c-17.7 0-32 14.3-32 32m96 64h-32V64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16m-32 64h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-48zm246.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0z"/></svg>
@@ -350,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/ast_nodes/" class="md-nav__link">
+      <a href="../ast_nodes/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -370,10 +372,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../documentation/syntax/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
+  
+  <span class="md-ellipsis">
+    Syntax
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -384,6 +408,143 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operators-and-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators and Precedence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-initialization-and-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables: Initialization and Modification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables: Initialization and Modification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Modification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-else-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      If-Else Statements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="If-Else Statements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unmatched-if-and-dangling-else-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unmatched If and Dangling Else Problem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions-and-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions and Function Calls
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions and Function Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Calls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-class-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Class Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closures-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closures in Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -396,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/doc1/" class="md-nav__link">
+      <a href="../doc1/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -419,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/doc2/" class="md-nav__link">
+      <a href="../doc2/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -442,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/doc/" class="md-nav__link">
+      <a href="../doc/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.7 12.9 14 18.6h-2.3v-2.3l5.7-5.7zm3.4-.8c0 .3-.3.6-.6.9L20 15.5l-.9-.9 2.6-2.6-.6-.6-.7.7-2.3-2.3 2.2-2.1c.2-.2.6-.2.9 0l1.4 1.4c.2.2.2.6 0 .9-.2.2-.4.4-.4.6s.2.4.4.6c.3.3.6.6.5.9M3 20V4h7v5h5v1.5l2-2V8l-6-6H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm8-2.9c-.2 0-.4.1-.5.1L10 15H8.5l-2.1 1.7L7 14H5.5l-1 5H6l2.9-2.6.6 2.3h1l.5-.1z"/></svg>
@@ -469,19 +630,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -495,7 +654,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Progress
@@ -509,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../progress/" class="md-nav__link">
+      <a href="../../progress/progress/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 13c.34 0 .67.04 1 .09V8H4v13h9.35c-.22-.63-.35-1.3-.35-2 0-3.31 2.69-6 6-6M9 13v-1.5c0-.28.22-.5.5-.5h5c.28 0 .5.22.5.5V13zm12-6H3V3h18zm1.5 10.25L17.75 22 15 19l1.16-1.16 1.59 1.59 3.59-3.59z"/></svg>
@@ -529,19 +688,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../progress/week1/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03v2.02c4.39.54 7.5 4.53 6.96 8.92-.46 3.64-3.32 6.53-6.96 6.96v2c5.5-.55 9.5-5.43 8.95-10.93-.45-4.75-4.22-8.5-8.95-8.97m-2 .03c-1.95.19-3.81.94-5.33 2.2L7.1 5.74c1.12-.9 2.47-1.48 3.9-1.68zM4.26 5.67A9.9 9.9 0 0 0 2.05 11h2c.19-1.42.75-2.77 1.64-3.9zM2.06 13c.2 1.96.97 3.81 2.21 5.33l1.42-1.43A8 8 0 0 1 4.06 13zm5.04 5.37-1.43 1.37A10 10 0 0 0 11 22v-2a8 8 0 0 1-3.9-1.63m9.72-3.18-4.11-4.11c.41-1.04.18-2.26-.68-3.11-.9-.91-2.25-1.09-3.34-.59l1.94 1.94-1.35 1.36-1.99-1.95c-.54 1.09-.29 2.44.59 3.35.86.86 2.08 1.08 3.12.68l4.11 4.1c.18.19.45.19.63 0l1.04-1.03c.22-.18.22-.5.04-.64"/></svg>
@@ -552,7 +702,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -565,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week2/" class="md-nav__link">
+      <a href="../../progress/week2/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03v2.02c4.39.54 7.5 4.53 6.96 8.92-.46 3.64-3.32 6.53-6.96 6.96v2c5.5-.55 9.5-5.43 8.95-10.93-.45-4.75-4.22-8.5-8.95-8.97m-2 .03c-1.95.19-3.81.94-5.33 2.2L7.1 5.74c1.12-.9 2.47-1.48 3.9-1.68zM4.26 5.67A9.9 9.9 0 0 0 2.05 11h2c.19-1.42.75-2.77 1.64-3.9zM2.06 13c.2 1.96.97 3.81 2.21 5.33l1.42-1.43A8 8 0 0 1 4.06 13zm5.04 5.37-1.43 1.37A10 10 0 0 0 11 22v-2a8 8 0 0 1-3.9-1.63m9.72-3.18-4.11-4.11c.41-1.04.18-2.26-.68-3.11-.9-.91-2.25-1.09-3.34-.59l1.94 1.94-1.35 1.36-1.99-1.95c-.54 1.09-.29 2.44.59 3.35.86.86 2.08 1.08 3.12.68l4.11 4.1c.18.19.45.19.63 0l1.04-1.03c.22-.18.22-.5.04-.64"/></svg>
@@ -671,6 +820,131 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operators-and-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators and Precedence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-initialization-and-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables: Initialization and Modification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables: Initialization and Modification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Modification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-else-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      If-Else Statements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="If-Else Statements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unmatched-if-and-dangling-else-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unmatched If and Dangling Else Problem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions-and-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions and Function Calls
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions and Function Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Calls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-class-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Class Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closures-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closures in Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -687,7 +961,142 @@
   
 
 
-<h1 id="week-1-progress">Week 1 Progress<a class="headerlink" href="#week-1-progress" title="Permanent link">&para;</a></h1>
+<h1 id="syntax-of-osl">Syntax of OSL<a class="headerlink" href="#syntax-of-osl" title="Permanent link">&para;</a></h1>
+<h2 id="operators-and-precedence">Operators and Precedence<a class="headerlink" href="#operators-and-precedence" title="Permanent link">&para;</a></h2>
+<p>OSL supports the following operators, listed in decreasing order of precedence:</p>
+<table>
+<thead>
+<tr>
+<th>Precedence</th>
+<th>Operators</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (Highest)</td>
+<td><code>()</code>, <code>√</code>, <code>-</code></td>
+<td>Parentheses (explicit grouping), Square root, unary minus</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>^</code></td>
+<td>Exponentiation</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>*</code>, <code>/</code></td>
+<td>Multiplication, Division</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>+</code>, <code>-</code></td>
+<td>Addition, Subtraction</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>=</code>, <code>!=</code></td>
+<td>Relational Operators</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>&amp;&amp;</code>, <code>||</code></td>
+<td>Logical AND and Logical OR</td>
+</tr>
+<tr>
+<td>7 (Lowest)</td>
+<td><code>:=</code></td>
+<td>Assignment Operator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="variables-initialization-and-modification">Variables: Initialization and Modification<a class="headerlink" href="#variables-initialization-and-modification" title="Permanent link">&para;</a></h2>
+<h3 id="variable-declaration">Variable Declaration<a class="headerlink" href="#variable-declaration" title="Permanent link">&para;</a></h3>
+<p>Variables can be declared using the <code>var</code> keyword:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">var</span> <span class="n">y</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span>
+</span></code></pre></div></p>
+<h3 id="variable-modification">Variable Modification<a class="headerlink" href="#variable-modification" title="Permanent link">&para;</a></h3>
+<p>Existing variables can be reassigned using <code>:=</code>:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">x</span> <span class="o">:=</span> <span class="mi">20</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">y</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></code></pre></div></p>
+<h2 id="if-else-statements">If-Else Statements<a class="headerlink" href="#if-else-statements" title="Permanent link">&para;</a></h2>
+<p>Conditional execution in OSL is handled using <code>if</code>, <code>else if</code>, and <code>else</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>let x = 10;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>if (x &gt; 10) {
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    print(&quot;Greater than 10&quot;);
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>} else if (x == 10) {
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    print(&quot;Equal to 10&quot;);
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>} else {
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    print(&quot;Less than 10&quot;);
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>}
+</span></code></pre></div>
+<h3 id="unmatched-if-and-dangling-else-problem">Unmatched If and Dangling Else Problem<a class="headerlink" href="#unmatched-if-and-dangling-else-problem" title="Permanent link">&para;</a></h3>
+<p>OSL follows the "else is matched with the closest unmatched if" rule:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>if (x &gt; 5)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    if (x &gt; 10)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        print(&quot;Greater than 10&quot;);
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    else
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        print(&quot;Between 5 and 10&quot;);
+</span></code></pre></div>
+<p>To avoid ambiguity, always use braces:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>if (x &gt; 5) {
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    if (x &gt; 10) {
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        print(&quot;Greater than 10&quot;);
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    } else {
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        print(&quot;Between 5 and 10&quot;);
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    }
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>}
+</span></code></pre></div>
+<h2 id="functions-and-function-calls">Functions and Function Calls<a class="headerlink" href="#functions-and-function-calls" title="Permanent link">&para;</a></h2>
+<h3 id="function-declaration">Function Declaration<a class="headerlink" href="#function-declaration" title="Permanent link">&para;</a></h3>
+<p>Functions are defined using the <code>letFunc</code> keyword:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">letFunc</span> <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="function-calls">Function Calls<a class="headerlink" href="#function-calls" title="Permanent link">&para;</a></h3>
+<p>Functions are called using parentheses:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">var</span> <span class="nb">sum</span> <span class="o">:=</span> <span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h3 id="first-class-functions">First-Class Functions<a class="headerlink" href="#first-class-functions" title="Permanent link">&para;</a></h3>
+<p>OSL treats functions as first-class citizens, meaning they can:</p>
+<ul>
+<li>
+<p>Be assigned to variables</p>
+</li>
+<li>
+<p>Be passed as arguments to other functions</p>
+</li>
+<li>
+<p>Be returned from functions</p>
+</li>
+</ul>
+<p>Example:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">letFunc</span> <span class="n">multiplyBy</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="k">return</span> <span class="n">letFunc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span> <span class="p">};</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">var</span> <span class="n">double</span> <span class="o">:=</span> <span class="n">multiplyBy</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">var</span> <span class="n">result</span> <span class="o">:=</span> <span class="n">double</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h3 id="closures-in-functions">Closures in Functions<a class="headerlink" href="#closures-in-functions" title="Permanent link">&para;</a></h3>
+<p>Functions in OSL can capture variables from their defining scope, enabling closures:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">letFunc</span> <span class="n">f1</span><span class="p">()</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">letFunc</span> <span class="n">f2</span><span class="p">()</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="p">}</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="k">return</span> <span class="n">f2</span><span class="p">;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">var</span> <span class="n">msg</span> <span class="o">:=</span> <span class="n">f1</span><span class="p">();</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">msg</span><span class="p">();</span>
+</span></code></pre></div>
+Closures allow functions to maintain state between calls by capturing the enclosing environment.</p>
 
 
 
