@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://guntas-13.github.io/osl.docs/</loc>
-         <lastmod>2025-02-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-23</lastmod>
     </url>
     <url>
-         <loc>https://guntas-13.github.io/osl.docs/progress/</loc>
-         <lastmod>2025-02-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://guntas-13.github.io/osl.docs/documentation/doc/</loc>
+         <lastmod>2025-03-23</lastmod>
     </url>
     <url>
-         <loc>https://guntas-13.github.io/osl.docs/week1/</loc>
-         <lastmod>2025-02-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://guntas-13.github.io/osl.docs/documentation/doc1/</loc>
+         <lastmod>2025-03-23</lastmod>
     </url>
     <url>
-         <loc>https://guntas-13.github.io/osl.docs/week2/</loc>
-         <lastmod>2025-02-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://guntas-13.github.io/osl.docs/documentation/doc2/</loc>
+         <lastmod>2025-03-23</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/documentation/grammar/</loc>
+         <lastmod>2025-03-23</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/progress/progress/</loc>
+         <lastmod>2025-03-23</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/progress/week1/</loc>
+         <lastmod>2025-03-23</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/progress/week2/</loc>
+         <lastmod>2025-03-23</lastmod>
     </url>
 </urlset>
