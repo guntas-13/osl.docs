@@ -103,17 +103,18 @@ nav:
   - Home: index.md
   - Documentation:
       - Grammar: documentation/grammar.md
+      - Future Grammar: documentation/grammarP.md
       - AST Nodes: documentation/ast_nodes.md
       - Syntax: documentation/syntax.md
       # - Doc 1: documentation/doc1.md
       # - Doc 2: documentation/doc2.md
       # - MkDocs Documentation: documentation/doc.md
+  - Tutorials:
+      - Euler Problems: tutorials/euler.md
   - Progress:
       - Home: progress/progress.md
       - Week 1: progress/week1.md
       - Week 2: progress/week2.md
-  - Tutorials:
-      - Euler Problems: tutorials/euler.md
 
 extra_css:
   - stylesheets/extra.css

@@ -7,11 +7,15 @@ Project Euler is a well known set of questions, available here: [Link to the pro
 ```py
 letFunc F(x, s) {
     if (x = 1000) return s;
-    if (x % 3 = 0 || x % 5 = 0) 
+    if (x % 3 = 0 || x % 5 = 0)
         return F(x + 1, s + x);
     return F(x + 1, s);
 }
 F(0, 0);
+```
+
+```bash
+233168
 ```
 
 ## Q2
@@ -19,14 +23,19 @@ F(0, 0);
 ```py
 letFunc fib(a, b, s) {
     if (a >= 4000000) return s;
-    if (a % 2 = 0) 
+    if (a % 2 = 0)
         return fib(b, a + b, s + a);
     return fib(b, a + b, s);
 }
 fib(0, 1, 0);
 ```
 
+```bash
+4613732
+```
+
 ## Q3
+
 ```py
 letFunc prime(n, i) {
     if (i * i > n) return n;
@@ -36,6 +45,10 @@ letFunc prime(n, i) {
 }
 var n := 600851475143;
 prime(n, 2);
+```
+
+```bash
+6857
 ```
 
 ## Q4
@@ -56,4 +69,8 @@ letFunc F(i, j, maxPal) {
     return F(i, j - 1, maxPal);
 }
 F(999, 999, 0);
+```
+
+```bash
+906609
 ```
