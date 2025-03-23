@@ -4,7 +4,7 @@ icon: fontawesome/solid/spell-check
 
 # Overall Grammar
 
-```
+```py
 program → declaration* EOF;
 
 declaration → funDecl | varDecl | statement;
