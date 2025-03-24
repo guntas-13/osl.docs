@@ -38,7 +38,6 @@ This project implements a simple lexer and parser generator. The lexer is based 
 This project comprises two major components:
 
 1. **Lexer:**
-
    - Uses a trie (prefix tree) to store and match token symbols.
    - Reads token definitions from `lex_rules.txt`.
    - Processes an input stream character by character to output tokens.
@@ -64,7 +63,6 @@ This project comprises two major components:
 
 - **lex_rules.txt**  
   Specifies lexical rules. For example:
-
   ```
   ( LBRACE
   ) RBRACE
@@ -87,7 +85,6 @@ This project comprises two major components:
 
 - **parse_rules.txt**  
   Defines grammar rules using a production rule format:
-
   ```
   <unamb> ::= LBRACE <add> RBRACE
   <add> ::= <atomic> ADD <atomic>
@@ -214,7 +211,6 @@ void parser::genParser::populateTree(int curNode, int curSym, int &pind, std::ve
 
 3. **Compile the Project:**  
    Use a C++ compiler (e.g., g++) to compile the source files:
-
    ```bash
    g++ -std=c++17 utils.cpp main.cpp lexer.cpp parser.cpp -o main
    ```
