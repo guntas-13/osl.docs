@@ -5,7 +5,7 @@ Project Euler is a well known set of questions, available here: [Link to the pro
 ## Q1
 
 ```py
-letFunc F(x, s) {
+fn F(x, s) {
     if (x = 1000) return s;
     if (x % 3 = 0 || x % 5 = 0)
         return F(x + 1, s + x);
@@ -21,7 +21,7 @@ F(0, 0);
 ## Q2
 
 ```py
-letFunc fib(a, b, s) {
+fn fib(a, b, s) {
     if (a >= 4000000) return s;
     if (a % 2 = 0)
         return fib(b, a + b, s + a);
@@ -37,7 +37,7 @@ fib(0, 1, 0);
 ## Q3
 
 ```py
-letFunc prime(n, i) {
+fn prime(n, i) {
     if (i * i > n) return n;
     if (n % i = 0)
         return prime(n / i, i);
@@ -56,11 +56,11 @@ prime(n, 2);
 You might have to increase the ulimit of your machine to run this (should be resolved once bytecode is done).
 
 ```py
-letFunc isPal(n, rev, org) {
+fn isPal(n, rev, org) {
     if (n = 0) return rev = org;
     return isPal(n/10, rev*10 + n%10, org);
 }
-letFunc F(i, j, maxPal) {
+fn F(i, j, maxPal) {
     if (i < 100) return maxPal;
     if (j < 100) return F(i - 1, i - 1, maxPal);
     var prod := i * j;
@@ -78,14 +78,14 @@ F(999, 999, 0);
 ## Q5
 
 ```py
-letFunc gcd(a, b) {
+fn gcd(a, b) {
     if (b = 0) return a;
     return gcd(b, a % b);
 }
-letFunc lcm(a, b) {
+fn lcm(a, b) {
     return a * b / gcd(a, b);
 }
-letFunc F(n, i) {
+fn F(n, i) {
     if (i = 1) return n;
     return F(lcm(n, i - 1), i - 1);
 }
@@ -99,7 +99,7 @@ F(1, 20);
 ## Q6
 
 ```py
-letFunc F(n, sum, sumSq) {
+fn F(n, sum, sumSq) {
     if (n = 0) return sum * sum - sumSq;
     return F(n - 1, sum + n, sumSq + n * n);
 }

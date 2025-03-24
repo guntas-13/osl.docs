@@ -88,10 +88,10 @@ if (x > 5)
 
 ### Function Declaration
 
-Functions are defined using the `letFunc` keyword:
+Functions are defined using the `fn` keyword:
 
 ```py
-letFunc add(a, b)
+fn add(a, b)
 {
     return a + b;
 }
@@ -116,13 +116,13 @@ OSL treats functions as first-class citizens, meaning they can:
 Example:
 
 ```py
-letFunc multiplyBy(n)
+fn multiplyBy(n)
 {
-    letFunc letFunc(x)
+    fn inner(x)
     {
         return x * n;
     }
-    return letFunc;
+    return inner;
 }
 
 var double := multiplyBy(2);
@@ -134,10 +134,10 @@ var result := double(5);
 Functions in OSL can capture variables from their defining scope, enabling closures:
 
 ```py
-letFunc f1()
+fn f1()
 {
     var x := 10;
-    letFunc f2()
+    fn f2()
     {
         return x;
     }
@@ -148,7 +148,7 @@ msg();
 ```
 
 ```py
-letFunc fib(n)
+fn fib(n)
 {
     if (n <= 1) return n;
     return fib(n - 1) + fib(n - 2);
