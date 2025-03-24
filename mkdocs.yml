@@ -106,6 +106,7 @@ nav:
       - Future Grammar: documentation/grammarP.md
       - AST Nodes: documentation/ast_nodes.md
       - Syntax: documentation/syntax.md
+      - Bytecode: documentation/bytecode.md
       # - Doc 1: documentation/doc1.md
       # - Doc 2: documentation/doc2.md
       # - MkDocs Documentation: documentation/doc.md
