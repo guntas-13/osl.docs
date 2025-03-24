@@ -1,3 +1,7 @@
+---
+icon: material/math-compass
+---
+
 # Project Euler Problems solved in OSL!
 
 Project Euler is a well known set of questions, available here: [Link to the problemset](https://projecteuler.net/archives).
