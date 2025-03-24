@@ -74,3 +74,38 @@ F(999, 999, 0);
 ```bash
 906609
 ```
+
+## Q5
+
+```py
+letFunc gcd(a, b) {
+    if (b = 0) return a;
+    return gcd(b, a % b);
+}
+letFunc lcm(a, b) {
+    return a * b / gcd(a, b);
+}
+letFunc F(n, i) {
+    if (i = 1) return n;
+    return F(lcm(n, i - 1), i - 1);
+}
+F(1, 20);
+```
+
+```bash
+232792560
+```
+
+## Q6
+
+```py
+letFunc F(n, sum, sumSq) {
+    if (n = 0) return sum * sum - sumSq;
+    return F(n - 1, sum + n, sumSq + n * n);
+}
+F(100, 0, 0);
+```
+
+```bash
+25164150
+```
