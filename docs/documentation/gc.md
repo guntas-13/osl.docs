@@ -1,3 +1,7 @@
+---
+icon: material/trash-can
+---
+
 # Garbage Collector Algorithm Overview
 
 osl. implements a simple **mark-and-sweep** garbage collector. The GC reclaims heap-allocated objects (of type `VAL_OBJ`) that are no longer reachable from the VM’s root set.
@@ -69,12 +73,13 @@ When a new object is created via the `NEW_OBJECT` opcode, the `gc_alloc` functio
 ## 4. Mark Phase
 
 ### Purpose:
+
 To identify all objects that are still in use (reachable) by marking them.
 
 ### Process:
+
 - **Starting from Roots:**  
   The GC scans all roots—primarily the VM’s operand stack (via `gc_mark_roots`).
-  
 - **Marking Objects:**  
   For each `Value` on the stack:
   - If the value is of type `VAL_OBJ`, `gc_mark_value` calls `gc_mark` on the object.
@@ -108,17 +113,17 @@ Mark object as reached   For each field:
 ## 5. Sweep Phase
 
 ### Purpose:
+
 To reclaim memory by freeing objects that were not marked as reachable.
 
 ### Process:
+
 - **Traverse the Global List:**  
   The `gc_sweep` function iterates over the `gc_objects` list using a pointer-to-pointer technique.
-  
 - **Free Unmarked Objects:**  
   For each object:
   - If the `marked` flag is 0, it is considered unreachable and is freed.
   - The `total_allocated` counter is reduced by the size of the freed object.
-  
 - **Reset Marked Flag:**  
   For surviving objects, the mark flag is cleared (set back to 0) in preparation for the next GC cycle.
 
@@ -142,11 +147,10 @@ This cycle is typically triggered in the `NEW_OBJECT` opcode when `total_allocat
 
 The garbage collector in this VM uses a **mark-and-sweep** strategy:
 
-- **Mark Phase:**  
+- **Mark Phase:**
   - Traverses the root set (the VM stack).
   - Recursively marks all reachable objects.
-  
-- **Sweep Phase:**  
+- **Sweep Phase:**
   - Iterates over all allocated objects.
   - Frees any object that was not marked.
   - Resets the mark flag for objects that survive.

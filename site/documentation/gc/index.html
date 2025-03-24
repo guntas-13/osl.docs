@@ -463,6 +463,8 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3zm0 5h2v9H9zm4 0h2v9h-2z"/></svg>
+  
   <span class="md-ellipsis">
     Garbage Collection
     
@@ -474,6 +476,8 @@
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3zm0 5h2v9H9zm4 0h2v9h-2z"/></svg>
   
   <span class="md-ellipsis">
     Garbage Collection
@@ -1032,14 +1036,10 @@
 <p>To identify all objects that are still in use (reachable) by marking them.</p>
 <h3 id="process">Process:<a class="headerlink" href="#process" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p><strong>Starting from Roots:</strong><br />
-  The GC scans all roots—primarily the VM’s operand stack (via <code>gc_mark_roots</code>).</p>
-</li>
-<li>
-<p><strong>Marking Objects:</strong><br />
-  For each <code>Value</code> on the stack:</p>
-</li>
+<li><strong>Starting from Roots:</strong><br />
+  The GC scans all roots—primarily the VM’s operand stack (via <code>gc_mark_roots</code>).</li>
+<li><strong>Marking Objects:</strong><br />
+  For each <code>Value</code> on the stack:</li>
 <li>If the value is of type <code>VAL_OBJ</code>, <code>gc_mark_value</code> calls <code>gc_mark</code> on the object.</li>
 <li><code>gc_mark</code> sets the object's <code>marked</code> flag to 1 and recursively marks any other objects referenced in its fields.</li>
 </ul>
@@ -1069,22 +1069,14 @@
 <p>To reclaim memory by freeing objects that were not marked as reachable.</p>
 <h3 id="process_1">Process:<a class="headerlink" href="#process_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p><strong>Traverse the Global List:</strong><br />
-  The <code>gc_sweep</code> function iterates over the <code>gc_objects</code> list using a pointer-to-pointer technique.</p>
-</li>
-<li>
-<p><strong>Free Unmarked Objects:</strong><br />
-  For each object:</p>
-</li>
+<li><strong>Traverse the Global List:</strong><br />
+  The <code>gc_sweep</code> function iterates over the <code>gc_objects</code> list using a pointer-to-pointer technique.</li>
+<li><strong>Free Unmarked Objects:</strong><br />
+  For each object:</li>
 <li>If the <code>marked</code> flag is 0, it is considered unreachable and is freed.</li>
-<li>
-<p>The <code>total_allocated</code> counter is reduced by the size of the freed object.</p>
-</li>
-<li>
-<p><strong>Reset Marked Flag:</strong><br />
-  For surviving objects, the mark flag is cleared (set back to 0) in preparation for the next GC cycle.</p>
-</li>
+<li>The <code>total_allocated</code> counter is reduced by the size of the freed object.</li>
+<li><strong>Reset Marked Flag:</strong><br />
+  For surviving objects, the mark flag is cleared (set back to 0) in preparation for the next GC cycle.</li>
 </ul>
 <hr />
 <h2 id="6-gc-cycle-gc_collect">6. GC Cycle (<code>gc_collect</code>)<a class="headerlink" href="#6-gc-cycle-gc_collect" title="Permanent link">&para;</a></h2>
@@ -1104,14 +1096,10 @@
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <p>The garbage collector in this VM uses a <strong>mark-and-sweep</strong> strategy:</p>
 <ul>
-<li><strong>Mark Phase:</strong>  </li>
+<li><strong>Mark Phase:</strong></li>
 <li>Traverses the root set (the VM stack).</li>
-<li>
-<p>Recursively marks all reachable objects.</p>
-</li>
-<li>
-<p><strong>Sweep Phase:</strong>  </p>
-</li>
+<li>Recursively marks all reachable objects.</li>
+<li><strong>Sweep Phase:</strong></li>
 <li>Iterates over all allocated objects.</li>
 <li>Frees any object that was not marked.</li>
 <li>Resets the mark flag for objects that survive.</li>
@@ -1122,6 +1110,9 @@
 
 
 
+
+  
+  
 
 
 
