@@ -84,6 +84,32 @@ if (x > 5)
 }
 ```
 
+### Blocks
+
+```py
+var x := 5;
+{
+    var x := 10;
+}
+x;
+```
+
+```bash
+5
+```
+
+```py
+var x := 5;
+{
+    var x := 10;
+    x;
+}
+```
+
+```bash
+10
+```
+
 ## Functions and Function Calls
 
 ### Function Declaration

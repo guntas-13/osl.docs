@@ -1,3 +1,7 @@
+---
+icon: material/home
+---
+
 # Welcome to osl.
 
 <div align = "center">

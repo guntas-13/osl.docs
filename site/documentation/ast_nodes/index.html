@@ -275,6 +275,8 @@
       <a href="../.." class="md-nav__link">
         
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+  
   <span class="md-ellipsis">
     Home
     
@@ -1222,114 +1224,231 @@
 </span></code></pre></div>
 <h2 id="expression-nodes">Expression Nodes<a class="headerlink" href="#expression-nodes" title="Permanent link">&para;</a></h2>
 <h3 id="binary-operation">Binary Operation<a class="headerlink" href="#binary-operation" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">BinOp</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">op</span><span class="p">:</span> <span class="nb">str</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">left</span><span class="p">:</span> <span class="n">AST</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">right</span><span class="p">:</span> <span class="n">AST</span>
 </span></code></pre></div>
-Represents a binary operation with an operator (<code>op</code>) and two operands (<code>left</code> and <code>right</code>).</p>
+<p>Represents a binary operation with an operator (<code>op</code>) and two operands (<code>left</code> and <code>right</code>).</p>
 <h3 id="number-literal">Number Literal<a class="headerlink" href="#number-literal" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Number</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">val</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> 
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">val</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span>
 </span></code></pre></div>
-Represents a numeric literal.</p>
+<p>Represents a numeric literal.</p>
 <h3 id="unary-operation">Unary Operation<a class="headerlink" href="#unary-operation" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">UnOp</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">op</span><span class="p">:</span> <span class="nb">str</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">right</span><span class="p">:</span> <span class="n">AST</span>
 </span></code></pre></div>
-Represents a unary operation with an operator (<code>op</code>) and a single operand (<code>right</code>).</p>
+<p>Represents a unary operation with an operator (<code>op</code>) and a single operand (<code>right</code>).</p>
 <h2 id="control-flow-nodes">Control Flow Nodes<a class="headerlink" href="#control-flow-nodes" title="Permanent link">&para;</a></h2>
 <h3 id="if-statement">If Statement<a class="headerlink" href="#if-statement" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">If</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">condition</span><span class="p">:</span> <span class="n">AST</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">then_body</span><span class="p">:</span> <span class="n">AST</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">else_body</span><span class="p">:</span> <span class="n">AST</span>
 </span></code></pre></div>
-Represents an <code>if</code> statement with a condition, a <code>then</code> block, and an <code>else</code> block.</p>
+<p>Represents an <code>if</code> statement with a condition, a <code>then</code> block, and an <code>else</code> block.</p>
 <h3 id="if-without-else-unmatched-if">If Without Else (Unmatched If)<a class="headerlink" href="#if-without-else-unmatched-if" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">IfUnM</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">condition</span><span class="p">:</span> <span class="n">AST</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">then_body</span><span class="p">:</span> <span class="n">AST</span>
 </span></code></pre></div>
-Represents an <code>if</code> statement without an <code>else</code> block.</p>
+<p>Represents an <code>if</code> statement without an <code>else</code> block.</p>
 <h2 id="variable-and-assignment-nodes">Variable and Assignment Nodes<a class="headerlink" href="#variable-and-assignment-nodes" title="Permanent link">&para;</a></h2>
 <h3 id="let-binding">Let Binding<a class="headerlink" href="#let-binding" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Let</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">var</span><span class="p">:</span> <span class="n">AST</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">e1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
 </span></code></pre></div>
-Represents a <code>let</code> binding where <code>var</code> is assigned an optional expression <code>e1</code>.</p>
+<p>Represents a <code>let</code> binding where <code>var</code> is assigned an optional expression <code>e1</code>.</p>
 <h3 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Assign</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">var</span><span class="p">:</span> <span class="n">AST</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">e1</span><span class="p">:</span> <span class="n">AST</span>
 </span></code></pre></div>
-Represents an assignment of <code>e1</code> to <code>var</code>.</p>
+<p>Represents an assignment of <code>e1</code> to <code>var</code>.</p>
 <h3 id="variable-reference">Variable Reference<a class="headerlink" href="#variable-reference" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Variable</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">varName</span><span class="p">:</span> <span class="nb">str</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
 </span></code></pre></div>
-Represents a variable reference with a name (<code>varName</code>) and an optional unique identifier (<code>id</code>).</p>
+<p>Represents a variable reference with a name (<code>varName</code>) and an optional unique identifier (<code>id</code>).</p>
 <h2 id="function-nodes">Function Nodes<a class="headerlink" href="#function-nodes" title="Permanent link">&para;</a></h2>
 <h3 id="function-definition">Function Definition<a class="headerlink" href="#function-definition" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">LetFun</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">name</span><span class="p">:</span> <span class="n">AST</span>   <span class="c1"># considering functions as first-class just like variables else it&#39;ll be str</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">params</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">body</span><span class="p">:</span> <span class="n">AST</span>
 </span></code></pre></div>
-Represents a function definition with a name, a list of parameters, and a body.</p>
+<p>Represents a function definition with a name, a list of parameters, and a body.</p>
 <h3 id="function-call">Function Call<a class="headerlink" href="#function-call" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">CallFun</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">fn</span><span class="p">:</span> <span class="n">AST</span>     <span class="c1"># considering functions as first-class just like variables else it&#39;ll be str</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
 </span></code></pre></div>
-Represents a function call with a function (<code>fn</code>) and a list of arguments.</p>
+<p>Represents a function call with a function (<code>fn</code>) and a list of arguments.</p>
 <h3 id="function-object">Function Object<a class="headerlink" href="#function-object" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">FunObj</span><span class="p">:</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">params</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">body</span><span class="p">:</span> <span class="n">AST</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span>
 </span></code></pre></div>
-Represents a function object, including parameters, a body, and an environment for closures.</p>
+<p>Represents a function object, including parameters, a body, and an environment for closures.</p>
 <h2 id="statement-nodes">Statement Nodes<a class="headerlink" href="#statement-nodes" title="Permanent link">&para;</a></h2>
 <h3 id="sequence-of-statements">Sequence of Statements<a class="headerlink" href="#sequence-of-statements" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Statements</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">stmts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
 </span></code></pre></div>
-Represents a sequence of statements.</p>
+<p>Represents a sequence of statements.</p>
 <h3 id="print-statement">Print Statement<a class="headerlink" href="#print-statement" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">PrintStmt</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="n">expr</span><span class="p">:</span> <span class="n">AST</span>
 </span></code></pre></div>
-Represents a print statement for evaluating and displaying an expression.</p>
+<p>Represents a print statement for evaluating and displaying an expression.</p>
 <h3 id="return-statement">Return Statement<a class="headerlink" href="#return-statement" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">ReturnStmt</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="n">expr</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
 </span></code></pre></div>
-Represents a return statement, optionally returning an expression.</p>
+<p>Represents a return statement, optionally returning an expression.</p>
 <h2 id="program-node">Program Node<a class="headerlink" href="#program-node" title="Permanent link">&para;</a></h2>
 <h3 id="program">Program<a class="headerlink" href="#program" title="Permanent link">&para;</a></h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@dataclass</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@dataclass</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="p">(</span><span class="n">AST</span><span class="p">):</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">decls</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AST</span><span class="p">]</span>
 </span></code></pre></div>
-Represents the root node of the program, containing a list of declarations.</p>
+<p>Represents the root node of the program, containing a list of declarations.</p>
+<h1 id="scope-closure-support">Scope &amp; Closure Support<a class="headerlink" href="#scope-closure-support" title="Permanent link">&para;</a></h1>
+<h2 id="the-environment-class">The <code>Environment</code> class<a class="headerlink" href="#the-environment-class" title="Permanent link">&para;</a></h2>
+<p>The <code>Environment</code> class is used to manage variable scopes in the interpreter. It provides methods to add, get, and update variables within the current scope.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Environment</span><span class="p">:</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="n">envs</span><span class="p">:</span> <span class="n">List</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">envs</span> <span class="o">=</span> <span class="p">[{}]</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">enter_scope</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="o">.</span><span class="n">append</span><span class="p">({})</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">exit_scope</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">envs</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>        <span class="k">assert</span> <span class="n">var</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="sa">f</span><span class="s2">&quot;Variable </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2"> already defined&quot;</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>        <span class="k">for</span> <span class="n">env</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="p">):</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>            <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">env</span><span class="p">:</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>                <span class="k">return</span> <span class="n">env</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Variable </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2"> not defined&quot;</span><span class="p">)</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>        <span class="k">for</span> <span class="n">env</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="p">):</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>            <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">env</span><span class="p">:</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>                <span class="n">env</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>                <span class="k">return</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Variable </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2"> not defined&quot;</span><span class="p">)</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>        <span class="n">new_env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>        <span class="n">new_env</span><span class="o">.</span><span class="n">envs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span> <span class="k">for</span> <span class="n">scope</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="p">]</span>
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>        <span class="k">return</span> <span class="n">new_env</span>
+</span></code></pre></div>
+<h2 id="closure-support">Closure Support<a class="headerlink" href="#closure-support" title="Permanent link">&para;</a></h2>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">e</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">AST</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="k">match</span> <span class="n">tree</span><span class="p">:</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>        <span class="k">case</span> <span class="n">LetFun</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">varName</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">params</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>            <span class="c1"># Closure -&gt; Copy of Environment taken along with the declaration!</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>            <span class="n">funObj</span> <span class="o">=</span> <span class="n">FunObj</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>            <span class="n">env</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">varName</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">funObj</span><span class="p">)</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>            <span class="n">funObj</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>        <span class="k">case</span> <span class="n">CallFun</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">varName</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">args</span><span class="p">):</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>            <span class="n">fun</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">varName</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>            <span class="n">rargs</span> <span class="o">=</span> <span class="p">[</span><span class="n">e_</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>            <span class="c1"># use the environment that was copied when the function was defined</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>            <span class="n">call_env</span> <span class="o">=</span> <span class="n">fun</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>            <span class="n">call_env</span><span class="o">.</span><span class="n">enter_scope</span><span class="p">()</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>            <span class="k">for</span> <span class="n">param</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fun</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">rargs</span><span class="p">):</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>                <span class="n">call_env</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">param</span><span class="o">.</span><span class="n">varName</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">param</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>            <span class="n">rbody</span> <span class="o">=</span> <span class="n">e</span><span class="p">(</span><span class="n">fun</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="n">call_env</span><span class="p">)</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>            <span class="k">return</span> <span class="n">rbody</span>
+</span></code></pre></div>
+<h1 id="implementation-of-the-top-level-grammar">Implementation of the Top-Level Grammar<a class="headerlink" href="#implementation-of-the-top-level-grammar" title="Permanent link">&para;</a></h1>
+<h2 id="program-as-a-sequence-of-declarations">Program as a Sequence of Declarations<a class="headerlink" href="#program-as-a-sequence-of-declarations" title="Permanent link">&para;</a></h2>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">program</span> <span class="err">→</span> <span class="n">declaration</span><span class="o">*</span> <span class="n">EOF</span><span class="p">;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">declaration</span> <span class="err">→</span> <span class="n">funDecl</span> <span class="o">|</span> <span class="n">varDecl</span> <span class="o">|</span> <span class="n">statement</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AST</span><span class="p">:</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_program</span><span class="p">():</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>        <span class="n">decls</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>        <span class="k">while</span> <span class="n">peek</span><span class="p">():</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>            <span class="n">decls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parse_declaration</span><span class="p">())</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>        <span class="k">return</span> <span class="n">Program</span><span class="p">(</span><span class="n">decls</span><span class="p">)</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_declaration</span><span class="p">():</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>        <span class="k">match</span> <span class="n">peek</span><span class="p">():</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>            <span class="k">case</span> <span class="n">KeyWordToken</span><span class="p">(</span><span class="s2">&quot;fn&quot;</span><span class="p">):</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>                <span class="k">return</span> <span class="n">parse_func</span><span class="p">()</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>            <span class="k">case</span> <span class="n">KeyWordToken</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">):</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>                <span class="k">return</span> <span class="n">parse_let</span><span class="p">()</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>                <span class="k">return</span> <span class="n">parse_statement</span><span class="p">()</span>
+</span></code></pre></div>
+<h2 id="assignment_1">Assignment<a class="headerlink" href="#assignment_1" title="Permanent link">&para;</a></h2>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">expression</span> <span class="err">→</span> <span class="n">assignment</span> <span class="o">|</span> <span class="n">expB</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AST</span><span class="p">:</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_expression</span><span class="p">():</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>        <span class="c1"># expression -&gt; expB | assignment</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>        <span class="c1"># first parse the lhs, if it&#39;s a variable and next token is &#39;:=&#39; then it&#39;s an assignment</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>        <span class="c1"># otherwise it&#39;s an expB so return it as is.</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>        <span class="n">ast</span> <span class="o">=</span> <span class="n">parse_bool</span><span class="p">()</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ast</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="ow">and</span> <span class="n">peek</span><span class="p">()</span> <span class="o">==</span> <span class="n">OperatorToken</span><span class="p">(</span><span class="s2">&quot;:=&quot;</span><span class="p">):</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>            <span class="k">raise</span> <span class="n">ParseErr</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected variable on the left side of assignment := operator at index </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ast</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="ow">and</span> <span class="n">peek</span><span class="p">()</span> <span class="o">==</span> <span class="n">OperatorToken</span><span class="p">(</span><span class="s2">&quot;:=&quot;</span><span class="p">):</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>            <span class="n">consume</span><span class="p">(</span><span class="n">OperatorToken</span><span class="p">,</span> <span class="s2">&quot;:=&quot;</span><span class="p">)</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>            <span class="n">e1</span> <span class="o">=</span> <span class="n">parse_bool</span><span class="p">()</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>            <span class="k">return</span> <span class="n">Assign</span><span class="p">(</span><span class="n">ast</span><span class="p">,</span> <span class="n">e1</span><span class="p">)</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>        <span class="k">return</span> <span class="n">ast</span>
+</span></code></pre></div>
+<h2 id="unmatched-if">Unmatched If<a class="headerlink" href="#unmatched-if" title="Permanent link">&para;</a></h2>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">ifStmt</span> <span class="err">→</span> <span class="s2">&quot;if&quot;</span> <span class="n">expression</span> <span class="n">statement</span> <span class="p">(</span><span class="s2">&quot;else&quot;</span> <span class="n">statement</span><span class="p">)</span><span class="err">?</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AST</span><span class="p">:</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_if</span><span class="p">():</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        <span class="n">consume</span><span class="p">(</span><span class="n">KeyWordToken</span><span class="p">,</span> <span class="s2">&quot;if&quot;</span><span class="p">)</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>        <span class="n">condition</span> <span class="o">=</span> <span class="n">parse_expression</span><span class="p">()</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>        <span class="n">then_body</span> <span class="o">=</span> <span class="n">parse_statement</span><span class="p">()</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>        <span class="k">if</span> <span class="n">peek</span><span class="p">()</span> <span class="o">==</span> <span class="n">KeyWordToken</span><span class="p">(</span><span class="s2">&quot;else&quot;</span><span class="p">):</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>            <span class="n">consume</span><span class="p">(</span><span class="n">KeyWordToken</span><span class="p">,</span> <span class="s2">&quot;else&quot;</span><span class="p">)</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>            <span class="n">else_body</span> <span class="o">=</span> <span class="n">parse_statement</span><span class="p">()</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>            <span class="k">return</span> <span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">then_body</span><span class="p">,</span> <span class="n">else_body</span><span class="p">)</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>        <span class="k">return</span> <span class="n">IfUnM</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">then_body</span><span class="p">)</span>
+</span></code></pre></div>
 
 
 
