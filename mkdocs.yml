@@ -108,6 +108,7 @@ nav:
       - Syntax: documentation/syntax.md
       - Bytecode: documentation/bytecode.md
       - Garbage Collection: documentation/gc.md
+      - Lexer and Parser Generator: documentation/gen.md
       # - Doc 1: documentation/doc1.md
       # - Doc 2: documentation/doc2.md
       # - MkDocs Documentation: documentation/doc.md
