@@ -27,17 +27,17 @@ Each heap-allocated object is represented by a `GCObject` structure that contain
 **Figure 1. GCObject Structure**
 
 ```
-+-----------------------------+
++---------------------------+
 |  GCObject                 |
-+-----------------------------+
++---------------------------+
 | marked (1 byte)           | <-- Mark flag for GC
-+-----------------------------+
++---------------------------+
 | next (pointer)            | <-- Next object in GC list
-+-----------------------------+
++---------------------------+
 | field_count (1 byte)      | <-- Number of Value fields
-+-----------------------------+
++---------------------------+
 | fields[0] ... fields[n-1] | <-- Data fields (each is a Value)
-+-----------------------------+
++---------------------------+
 ```
 
 ---
