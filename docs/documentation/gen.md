@@ -1,3 +1,7 @@
+---
+icon: material/generator-portable
+---
+
 # Lexer and Parser Generator
 
 This project implements a simple lexer and parser generator. The lexer is based on a trie data structure to efficiently match token patterns defined in an external file, and the parser uses a pushdown automaton (PDA) approach to build a parse tree from the token stream. The project is organized into separate files for lexing, parsing, and execution.
@@ -6,21 +10,26 @@ This project implements a simple lexer and parser generator. The lexer is based 
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Project Structure](#project-structure)
-- [Lexer Details](#lexer-details)
-  - [Trie Data Structure](#trie-data-structure)
-  - [Token Generation](#token-generation)
-  - [Lexical Rules File](#lexical-rules-file)
-- [Parser Details](#parser-details)
-  - [Grammar Rule Parsing](#grammar-rule-parsing)
-  - [PDA Construction](#pda-construction)
-  - [Parse Tree Construction](#parse-tree-construction)
-  - [Grammar Rules File](#grammar-rules-file)
-- [Usage Instructions](#usage-instructions)
-- [Code Walkthrough](#code-walkthrough)
-- [Future Enhancements](#future-enhancements)
-- [Conclusion](#conclusion)
+- [Lexer and Parser Generator](#lexer-and-parser-generator)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Project Structure](#project-structure)
+  - [Lexer Details](#lexer-details)
+    - [Trie Data Structure](#trie-data-structure)
+    - [Token Generation](#token-generation)
+    - [Lexical Rules File](#lexical-rules-file)
+  - [Parser Details](#parser-details)
+    - [Grammar Rule Parsing](#grammar-rule-parsing)
+    - [PDA Construction](#pda-construction)
+    - [Parse Tree Construction](#parse-tree-construction)
+    - [Grammar Rules File](#grammar-rules-file)
+  - [Usage Instructions](#usage-instructions)
+  - [Code Walkthrough](#code-walkthrough)
+    - [Lexer (`lexer.cpp`)](#lexer-lexercpp)
+    - [Parser (`parser.cpp`)](#parser-parsercpp)
+    - [Main Application (`main.cpp`)](#main-application-maincpp)
+  - [Future Enhancements](#future-enhancements)
+  - [Conclusion](#conclusion)
 
 ---
 
@@ -28,12 +37,13 @@ This project implements a simple lexer and parser generator. The lexer is based 
 
 This project comprises two major components:
 
-1. **Lexer:**  
+1. **Lexer:**
+
    - Uses a trie (prefix tree) to store and match token symbols.
    - Reads token definitions from `lex_rules.txt`.
    - Processes an input stream character by character to output tokens.
 
-2. **Parser:**  
+2. **Parser:**
    - Reads grammar rules from `parse_rules.txt` using a BNF-like syntax.
    - Constructs a pushdown automaton (PDA) based on the grammar.
    - Uses a breadth-first search to find a valid parsing path and builds a parse tree.
@@ -54,6 +64,7 @@ This project comprises two major components:
 
 - **lex_rules.txt**  
   Specifies lexical rules. For example:
+
   ```
   ( LBRACE
   ) RBRACE
@@ -76,6 +87,7 @@ This project comprises two major components:
 
 - **parse_rules.txt**  
   Defines grammar rules using a production rule format:
+
   ```
   <unamb> ::= LBRACE <add> RBRACE
   <add> ::= <atomic> ADD <atomic>
@@ -101,7 +113,7 @@ This project comprises two major components:
 - **Implementation:**  
   Each node in the trie is represented by an array of 256 integers (one for each ASCII character), initially set to -1. A separate vector (`term`) stores terminal status and token names.
 
-- **Key Functions:**  
+- **Key Functions:**
   - `initNode()`: Initializes a trie node.
   - `insert(std::string sym, std::string name)`: Inserts a symbol into the trie.
   - `feed(char c)`: Processes one character at a time and returns a token when a complete symbol is matched.
@@ -128,7 +140,7 @@ void lexer::Trie::insert(std::string sym, std::string name){
 
 ### Lexical Rules File
 
-- **File:** `lex_rules.txt`  
+- **File:** `lex_rules.txt`
 - **Format:** Each line maps a symbol (or a range, e.g., `0-->9` for digits) to a token name.
 - The lexer constructor (`lexer::genLexer`) reads this file and populates the trie.
 
@@ -146,10 +158,8 @@ void lexer::Trie::insert(std::string sym, std::string name){
 
 - **Symbol IDs:**  
   Each grammar symbol (terminals and nonterminals) is assigned a unique numeric ID.
-  
 - **Transitions:**  
   The PDA builds transitions for each production rule. Transitions indicate how symbols should be replaced or reduced during parsing.
-  
 - **Epsilon Transitions:**  
   These are added for non-token symbols to allow the parser to handle optional or recursive rules.
 
@@ -157,7 +167,6 @@ void lexer::Trie::insert(std::string sym, std::string name){
 
 - **Breadth-First Search (BFS):**  
   The parser uses a BFS strategy to explore possible parsing paths.
-  
 - **Recursive Tree Population:**  
   The `populateTree()` function is used to recursively build the parse tree once a valid parsing path is found.
 
@@ -181,7 +190,7 @@ void parser::genParser::populateTree(int curNode, int curSym, int &pind, std::ve
 
 ### Grammar Rules File
 
-- **File:** `parse_rules.txt`  
+- **File:** `parse_rules.txt`
 - **Format:** Each line is a production rule. For example:
   ```
   <unamb> ::= LBRACE <add> RBRACE
@@ -194,15 +203,18 @@ void parser::genParser::populateTree(int curNode, int curSym, int &pind, std::ve
 
 ## Usage Instructions
 
-1. **Prepare the Rule Files:**  
+1. **Prepare the Rule Files:**
+
    - Edit `lex_rules.txt` to define your token symbols.
    - Edit `parse_rules.txt` to define your grammar productions.
 
-2. **Provide an Input File:**  
+2. **Provide an Input File:**
+
    - Create or edit `input.txt` with the string you wish to tokenize and parse.
 
 3. **Compile the Project:**  
    Use a C++ compiler (e.g., g++) to compile the source files:
+
    ```bash
    g++ -std=c++17 utils.cpp main.cpp lexer.cpp parser.cpp -o main
    ```

@@ -10,13 +10,13 @@
         <meta name="author" content="Guntas Singh Saran">
       
       
-        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/syntax/">
+        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/gen/">
       
       
-        <link rel="prev" href="../ast_nodes/">
+        <link rel="prev" href="../gc/">
       
       
-        <link rel="next" href="../bytecode/">
+        <link rel="next" href="../../tutorials/euler/">
       
       
       <link rel="icon" href="../../assets/oslMascotLogo.svg">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Syntax - docs</title>
+        <title>Lexer and Parser Generator - docs</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#syntax-of-osl" class="md-skip">
+        <a href="#lexer-and-parser-generator" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Syntax
+              Lexer and Parser Generator
             
           </span>
         </div>
@@ -402,33 +402,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
-  
-  <span class="md-ellipsis">
-    Syntax
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../syntax/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
@@ -440,152 +417,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#operators-and-precedence" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operators and Precedence
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#variables-initialization-and-modification" class="md-nav__link">
-    <span class="md-ellipsis">
-      Variables: Initialization and Modification
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Variables: Initialization and Modification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#variable-declaration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Variable Declaration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variable-modification" class="md-nav__link">
-    <span class="md-ellipsis">
-      Variable Modification
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#if-else-statements" class="md-nav__link">
-    <span class="md-ellipsis">
-      If-Else Statements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="If-Else Statements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unmatched-if-and-dangling-else-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Unmatched If and Dangling Else Problem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#blocks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Blocks
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions-and-function-calls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Functions and Function Calls
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Functions and Function Calls">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#function-declaration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Declaration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-calls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Calls
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#first-class-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      First-Class Functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#closures-in-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Closures in Functions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -643,10 +474,33 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../gen/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12h2v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h10v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h2V8a2 2 0 0 0-2-2h-1V4a2 2 0 0 0-2-2zm7 8V8h6v2zm0 4v-2h6v2zM7 4h10v2H7zm0 4v4h2l-3 6v-4H4z"/></svg>
+  
+  <span class="md-ellipsis">
+    Lexer and Parser Generator
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12h2v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h10v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h2V8a2 2 0 0 0-2-2h-1V4a2 2 0 0 0-2-2zm7 8V8h6v2zm0 4v-2h6v2zM7 4h10v2H7zm0 4v4h2l-3 6v-4H4z"/></svg>
@@ -658,6 +512,215 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lexer-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lexer Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lexer Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trie-data-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trie Data Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lexical-rules-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lexical Rules File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parser-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parser Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parser Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grammar-rule-parsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grammar Rule Parsing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pda-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      PDA Construction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-tree-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parse Tree Construction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grammar-rules-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grammar Rules File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Instructions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Walkthrough
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Walkthrough">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lexer-lexercpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lexer (lexer.cpp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parser-parsercpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parser (parser.cpp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-application-maincpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Application (main.cpp)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Enhancements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -879,37 +942,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#operators-and-precedence" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      Operators and Precedence
+      Table of Contents
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#variables-initialization-and-modification" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Variables: Initialization and Modification
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Variables: Initialization and Modification">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lexer-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lexer Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lexer Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#variable-declaration" class="md-nav__link">
+  <a href="#trie-data-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Variable Declaration
+      Trie Data Structure
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-modification" class="md-nav__link">
+  <a href="#token-generation" class="md-nav__link">
     <span class="md-ellipsis">
-      Variable Modification
+      Token Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lexical-rules-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lexical Rules File
     </span>
   </a>
   
@@ -921,28 +1011,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#if-else-statements" class="md-nav__link">
+  <a href="#parser-details" class="md-nav__link">
     <span class="md-ellipsis">
-      If-Else Statements
+      Parser Details
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="If-Else Statements">
+    <nav class="md-nav" aria-label="Parser Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#unmatched-if-and-dangling-else-problem" class="md-nav__link">
+  <a href="#grammar-rule-parsing" class="md-nav__link">
     <span class="md-ellipsis">
-      Unmatched If and Dangling Else Problem
+      Grammar Rule Parsing
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#blocks" class="md-nav__link">
+  <a href="#pda-construction" class="md-nav__link">
     <span class="md-ellipsis">
-      Blocks
+      PDA Construction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-tree-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parse Tree Construction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grammar-rules-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grammar Rules File
     </span>
   </a>
   
@@ -954,46 +1062,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functions-and-function-calls" class="md-nav__link">
+  <a href="#usage-instructions" class="md-nav__link">
     <span class="md-ellipsis">
-      Functions and Function Calls
+      Usage Instructions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Functions and Function Calls">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Walkthrough
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Walkthrough">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#function-declaration" class="md-nav__link">
+  <a href="#lexer-lexercpp" class="md-nav__link">
     <span class="md-ellipsis">
-      Function Declaration
+      Lexer (lexer.cpp)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-calls" class="md-nav__link">
+  <a href="#parser-parsercpp" class="md-nav__link">
     <span class="md-ellipsis">
-      Function Calls
+      Parser (parser.cpp)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#first-class-functions" class="md-nav__link">
+  <a href="#main-application-maincpp" class="md-nav__link">
     <span class="md-ellipsis">
-      First-Class Functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#closures-in-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Closures in Functions
+      Main Application (main.cpp)
     </span>
   </a>
   
@@ -1001,6 +1109,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Enhancements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
   
 </li>
       
@@ -1023,172 +1149,302 @@
   
 
 
-<h1 id="syntax-of-osl">Syntax of OSL<a class="headerlink" href="#syntax-of-osl" title="Permanent link">&para;</a></h1>
-<h2 id="operators-and-precedence">Operators and Precedence<a class="headerlink" href="#operators-and-precedence" title="Permanent link">&para;</a></h2>
-<p>OSL supports the following operators, listed in decreasing order of precedence:</p>
-<table>
-<thead>
-<tr>
-<th>Precedence</th>
-<th>Operators</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1 (Highest)</td>
-<td><code>()</code>, <code>√</code>, <code>-</code></td>
-<td>Parentheses (explicit grouping), Square root, unary minus</td>
-</tr>
-<tr>
-<td>2</td>
-<td><code>^</code></td>
-<td>Exponentiation</td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>*</code>, <code>/</code></td>
-<td>Multiplication, Division</td>
-</tr>
-<tr>
-<td>4</td>
-<td><code>+</code>, <code>-</code></td>
-<td>Addition, Subtraction</td>
-</tr>
-<tr>
-<td>5</td>
-<td><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>=</code>, <code>!=</code></td>
-<td>Relational Operators</td>
-</tr>
-<tr>
-<td>6</td>
-<td><code>&amp;&amp;</code>, <code>\\</code></td>
-<td>Logical AND and Logical OR</td>
-</tr>
-<tr>
-<td>7 (Lowest)</td>
-<td><code>:=</code></td>
-<td>Assignment Operator</td>
-</tr>
-</tbody>
-</table>
-<h2 id="variables-initialization-and-modification">Variables: Initialization and Modification<a class="headerlink" href="#variables-initialization-and-modification" title="Permanent link">&para;</a></h2>
-<h3 id="variable-declaration">Variable Declaration<a class="headerlink" href="#variable-declaration" title="Permanent link">&para;</a></h3>
-<p>Variables can be declared using the <code>var</code> keyword:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">var</span> <span class="n">y</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span>
-</span></code></pre></div>
-<h3 id="variable-modification">Variable Modification<a class="headerlink" href="#variable-modification" title="Permanent link">&para;</a></h3>
-<p>Existing variables can be reassigned using <code>:=</code>:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">x</span> <span class="o">:=</span> <span class="mi">20</span><span class="p">;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">y</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-</span></code></pre></div>
-<h2 id="if-else-statements">If-Else Statements<a class="headerlink" href="#if-else-statements" title="Permanent link">&para;</a></h2>
-<p>Conditional execution in OSL is handled using <code>if</code>, <code>else if</code>, and <code>else</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>var x := 10;
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>if (x &gt; 10)
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    print(x);
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>else if (x = 10)
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    print(x + 1);
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>else
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    print(x - 1);
-</span></code></pre></div>
-<h3 id="unmatched-if-and-dangling-else-problem">Unmatched If and Dangling Else Problem<a class="headerlink" href="#unmatched-if-and-dangling-else-problem" title="Permanent link">&para;</a></h3>
-<p>OSL follows the "else" is matched with the closest unmatched "if" rule:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>var x := 7;
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>if (x &gt; 5)
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>if (x &gt; 10)
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>print(x + 1);
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>else
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>print(x - 1);
-</span></code></pre></div>
-<p>To avoid ambiguity, always use braces:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>var x := 11;
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>if (x &gt; 5)
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>{
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    if (x &gt; 10)
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    {
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        print(x + 4);
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    }
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    else
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    {
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        print(x - 4);
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    }
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>}
-</span></code></pre></div>
-<h3 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h3>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">x</span><span class="p">;</span>
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="m">5</span>
-</span></code></pre></div>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">x</span><span class="p">;</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="m">10</span>
-</span></code></pre></div>
-<h2 id="functions-and-function-calls">Functions and Function Calls<a class="headerlink" href="#functions-and-function-calls" title="Permanent link">&para;</a></h2>
-<h3 id="function-declaration">Function Declaration<a class="headerlink" href="#function-declaration" title="Permanent link">&para;</a></h3>
-<p>Functions are defined using the <code>fn</code> keyword:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">fn</span> <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="function-calls">Function Calls<a class="headerlink" href="#function-calls" title="Permanent link">&para;</a></h3>
-<p>Functions are called using parentheses:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">var</span> <span class="nb">sum</span> <span class="o">:=</span> <span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-</span></code></pre></div>
-<h3 id="first-class-functions">First-Class Functions<a class="headerlink" href="#first-class-functions" title="Permanent link">&para;</a></h3>
-<p>OSL treats functions as first-class citizens, meaning they can:</p>
+<h1 id="lexer-and-parser-generator">Lexer and Parser Generator<a class="headerlink" href="#lexer-and-parser-generator" title="Permanent link">&para;</a></h1>
+<p>This project implements a simple lexer and parser generator. The lexer is based on a trie data structure to efficiently match token patterns defined in an external file, and the parser uses a pushdown automaton (PDA) approach to build a parse tree from the token stream. The project is organized into separate files for lexing, parsing, and execution.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Be assigned to variables</li>
-<li>Be passed as arguments to other functions</li>
-<li>Be returned from functions</li>
+<li><a href="#lexer-and-parser-generator">Lexer and Parser Generator</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#project-structure">Project Structure</a></li>
+<li><a href="#lexer-details">Lexer Details</a><ul>
+<li><a href="#trie-data-structure">Trie Data Structure</a></li>
+<li><a href="#token-generation">Token Generation</a></li>
+<li><a href="#lexical-rules-file">Lexical Rules File</a></li>
 </ul>
-<p>Example:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">fn</span> <span class="n">multiplyBy</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">{</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">fn</span> <span class="n">inner</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="p">{</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="p">}</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="k">return</span> <span class="n">inner</span><span class="p">;</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">}</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">var</span> <span class="n">double</span> <span class="o">:=</span> <span class="n">multiplyBy</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">var</span> <span class="n">result</span> <span class="o">:=</span> <span class="n">double</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</li>
+<li><a href="#parser-details">Parser Details</a><ul>
+<li><a href="#grammar-rule-parsing">Grammar Rule Parsing</a></li>
+<li><a href="#pda-construction">PDA Construction</a></li>
+<li><a href="#parse-tree-construction">Parse Tree Construction</a></li>
+<li><a href="#grammar-rules-file">Grammar Rules File</a></li>
+</ul>
+</li>
+<li><a href="#usage-instructions">Usage Instructions</a></li>
+<li><a href="#code-walkthrough">Code Walkthrough</a><ul>
+<li><a href="#lexer-lexercpp">Lexer (<code>lexer.cpp</code>)</a></li>
+<li><a href="#parser-parsercpp">Parser (<code>parser.cpp</code>)</a></li>
+<li><a href="#main-application-maincpp">Main Application (<code>main.cpp</code>)</a></li>
+</ul>
+</li>
+<li><a href="#future-enhancements">Future Enhancements</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This project comprises two major components:</p>
+<ol>
+<li>
+<p><strong>Lexer:</strong></p>
+</li>
+<li>
+<p>Uses a trie (prefix tree) to store and match token symbols.</p>
+</li>
+<li>Reads token definitions from <code>lex_rules.txt</code>.</li>
+<li>
+<p>Processes an input stream character by character to output tokens.</p>
+</li>
+<li>
+<p><strong>Parser:</strong></p>
+</li>
+<li>Reads grammar rules from <code>parse_rules.txt</code> using a BNF-like syntax.</li>
+<li>Constructs a pushdown automaton (PDA) based on the grammar.</li>
+<li>Uses a breadth-first search to find a valid parsing path and builds a parse tree.</li>
+<li>Visualizes the resulting parse tree.</li>
+</ol>
+<hr />
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>lexer.cpp</strong><br />
+  Contains the implementation of the lexer's trie, token insertion, and tokenization process.</p>
+</li>
+<li>
+<p><strong>parser.cpp</strong><br />
+  Implements the parser using PDA techniques, grammar rule processing, and parse tree construction.</p>
+</li>
+<li>
+<p><strong>main.cpp</strong><br />
+  Provides the main entry point. It runs the lexer and parser on an input file and visualizes the parse tree.</p>
+</li>
+<li>
+<p><strong>lex_rules.txt</strong><br />
+  Specifies lexical rules. For example:</p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>( LBRACE
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>) RBRACE
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+ ADD
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>* MUL
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>/ DIV
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>- NEG
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>^ POW
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>% MOD
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>~ NOT
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>| OR
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>&amp; AND
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>!| XOR
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>!&amp; XAND
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>&gt;&gt; RSHIFT
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>&lt;&lt; LSHIFT
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>0--&gt;9 NUM
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>a--&gt;z CHAR
 </span></code></pre></div>
-<h3 id="closures-in-functions">Closures in Functions<a class="headerlink" href="#closures-in-functions" title="Permanent link">&para;</a></h3>
-<p>Functions in OSL can capture variables from their defining scope, enabling closures:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">fn</span> <span class="n">f1</span><span class="p">()</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">{</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">fn</span> <span class="n">f2</span><span class="p">()</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="p">{</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>        <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="p">}</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="k">return</span> <span class="n">f2</span><span class="p">;</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">}</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="n">var</span> <span class="n">msg</span> <span class="o">:=</span> <span class="n">f1</span><span class="p">();</span>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="n">msg</span><span class="p">();</span>
+<ul>
+<li><strong>parse_rules.txt</strong><br />
+  Defines grammar rules using a production rule format:</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;unamb&gt; ::= LBRACE &lt;add&gt; RBRACE
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&lt;add&gt; ::= &lt;atomic&gt; ADD &lt;atomic&gt;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&lt;atomic&gt; ::= &lt;number&gt; | NEG &lt;number&gt;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>&lt;number&gt; ::= NUM &lt;number&gt; | NUM
 </span></code></pre></div>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">fn</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">{</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">fib</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<ul>
+<li><strong>input.txt</strong><br />
+  Contains the input string to be tokenized and parsed. For example:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>(1+2)
+</span></code></pre></div></li>
+</ul>
+<hr />
+<h2 id="lexer-details">Lexer Details<a class="headerlink" href="#lexer-details" title="Permanent link">&para;</a></h2>
+<h3 id="trie-data-structure">Trie Data Structure<a class="headerlink" href="#trie-data-structure" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong><br />
+  The trie is used to store all token symbols from <code>lex_rules.txt</code> for fast prefix matching.</p>
+</li>
+<li>
+<p><strong>Implementation:</strong><br />
+  Each node in the trie is represented by an array of 256 integers (one for each ASCII character), initially set to -1. A separate vector (<code>term</code>) stores terminal status and token names.</p>
+</li>
+<li>
+<p><strong>Key Functions:</strong></p>
+</li>
+<li><code>initNode()</code>: Initializes a trie node.</li>
+<li><code>insert(std::string sym, std::string name)</code>: Inserts a symbol into the trie.</li>
+<li><code>feed(char c)</code>: Processes one character at a time and returns a token when a complete symbol is matched.</li>
+</ul>
+<p><em>Example of token insertion:</em></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lexer::Trie::insert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">sym</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">){</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="n">sym</span><span class="p">){</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">){</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">            </span><span class="n">nodes</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initNode</span><span class="p">();</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodes</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">term</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">};</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Closures allow functions to maintain state between calls by capturing the enclosing environment.</p>
+<h3 id="token-generation">Token Generation<a class="headerlink" href="#token-generation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>When the <code>feed()</code> function detects a complete token (a terminal node in the trie), it generates a <code>Token</code> object.</li>
+<li>Some tokens may be marked as special (defined in the <code>sp</code> map) so that the actual character is included in the token value.</li>
+</ul>
+<h3 id="lexical-rules-file">Lexical Rules File<a class="headerlink" href="#lexical-rules-file" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>File:</strong> <code>lex_rules.txt</code></li>
+<li><strong>Format:</strong> Each line maps a symbol (or a range, e.g., <code>0--&gt;9</code> for digits) to a token name.</li>
+<li>The lexer constructor (<code>lexer::genLexer</code>) reads this file and populates the trie.</li>
+</ul>
+<hr />
+<h2 id="parser-details">Parser Details<a class="headerlink" href="#parser-details" title="Permanent link">&para;</a></h2>
+<h3 id="grammar-rule-parsing">Grammar Rule Parsing<a class="headerlink" href="#grammar-rule-parsing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The parser reads grammar rules from <code>parse_rules.txt</code>.</li>
+<li>Each rule is defined in a BNF-like format using <code>::=</code> and alternatives separated by <code>|</code>.</li>
+<li>Rules are split into tokens and stored in a structured format for later PDA construction.</li>
+</ul>
+<h3 id="pda-construction">PDA Construction<a class="headerlink" href="#pda-construction" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Symbol IDs:</strong><br />
+  Each grammar symbol (terminals and nonterminals) is assigned a unique numeric ID.</li>
+<li><strong>Transitions:</strong><br />
+  The PDA builds transitions for each production rule. Transitions indicate how symbols should be replaced or reduced during parsing.</li>
+<li><strong>Epsilon Transitions:</strong><br />
+  These are added for non-token symbols to allow the parser to handle optional or recursive rules.</li>
+</ul>
+<h3 id="parse-tree-construction">Parse Tree Construction<a class="headerlink" href="#parse-tree-construction" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Breadth-First Search (BFS):</strong><br />
+  The parser uses a BFS strategy to explore possible parsing paths.</li>
+<li><strong>Recursive Tree Population:</strong><br />
+  The <code>populateTree()</code> function is used to recursively build the parse tree once a valid parsing path is found.</li>
+</ul>
+<p><em>Example snippet from <code>populateTree()</code>:</em></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">parser::genParser::populateTree</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">curNode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">curSym</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pind</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tind</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tokens</span><span class="p">,</span><span class="w"> </span><span class="n">parseTree</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tree</span><span class="p">){</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">tree</span><span class="p">.</span><span class="n">id</span><span class="p">[</span><span class="n">curNode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pda</span><span class="p">.</span><span class="n">idSym</span><span class="p">[</span><span class="n">curSym</span><span class="p">];</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">pda</span><span class="p">.</span><span class="n">isToken</span><span class="p">[</span><span class="n">curSym</span><span class="p">]){</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="n">tree</span><span class="p">.</span><span class="n">val</span><span class="p">[</span><span class="n">curNode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="n">tind</span><span class="o">++</span><span class="p">].</span><span class="n">getVal</span><span class="p">();</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="n">pind</span><span class="o">++</span><span class="p">];</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">pda</span><span class="p">.</span><span class="n">pro</span><span class="p">[</span><span class="n">curSym</span><span class="p">][</span><span class="n">ind</span><span class="p">].</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">nNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tree</span><span class="p">.</span><span class="n">newNode</span><span class="p">();</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="n">tree</span><span class="p">.</span><span class="n">adj</span><span class="p">[</span><span class="n">curNode</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">nNode</span><span class="p">);</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">populateTree</span><span class="p">(</span><span class="n">nNode</span><span class="p">,</span><span class="w"> </span><span class="n">pda</span><span class="p">.</span><span class="n">pro</span><span class="p">[</span><span class="n">curSym</span><span class="p">][</span><span class="n">ind</span><span class="p">][</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">pind</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">tind</span><span class="p">,</span><span class="w"> </span><span class="n">tokens</span><span class="p">,</span><span class="w"> </span><span class="n">tree</span><span class="p">);</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="grammar-rules-file">Grammar Rules File<a class="headerlink" href="#grammar-rules-file" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>File:</strong> <code>parse_rules.txt</code></li>
+<li><strong>Format:</strong> Each line is a production rule. For example:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&lt;unamb&gt; ::= LBRACE &lt;add&gt; RBRACE
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&lt;add&gt; ::= &lt;atomic&gt; ADD &lt;atomic&gt;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&lt;atomic&gt; ::= &lt;number&gt; | NEG &lt;number&gt;
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&lt;number&gt; ::= NUM &lt;number&gt; | NUM
+</span></code></pre></div></li>
+</ul>
+<hr />
+<h2 id="usage-instructions">Usage Instructions<a class="headerlink" href="#usage-instructions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Prepare the Rule Files:</strong></p>
+</li>
+<li>
+<p>Edit <code>lex_rules.txt</code> to define your token symbols.</p>
+</li>
+<li>
+<p>Edit <code>parse_rules.txt</code> to define your grammar productions.</p>
+</li>
+<li>
+<p><strong>Provide an Input File:</strong></p>
+</li>
+<li>
+<p>Create or edit <code>input.txt</code> with the string you wish to tokenize and parse.</p>
+</li>
+<li>
+<p><strong>Compile the Project:</strong><br />
+   Use a C++ compiler (e.g., g++) to compile the source files:</p>
+</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>g++<span class="w"> </span>-std<span class="o">=</span>c++17<span class="w"> </span>utils.cpp<span class="w"> </span>main.cpp<span class="w"> </span>lexer.cpp<span class="w"> </span>parser.cpp<span class="w"> </span>-o<span class="w"> </span>main
+</span></code></pre></div>
+<ol>
+<li><strong>Run the Executable:</strong><br />
+   Execute the program:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./main
+</span></code></pre></div>
+   The program will print the tokens produced by the lexer and then display the parse tree.</li>
+</ol>
+<hr />
+<h2 id="code-walkthrough">Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Permanent link">&para;</a></h2>
+<h3 id="lexer-lexercpp">Lexer (<code>lexer.cpp</code>)<a class="headerlink" href="#lexer-lexercpp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Trie Initialization:</strong><br />
+<code>initNode()</code> initializes a node for the trie.</p>
+</li>
+<li>
+<p><strong>Token Insertion:</strong><br />
+<code>insert()</code> adds each token symbol to the trie, handling individual characters and ranges.</p>
+</li>
+<li>
+<p><strong>Character Feeding:</strong><br />
+<code>feed()</code> processes each input character and matches it against the trie. When a terminal node is reached, a token is produced.</p>
+</li>
+</ul>
+<h3 id="parser-parsercpp">Parser (<code>parser.cpp</code>)<a class="headerlink" href="#parser-parsercpp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Grammar Initialization:</strong><br />
+  The PDA constructor assigns IDs to grammar symbols and builds transitions based on production rules.</p>
+</li>
+<li>
+<p><strong>Parsing Process:</strong><br />
+  The <code>parse()</code> function uses a queue-based search to find a valid sequence of transitions that consume the token stream.</p>
+</li>
+<li>
+<p><strong>Tree Population:</strong><br />
+  Once a valid parse is detected, <code>populateTree()</code> recursively builds a parse tree reflecting the grammar structure.</p>
+</li>
+</ul>
+<h3 id="main-application-maincpp">Main Application (<code>main.cpp</code>)<a class="headerlink" href="#main-application-maincpp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Lexing Phase:</strong><br />
+  Reads <code>input.txt</code> and uses the lexer to produce tokens.</p>
+</li>
+<li>
+<p><strong>Parsing Phase:</strong><br />
+  Uses the parser to convert the token stream into a parse tree.</p>
+</li>
+<li>
+<p><strong>Visualization:</strong><br />
+  The <code>vizTree()</code> function prints the parse tree in a human-readable hierarchical format.</p>
+</li>
+</ul>
+<hr />
+<h2 id="future-enhancements">Future Enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Stream-Based Lexing:</strong><br />
+  Modify the lexer to accept streams of characters (instead of file names) for increased flexibility.</p>
+</li>
+<li>
+<p><strong>Improved Error Handling:</strong><br />
+  Enhance error reporting in both the lexer and parser to provide more meaningful diagnostics.</p>
+</li>
+<li>
+<p><strong>Extended Grammar Support:</strong><br />
+  Expand the parser to handle more complex grammars and additional language features.</p>
+</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This lexer and parser generator provides a modular and extensible framework for processing textual input based on external token and grammar rules. The trie-based lexer efficiently matches token patterns, while the PDA-based parser constructs a parse tree that reflects the input's syntactic structure. This design lays the groundwork for further enhancements and adaptations to support more advanced language processing needs.</p>
 
 
 
