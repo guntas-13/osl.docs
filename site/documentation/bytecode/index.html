@@ -10,13 +10,13 @@
         <meta name="author" content="Guntas Singh Saran">
       
       
-        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/grammar/">
+        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/bytecode/">
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../syntax/">
       
       
-        <link rel="next" href="../grammarP/">
+        <link rel="next" href="../../tutorials/euler/">
       
       
       <link rel="icon" href="../../assets/oslMascotLogo.svg">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Grammar - docs</title>
+        <title>Bytecode - docs</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overall-grammar" class="md-skip">
+        <a href="#opcode-table-for-the-stack-vm" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Grammar
+              Bytecode
             
           </span>
         </div>
@@ -328,19 +328,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../grammar/" class="md-nav__link">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3.9 35 17.2 41.8s35-.9 41.8-17.2l5.2-12.3h90.7l5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0m18.7 160H93.4l18.6-44.8zM256 32v192c0 17.7 14.3 32 32 32h80c44.2 0 80-35.8 80-80 0-23.1-9.8-43.8-25.4-58.4 6-11.2 9.4-24 9.4-37.6 0-44.2-35.8-80-80-80h-64c-17.7 0-32 14.3-32 32m96 64h-32V64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16m-32 64h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-48zm246.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0z"/></svg>
@@ -352,7 +343,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -434,10 +424,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../bytecode/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3.9 35 17.2 41.8s35-.9 41.8-17.2l5.2-12.3h90.7l5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0m18.7 160H93.4l18.6-44.8zM256 32v192c0 17.7 14.3 32 32 32h80c44.2 0 80-35.8 80-80 0-23.1-9.8-43.8-25.4-58.4 6-11.2 9.4-24 9.4-37.6 0-44.2-35.8-80-80-80h-64c-17.7 0-32 14.3-32 32m96 64h-32V64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16m-32 64h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-48zm246.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0z"/></svg>
@@ -449,6 +448,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -678,44 +678,314 @@
   
 
 
-<h1 id="overall-grammar">Overall Grammar<a class="headerlink" href="#overall-grammar" title="Permanent link">&para;</a></h1>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">program</span> <span class="err">→</span> <span class="n">declaration</span><span class="o">*</span> <span class="n">EOF</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">declaration</span> <span class="err">→</span> <span class="n">funDecl</span> <span class="o">|</span> <span class="n">varDecl</span> <span class="o">|</span> <span class="n">statement</span><span class="p">;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">funDecl</span> <span class="err">→</span> <span class="s2">&quot;letFunc&quot;</span> <span class="n">IDENTIFIER</span> <span class="s2">&quot;(&quot;</span> <span class="n">parameters</span><span class="err">?</span> <span class="s2">&quot;)&quot;</span> <span class="n">block</span><span class="p">;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">varDecl</span> <span class="err">→</span> <span class="s2">&quot;var&quot;</span> <span class="n">IDENTIFIER</span> <span class="p">(</span><span class="s2">&quot;:=&quot;</span> <span class="n">expression</span><span class="p">)</span><span class="err">?</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">statement</span> <span class="err">→</span> <span class="n">ifStmt</span> <span class="o">|</span> <span class="n">printStmt</span> <span class="o">|</span> <span class="n">returnStmt</span> <span class="o">|</span> <span class="n">block</span> <span class="o">|</span> <span class="n">expressionStmt</span><span class="p">;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">ifStmt</span> <span class="err">→</span> <span class="s2">&quot;if&quot;</span> <span class="n">expression</span> <span class="n">statement</span> <span class="p">(</span><span class="s2">&quot;else&quot;</span> <span class="n">statement</span><span class="p">)</span><span class="err">?</span><span class="p">;</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">printStmt</span> <span class="err">→</span> <span class="s2">&quot;print&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="n">expression</span> <span class="s2">&quot;)&quot;</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">returnStmt</span> <span class="err">→</span> <span class="s2">&quot;return&quot;</span> <span class="p">(</span><span class="n">expression</span><span class="p">)</span><span class="err">?</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">block</span> <span class="err">→</span> <span class="s2">&quot;{&quot;</span> <span class="n">declaration</span><span class="o">*</span> <span class="s2">&quot;}&quot;</span><span class="p">;</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">expressionStmt</span> <span class="err">→</span> <span class="n">expression</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">expression</span> <span class="err">→</span> <span class="n">assignment</span> <span class="o">|</span> <span class="n">expB</span><span class="p">;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">assignment</span> <span class="err">→</span> <span class="n">IDENTIFIER</span> <span class="s2">&quot;:=&quot;</span> <span class="n">expB</span><span class="p">;</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">parameters</span> <span class="err">→</span> <span class="n">IDENTIFIER</span> <span class="p">(</span><span class="s2">&quot;,&quot;</span> <span class="n">IDENTIFIER</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">expB</span> <span class="err">→</span> <span class="n">logicOr</span><span class="p">;</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">logicOr</span> <span class="err">→</span> <span class="n">logicAnd</span> <span class="p">(</span><span class="s2">&quot;||&quot;</span> <span class="n">logicAnd</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">logicAnd</span> <span class="err">→</span> <span class="n">comparison</span> <span class="p">(</span><span class="s2">&quot;&amp;&amp;&quot;</span> <span class="n">comparison</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">comparison</span> <span class="err">→</span> <span class="n">add</span> <span class="p">((</span><span class="s2">&quot;&lt;&quot;</span> <span class="o">|</span> <span class="s2">&quot;&gt;&quot;</span> <span class="o">|</span> <span class="s2">&quot;&lt;=&quot;</span> <span class="o">|</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="o">|</span> <span class="s2">&quot;=&quot;</span> <span class="o">|</span> <span class="s2">&quot;!=&quot;</span><span class="p">)</span> <span class="n">add</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="n">add</span> <span class="err">→</span> <span class="n">mul</span> <span class="p">((</span><span class="s2">&quot;+&quot;</span> <span class="o">|</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="n">mul</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="n">mul</span> <span class="err">→</span> <span class="n">exp</span> <span class="p">((</span><span class="s2">&quot;*&quot;</span> <span class="o">|</span> <span class="s2">&quot;/&quot;</span> <span class="o">|</span> <span class="s2">&quot;%&quot;</span><span class="p">)</span> <span class="n">exp</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">exp</span> <span class="err">→</span> <span class="n">unary</span> <span class="p">(</span><span class="s2">&quot;^&quot;</span> <span class="n">unary</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="n">unary</span> <span class="err">→</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">|</span> <span class="s2">&quot;√&quot;</span><span class="p">)</span> <span class="n">unary</span> <span class="o">|</span> <span class="n">atom</span><span class="p">;</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="n">atom</span> <span class="err">→</span> <span class="n">NUMBER</span> <span class="o">|</span> <span class="n">IDENTIFIER</span> <span class="o">|</span> <span class="n">funCall</span> <span class="o">|</span> <span class="s2">&quot;(&quot;</span> <span class="n">expB</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="n">funCall</span> <span class="err">→</span> <span class="n">IDENTIFIER</span> <span class="s2">&quot;(&quot;</span> <span class="n">arguments</span><span class="err">?</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="n">arguments</span> <span class="err">→</span> <span class="n">expB</span> <span class="p">(</span><span class="s2">&quot;,&quot;</span> <span class="n">expB</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="n">NUMBER</span> <span class="err">→</span> <span class="n">DIGIT</span><span class="o">+</span> <span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="n">DIGIT</span><span class="o">*</span><span class="p">)</span><span class="err">?</span> <span class="o">|</span> <span class="s2">&quot;.&quot;</span> <span class="n">DIGIT</span><span class="o">+</span><span class="p">;</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="n">DIGIT</span> <span class="err">→</span> <span class="s2">&quot;0&quot;</span> <span class="o">|</span> <span class="s2">&quot;1&quot;</span> <span class="o">|</span> <span class="s2">&quot;2&quot;</span> <span class="o">|</span> <span class="s2">&quot;3&quot;</span> <span class="o">|</span> <span class="s2">&quot;4&quot;</span> <span class="o">|</span> <span class="s2">&quot;5&quot;</span> <span class="o">|</span> <span class="s2">&quot;6&quot;</span> <span class="o">|</span> <span class="s2">&quot;7&quot;</span> <span class="o">|</span> <span class="s2">&quot;8&quot;</span> <span class="o">|</span> <span class="s2">&quot;9&quot;</span><span class="p">;</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="n">IDENTIFIER</span> <span class="err">→</span> <span class="n">LETTER</span> <span class="p">(</span><span class="n">LETTER</span> <span class="o">|</span> <span class="n">DIGIT</span> <span class="o">|</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="n">LETTER</span> <span class="err">→</span> <span class="s2">&quot;a&quot;</span> <span class="o">..</span> <span class="s2">&quot;z&quot;</span> <span class="o">|</span> <span class="s2">&quot;A&quot;</span> <span class="o">..</span> <span class="s2">&quot;Z&quot;</span><span class="p">;</span>
-</span></code></pre></div>
+<h1 id="opcode-table-for-the-stack-vm">Opcode Table for the Stack VM<a class="headerlink" href="#opcode-table-for-the-stack-vm" title="Permanent link">&para;</a></h1>
+<p>Below is a table describing the opcodes, their operands, and their functions in the VM:</p>
+<table>
+<thead>
+<tr>
+<th>Opcode (Hex)</th>
+<th>Mnemonic</th>
+<th>Operands</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data Push Instructions</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>PUSH_CHAR</td>
+<td>1 byte</td>
+<td>Push a literal 1‑byte character onto the stack.</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>PUSH_SHORT</td>
+<td>2 bytes</td>
+<td>Push a literal 2‑byte short (little‑endian) onto the stack.</td>
+</tr>
+<tr>
+<td>0x03</td>
+<td>PUSH_INT</td>
+<td>4 bytes</td>
+<td>Push a literal 4‑byte integer (little‑endian) onto the stack.</td>
+</tr>
+<tr>
+<td>0x04</td>
+<td>PUSH_LONG</td>
+<td>8 bytes</td>
+<td>Push a literal 8‑byte long (little‑endian) onto the stack.</td>
+</tr>
+<tr>
+<td>0x05</td>
+<td>PUSH_FLOAT</td>
+<td>4 bytes</td>
+<td>Push a literal 4‑byte IEEE 754 float (little‑endian) onto the stack.</td>
+</tr>
+<tr>
+<td>0x06</td>
+<td>PUSH_DOUBLE</td>
+<td>8 bytes</td>
+<td>Push a literal 8‑byte IEEE 754 double (little‑endian) onto the stack.</td>
+</tr>
+<tr>
+<td><strong>Stack Manipulation</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x10</td>
+<td>POP</td>
+<td>None</td>
+<td>Pop the top value off the stack.</td>
+</tr>
+<tr>
+<td>0x11</td>
+<td>DUP</td>
+<td>None</td>
+<td>Duplicate the top value on the stack.</td>
+</tr>
+<tr>
+<td>0x12</td>
+<td>SWAP</td>
+<td>None</td>
+<td>Swap the top two values on the stack.</td>
+</tr>
+<tr>
+<td>0x13</td>
+<td>OVER</td>
+<td>None</td>
+<td>Copy the second value and push it onto the stack.</td>
+</tr>
+<tr>
+<td><strong>Arithmetic Operations</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x20</td>
+<td>ADD</td>
+<td>None</td>
+<td>Pop two values, add them, and push the result.</td>
+</tr>
+<tr>
+<td>0x21</td>
+<td>SUB</td>
+<td>None</td>
+<td>Pop two values, subtract the top from the next, and push the result.</td>
+</tr>
+<tr>
+<td>0x22</td>
+<td>MUL</td>
+<td>None</td>
+<td>Pop two values, multiply them, and push the result.</td>
+</tr>
+<tr>
+<td>0x23</td>
+<td>DIV</td>
+<td>None</td>
+<td>Pop two values, divide the second by the top, and push the result.</td>
+</tr>
+<tr>
+<td>0x24</td>
+<td>MOD</td>
+<td>None</td>
+<td>Pop two values, compute the modulus, and push the result.</td>
+</tr>
+<tr>
+<td>0x25</td>
+<td>NEG</td>
+<td>None</td>
+<td>Negate the top value and push the result.</td>
+</tr>
+<tr>
+<td><strong>Bitwise/Logical Operations</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x30</td>
+<td>BITWISE_NOT</td>
+<td>None</td>
+<td>Pop a value, perform bitwise NOT, and push the result.</td>
+</tr>
+<tr>
+<td>0x31</td>
+<td>BITWISE_AND</td>
+<td>None</td>
+<td>Pop two values, perform bitwise AND, and push the result.</td>
+</tr>
+<tr>
+<td>0x32</td>
+<td>BITWISE_OR</td>
+<td>None</td>
+<td>Pop two values, perform bitwise OR, and push the result.</td>
+</tr>
+<tr>
+<td>0x33</td>
+<td>BITWISE_XOR</td>
+<td>None</td>
+<td>Pop two values, perform bitwise XOR, and push the result.</td>
+</tr>
+<tr>
+<td><strong>Comparison Operations</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x40</td>
+<td>EQ</td>
+<td>None</td>
+<td>Pop two values; push 1 if equal, else 0.</td>
+</tr>
+<tr>
+<td>0x41</td>
+<td>NEQ</td>
+<td>None</td>
+<td>Pop two values; push 1 if not equal, else 0.</td>
+</tr>
+<tr>
+<td>0x42</td>
+<td>LT</td>
+<td>None</td>
+<td>Pop two values; push 1 if the second is less than the top, else 0.</td>
+</tr>
+<tr>
+<td>0x43</td>
+<td>GT</td>
+<td>None</td>
+<td>Pop two values; push 1 if the second is greater than the top, else 0.</td>
+</tr>
+<tr>
+<td>0x44</td>
+<td>LE</td>
+<td>None</td>
+<td>Pop two values; push 1 if the second is less than or equal to the top, else 0.</td>
+</tr>
+<tr>
+<td>0x45</td>
+<td>GE</td>
+<td>None</td>
+<td>Pop two values; push 1 if the second is greater than or equal to the top, else 0.</td>
+</tr>
+<tr>
+<td><strong>Control Flow</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x50</td>
+<td>JUMP</td>
+<td>2 bytes (signed offset)</td>
+<td>Unconditionally jump by the relative offset (added to PC).</td>
+</tr>
+<tr>
+<td>0x51</td>
+<td>JUMP_IF_ZERO</td>
+<td>2 bytes (signed offset)</td>
+<td>Pop an INT; if zero, jump by the relative offset.</td>
+</tr>
+<tr>
+<td>0x52</td>
+<td>JUMP_IF_NONZERO</td>
+<td>2 bytes (signed offset)</td>
+<td>Pop an INT; if nonzero, jump by the relative offset.</td>
+</tr>
+<tr>
+<td>0x53</td>
+<td>CALL</td>
+<td>2 bytes (address)</td>
+<td>Push the return address and jump to the subroutine at the specified address.</td>
+</tr>
+<tr>
+<td>0x54</td>
+<td>RETURN</td>
+<td>None</td>
+<td>Pop the return address from the stack and jump back to it.</td>
+</tr>
+<tr>
+<td>0x55</td>
+<td>HALT</td>
+<td>None</td>
+<td>Terminate program execution.</td>
+</tr>
+<tr>
+<td><strong>Type Conversion Operations</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x60</td>
+<td>I2F</td>
+<td>None</td>
+<td>Convert the top INT value to a FLOAT.</td>
+</tr>
+<tr>
+<td>0x61</td>
+<td>F2I</td>
+<td>None</td>
+<td>Convert the top FLOAT value to an INT.</td>
+</tr>
+<tr>
+<td>0x62</td>
+<td>I2D</td>
+<td>None</td>
+<td>Convert the top INT value to a DOUBLE.</td>
+</tr>
+<tr>
+<td>0x63</td>
+<td>D2I</td>
+<td>None</td>
+<td>Convert the top DOUBLE value to an INT.</td>
+</tr>
+<tr>
+<td>0x64</td>
+<td>F2D</td>
+<td>None</td>
+<td>Convert the top FLOAT value to a DOUBLE.</td>
+</tr>
+<tr>
+<td>0x65</td>
+<td>D2F</td>
+<td>None</td>
+<td>Convert the top DOUBLE value to a FLOAT.</td>
+</tr>
+<tr>
+<td><strong>Heap Object Operations</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x70</td>
+<td>NEW_OBJECT</td>
+<td>1 byte (field count)</td>
+<td>Allocate a new object with the specified number of fields; push the object pointer onto the stack.</td>
+</tr>
+<tr>
+<td>0x71</td>
+<td>GET_FIELD</td>
+<td>1 byte (field index)</td>
+<td>Pop an object and push the value from the specified field of the object.</td>
+</tr>
+<tr>
+<td>0x72</td>
+<td>SET_FIELD</td>
+<td>1 byte (field index)</td>
+<td>Pop a value and then an object; set the object's specified field to the popped value.</td>
+</tr>
+</tbody>
+</table>
 
 
 
