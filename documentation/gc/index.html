@@ -10,9 +10,13 @@
         <meta name="author" content="Guntas Singh Saran">
       
       
-        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/doc2/">
+        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/gc/">
       
       
+        <link rel="prev" href="../bytecode/">
+      
+      
+        <link rel="next" href="../../tutorials/euler/">
       
       
       <link rel="icon" href="../../assets/oslMascotLogo.svg">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Doc 2 - docs</title>
+        <title>Garbage Collection - docs</title>
       
     
     
@@ -84,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#doc-2" class="md-skip">
+        <a href="#garbage-collector-algorithm-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Doc 2
+              Garbage Collection
             
           </span>
         </div>
@@ -286,17 +290,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -311,7 +317,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Documentation
@@ -442,10 +448,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../gc/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Garbage Collection
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -455,6 +482,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-object-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Object Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-global-gc-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Global GC Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-allocation-gc_alloc" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Allocation (gc_alloc)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mark-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Mark Phase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Mark Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sweep-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Sweep Phase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sweep Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gc-cycle-gc_collect" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. GC Cycle (gc_collect)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -667,6 +825,125 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-object-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Object Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-global-gc-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Global GC Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-allocation-gc_alloc" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Allocation (gc_alloc)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mark-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Mark Phase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Mark Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sweep-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Sweep Phase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sweep Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gc-cycle-gc_collect" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. GC Cycle (gc_collect)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -684,16 +961,167 @@
   
 
 
-<h1 id="doc-2">Doc 2<a class="headerlink" href="#doc-2" title="Permanent link">&para;</a></h1>
+<h1 id="garbage-collector-algorithm-overview">Garbage Collector Algorithm Overview<a class="headerlink" href="#garbage-collector-algorithm-overview" title="Permanent link">&para;</a></h1>
+<p>osl. implements a simple <strong>mark-and-sweep</strong> garbage collector. The GC reclaims heap-allocated objects (of type <code>VAL_OBJ</code>) that are no longer reachable from the VM’s root set.</p>
+<hr />
+<h2 id="1-object-representation">1. Object Representation<a class="headerlink" href="#1-object-representation" title="Permanent link">&para;</a></h2>
+<p>Each heap-allocated object is represented by a <code>GCObject</code> structure that contains:</p>
+<ul>
+<li>
+<p><strong>Marked Flag (<code>marked</code>):</strong><br />
+  Indicates whether the object has been reached during the mark phase.</p>
+</li>
+<li>
+<p><strong>Next Pointer (<code>next</code>):</strong><br />
+  Points to the next object in a global linked list (<code>gc_objects</code>) used to traverse all allocated objects during the sweep phase.</p>
+</li>
+<li>
+<p><strong>Field Count (<code>field_count</code>):</strong><br />
+  Specifies how many <code>Value</code> fields (the object’s contents) the object holds.</p>
+</li>
+<li>
+<p><strong>Fields (<code>fields[]</code>):</strong><br />
+  A flexible array member that stores the actual data (which can be primitive types or references to other objects).</p>
+</li>
+</ul>
+<p><strong>Figure 1. GCObject Structure</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>+-----------------------------+
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|  GCObject                 |
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+-----------------------------+
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>| marked (1 byte)           | &lt;-- Mark flag for GC
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+-----------------------------+
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>| next (pointer)            | &lt;-- Next object in GC list
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+-----------------------------+
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>| field_count (1 byte)      | &lt;-- Number of Value fields
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>+-----------------------------+
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>| fields[0] ... fields[n-1] | &lt;-- Data fields (each is a Value)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>+-----------------------------+
+</span></code></pre></div>
+<hr />
+<h2 id="2-global-gc-data">2. Global GC Data<a class="headerlink" href="#2-global-gc-data" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong><code>gc_objects</code>:</strong><br />
+  A global linked list of all allocated <code>GCObject</code>s.</p>
+</li>
+<li>
+<p><strong><code>total_allocated</code>:</strong><br />
+  The total size (in bytes) of all allocated GC objects. This is used to decide when to trigger a collection.</p>
+</li>
+<li>
+<p><strong><code>gc_threshold</code>:</strong><br />
+  A predefined memory threshold (e.g., 10KB) that, when exceeded, triggers a GC cycle.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-allocation-gc_alloc">3. Allocation (<code>gc_alloc</code>)<a class="headerlink" href="#3-allocation-gc_alloc" title="Permanent link">&para;</a></h2>
+<p>When a new object is created via the <code>NEW_OBJECT</code> opcode, the <code>gc_alloc</code> function:</p>
+<ol>
+<li>Computes the total size needed (header plus space for all <code>Value</code> fields).</li>
+<li>Allocates memory using <code>malloc</code> and initializes:</li>
+<li>The mark flag (<code>marked = 0</code>).</li>
+<li>The field count.</li>
+<li>All fields are initialized to a default value (e.g., an integer 0).</li>
+<li>Inserts the new object at the head of the <code>gc_objects</code> linked list.</li>
+<li>Increases the <code>total_allocated</code> counter.</li>
+<li>Returns a pointer to the new object, which is then wrapped in a <code>Value</code> of type <code>VAL_OBJ</code>.</li>
+</ol>
+<hr />
+<h2 id="4-mark-phase">4. Mark Phase<a class="headerlink" href="#4-mark-phase" title="Permanent link">&para;</a></h2>
+<h3 id="purpose">Purpose:<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h3>
+<p>To identify all objects that are still in use (reachable) by marking them.</p>
+<h3 id="process">Process:<a class="headerlink" href="#process" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Starting from Roots:</strong><br />
+  The GC scans all roots—primarily the VM’s operand stack (via <code>gc_mark_roots</code>).</p>
+</li>
+<li>
+<p><strong>Marking Objects:</strong><br />
+  For each <code>Value</code> on the stack:</p>
+</li>
+<li>If the value is of type <code>VAL_OBJ</code>, <code>gc_mark_value</code> calls <code>gc_mark</code> on the object.</li>
+<li><code>gc_mark</code> sets the object's <code>marked</code> flag to 1 and recursively marks any other objects referenced in its fields.</li>
+</ul>
+<p><strong>Figure 2. Mark Phase Flow</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        +-----------------+
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        |   VM Stack      |
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        +-----------------+
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                ▼
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>     For each Value on the stack
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                ▼
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      If Value is VAL_OBJ ---&gt; gc_mark_value()
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                │
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                ▼
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>         gc_mark(GCObject*)
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                │
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    +-----------+-----------+
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    |                       |
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    ▼                       ▼
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>Mark object as reached   For each field:
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a> (set marked = 1)         If field is VAL_OBJ → Recursively mark
+</span></code></pre></div>
+<hr />
+<h2 id="5-sweep-phase">5. Sweep Phase<a class="headerlink" href="#5-sweep-phase" title="Permanent link">&para;</a></h2>
+<h3 id="purpose_1">Purpose:<a class="headerlink" href="#purpose_1" title="Permanent link">&para;</a></h3>
+<p>To reclaim memory by freeing objects that were not marked as reachable.</p>
+<h3 id="process_1">Process:<a class="headerlink" href="#process_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Traverse the Global List:</strong><br />
+  The <code>gc_sweep</code> function iterates over the <code>gc_objects</code> list using a pointer-to-pointer technique.</p>
+</li>
+<li>
+<p><strong>Free Unmarked Objects:</strong><br />
+  For each object:</p>
+</li>
+<li>If the <code>marked</code> flag is 0, it is considered unreachable and is freed.</li>
+<li>
+<p>The <code>total_allocated</code> counter is reduced by the size of the freed object.</p>
+</li>
+<li>
+<p><strong>Reset Marked Flag:</strong><br />
+  For surviving objects, the mark flag is cleared (set back to 0) in preparation for the next GC cycle.</p>
+</li>
+</ul>
+<hr />
+<h2 id="6-gc-cycle-gc_collect">6. GC Cycle (<code>gc_collect</code>)<a class="headerlink" href="#6-gc-cycle-gc_collect" title="Permanent link">&para;</a></h2>
+<p>The function <code>gc_collect</code> ties together the mark and sweep phases:</p>
+<ol>
+<li>
+<p><strong>Mark:</strong><br />
+<code>gc_mark_roots(stack, top)</code> is called to mark all objects reachable from the VM’s current stack.</p>
+</li>
+<li>
+<p><strong>Sweep:</strong><br />
+<code>gc_sweep()</code> is executed to free all unmarked objects and reset marks on survivors.</p>
+</li>
+</ol>
+<p>This cycle is typically triggered in the <code>NEW_OBJECT</code> opcode when <code>total_allocated</code> exceeds <code>gc_threshold</code>.</p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The garbage collector in this VM uses a <strong>mark-and-sweep</strong> strategy:</p>
+<ul>
+<li><strong>Mark Phase:</strong>  </li>
+<li>Traverses the root set (the VM stack).</li>
+<li>
+<p>Recursively marks all reachable objects.</p>
+</li>
+<li>
+<p><strong>Sweep Phase:</strong>  </p>
+</li>
+<li>Iterates over all allocated objects.</li>
+<li>Frees any object that was not marked.</li>
+<li>Resets the mark flag for objects that survive.</li>
+</ul>
 
 
 
 
 
 
-
-  
-  
 
 
 
