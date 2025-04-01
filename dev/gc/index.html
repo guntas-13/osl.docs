@@ -10,13 +10,13 @@
         <meta name="author" content="Guntas Singh Saran">
       
       
-        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/tutorials/euler/">
+        <link rel="canonical" href="https://guntas-13.github.io/osl.docs/dev/gc/">
       
       
-        <link rel="prev" href="../../dev/contribute/">
+        <link rel="prev" href="../bytecode/">
       
       
-        <link rel="next" href="../bytecodeEx/">
+        <link rel="next" href="../gen/">
       
       
       <link rel="icon" href="../../assets/oslMascotLogo.svg">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Euler Problems - docs</title>
+        <title>Garbage Collection - docs</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-euler-problems-solved-in-osl" class="md-skip">
+        <a href="#garbage-collector-algorithm-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Euler Problems
+              Garbage Collection
             
           </span>
         </div>
@@ -487,18 +487,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -514,7 +516,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Developer Guide
@@ -528,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/ast_nodes/" class="md-nav__link">
+      <a href="../ast_nodes/" class="md-nav__link">
         
   
   
@@ -553,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/bytecode/" class="md-nav__link">
+      <a href="../bytecode/" class="md-nav__link">
         
   
   
@@ -575,10 +577,34 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../dev/gc/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3zm0 5h2v9H9zm4 0h2v9h-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Garbage Collection
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -591,6 +617,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-object-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Object Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-global-gc-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Global GC Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-allocation-gc_alloc" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Allocation (gc_alloc)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mark-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Mark Phase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Mark Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sweep-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Sweep Phase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sweep Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gc-cycle-gc_collect" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. GC Cycle (gc_collect)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -603,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/gen/" class="md-nav__link">
+      <a href="../gen/" class="md-nav__link">
         
   
   
@@ -628,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/contribute/" class="md-nav__link">
+      <a href="../contribute/" class="md-nav__link">
         
   
   
@@ -657,20 +814,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -686,7 +841,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -697,34 +852,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19.88V22l-1.8-1.17-4.79-9c.66-.21 1.26-.55 1.78-1zM15 7a3 3 0 0 1-3 3h-.44L5.8 20.83 4 22v-2.12L9.79 9c-1.1-1.23-1-3.13.24-4.24C10.57 4.28 11.27 4 12 4V2a1 1 0 0 1 1 1v1.18c1.2.42 2 1.55 2 2.82m-2 0a1 1 0 0 0-1-1 1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1"/></svg>
-  
-  <span class="md-ellipsis">
-    Euler Problems
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/euler/" class="md-nav__link">
         
   
   
@@ -737,80 +868,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#q1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q1
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q2
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q3
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q4
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q5
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q6
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -823,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bytecodeEx/" class="md-nav__link">
+      <a href="../../tutorials/bytecodeEx/" class="md-nav__link">
         
   
   
@@ -875,54 +932,111 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#q1" class="md-nav__link">
+  <a href="#1-object-representation" class="md-nav__link">
     <span class="md-ellipsis">
-      Q1
+      1. Object Representation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q2" class="md-nav__link">
+  <a href="#2-global-gc-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Q2
+      2. Global GC Data
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q3" class="md-nav__link">
+  <a href="#3-allocation-gc_alloc" class="md-nav__link">
     <span class="md-ellipsis">
-      Q3
+      3. Allocation (gc_alloc)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q4" class="md-nav__link">
+  <a href="#4-mark-phase" class="md-nav__link">
     <span class="md-ellipsis">
-      Q4
+      4. Mark Phase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Mark Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sweep-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Sweep Phase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sweep Phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gc-cycle-gc_collect" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. GC Cycle (gc_collect)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q5" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Q5
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#q6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q6
+      Summary
     </span>
   </a>
   
@@ -947,85 +1061,145 @@
   
 
 
-<h1 id="project-euler-problems-solved-in-osl">Project Euler Problems solved in OSL!<a class="headerlink" href="#project-euler-problems-solved-in-osl" title="Permanent link">&para;</a></h1>
-<p>Project Euler is a well known set of questions, available here: <a href="https://projecteuler.net/archives">Link to the problemset</a>.</p>
-<h2 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h2>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">fn</span> <span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span> <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="k">return</span> <span class="n">F</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="n">x</span><span class="p">);</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">return</span> <span class="n">F</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">F</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<h1 id="garbage-collector-algorithm-overview">Garbage Collector Algorithm Overview<a class="headerlink" href="#garbage-collector-algorithm-overview" title="Permanent link">&para;</a></h1>
+<p>osl. implements a simple <strong>mark-and-sweep</strong> garbage collector. The GC reclaims heap-allocated objects (of type <code>VAL_OBJ</code>) that are no longer reachable from the VM’s root set.</p>
+<hr />
+<h2 id="1-object-representation">1. Object Representation<a class="headerlink" href="#1-object-representation" title="Permanent link">&para;</a></h2>
+<p>Each heap-allocated object is represented by a <code>GCObject</code> structure that contains:</p>
+<ul>
+<li>
+<p><strong>Marked Flag (<code>marked</code>):</strong><br />
+  Indicates whether the object has been reached during the mark phase.</p>
+</li>
+<li>
+<p><strong>Next Pointer (<code>next</code>):</strong><br />
+  Points to the next object in a global linked list (<code>gc_objects</code>) used to traverse all allocated objects during the sweep phase.</p>
+</li>
+<li>
+<p><strong>Field Count (<code>field_count</code>):</strong><br />
+  Specifies how many <code>Value</code> fields (the object’s contents) the object holds.</p>
+</li>
+<li>
+<p><strong>Fields (<code>fields[]</code>):</strong><br />
+  A flexible array member that stores the actual data (which can be primitive types or references to other objects).</p>
+</li>
+</ul>
+<p><strong>Figure 1. GCObject Structure</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>+---------------------------+
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|  GCObject                 |
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+---------------------------+
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>| marked (1 byte)           | &lt;-- Mark flag for GC
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+---------------------------+
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>| next (pointer)            | &lt;-- Next object in GC list
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+---------------------------+
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>| field_count (1 byte)      | &lt;-- Number of Value fields
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>+---------------------------+
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>| fields[0] ... fields[n-1] | &lt;-- Data fields (each is a Value)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>+---------------------------+
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="m">233168</span>
+<hr />
+<h2 id="2-global-gc-data">2. Global GC Data<a class="headerlink" href="#2-global-gc-data" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong><code>gc_objects</code>:</strong><br />
+  A global linked list of all allocated <code>GCObject</code>s.</p>
+</li>
+<li>
+<p><strong><code>total_allocated</code>:</strong><br />
+  The total size (in bytes) of all allocated GC objects. This is used to decide when to trigger a collection.</p>
+</li>
+<li>
+<p><strong><code>gc_threshold</code>:</strong><br />
+  A predefined memory threshold (e.g., 10KB) that, when exceeded, triggers a GC cycle.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-allocation-gc_alloc">3. Allocation (<code>gc_alloc</code>)<a class="headerlink" href="#3-allocation-gc_alloc" title="Permanent link">&para;</a></h2>
+<p>When a new object is created via the <code>NEW_OBJECT</code> opcode, the <code>gc_alloc</code> function:</p>
+<ol>
+<li>Computes the total size needed (header plus space for all <code>Value</code> fields).</li>
+<li>Allocates memory using <code>malloc</code> and initializes:</li>
+<li>The mark flag (<code>marked = 0</code>).</li>
+<li>The field count.</li>
+<li>All fields are initialized to a default value (e.g., an integer 0).</li>
+<li>Inserts the new object at the head of the <code>gc_objects</code> linked list.</li>
+<li>Increases the <code>total_allocated</code> counter.</li>
+<li>Returns a pointer to the new object, which is then wrapped in a <code>Value</code> of type <code>VAL_OBJ</code>.</li>
+</ol>
+<hr />
+<h2 id="4-mark-phase">4. Mark Phase<a class="headerlink" href="#4-mark-phase" title="Permanent link">&para;</a></h2>
+<h3 id="purpose">Purpose:<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h3>
+<p>To identify all objects that are still in use (reachable) by marking them.</p>
+<h3 id="process">Process:<a class="headerlink" href="#process" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Starting from Roots:</strong><br />
+  The GC scans all roots—primarily the VM’s operand stack (via <code>gc_mark_roots</code>).</li>
+<li><strong>Marking Objects:</strong><br />
+  For each <code>Value</code> on the stack:</li>
+<li>If the value is of type <code>VAL_OBJ</code>, <code>gc_mark_value</code> calls <code>gc_mark</code> on the object.</li>
+<li><code>gc_mark</code> sets the object's <code>marked</code> flag to 1 and recursively marks any other objects referenced in its fields.</li>
+</ul>
+<p><strong>Figure 2. Mark Phase Flow</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        +-----------------+
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        |   VM Stack      |
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        +-----------------+
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                ▼
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>     For each Value on the stack
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                ▼
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      If Value is VAL_OBJ ---&gt; gc_mark_value()
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                │
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                ▼
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>         gc_mark(GCObject*)
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                │
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    +-----------+-----------+
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    |                       |
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    ▼                       ▼
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>Mark object as reached   For each field:
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a> (set marked = 1)         If field is VAL_OBJ → Recursively mark
 </span></code></pre></div>
-<h2 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h2>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">fn</span> <span class="n">fib</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">4000000</span><span class="p">)</span> <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="n">a</span><span class="p">);</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="m">4613732</span>
-</span></code></pre></div>
-<h2 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h2>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">fn</span> <span class="n">prime</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="k">return</span> <span class="n">prime</span><span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">return</span> <span class="n">prime</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">var</span> <span class="n">n</span> <span class="o">:=</span> <span class="mi">600851475143</span><span class="p">;</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">prime</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="m">6857</span>
-</span></code></pre></div>
-<h2 id="q4">Q4<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h2>
-<p>You might have to increase the ulimit of your machine to run this (should be resolved once bytecode is done).</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">fn</span> <span class="n">isPal</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">rev</span><span class="p">,</span> <span class="n">org</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">rev</span> <span class="o">=</span> <span class="n">org</span><span class="p">;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">return</span> <span class="n">isPal</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">rev</span><span class="o">*</span><span class="mi">10</span> <span class="o">+</span> <span class="n">n</span><span class="o">%</span><span class="mi">10</span><span class="p">,</span> <span class="n">org</span><span class="p">);</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">fn</span> <span class="n">F</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">maxPal</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="k">return</span> <span class="n">maxPal</span><span class="p">;</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="k">return</span> <span class="n">F</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxPal</span><span class="p">);</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">var</span> <span class="n">prod</span> <span class="o">:=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="p">;</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="k">if</span> <span class="p">((</span><span class="n">prod</span> <span class="o">&gt;</span> <span class="n">maxPal</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">isPal</span><span class="p">(</span><span class="n">prod</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">prod</span><span class="p">)))</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="n">maxPal</span> <span class="o">:=</span> <span class="n">prod</span><span class="p">;</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="k">return</span> <span class="n">F</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxPal</span><span class="p">);</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">F</span><span class="p">(</span><span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="m">906609</span>
-</span></code></pre></div>
-<h2 id="q5">Q5<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h2>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">fn</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">);</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">fn</span> <span class="n">lcm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">}</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">fn</span> <span class="n">F</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="k">return</span> <span class="n">F</span><span class="p">(</span><span class="n">lcm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="n">F</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="m">232792560</span>
-</span></code></pre></div>
-<h2 id="q6">Q6<a class="headerlink" href="#q6" title="Permanent link">&para;</a></h2>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">fn</span> <span class="n">F</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">sumSq</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nb">sum</span> <span class="o">*</span> <span class="nb">sum</span> <span class="o">-</span> <span class="n">sumSq</span><span class="p">;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="k">return</span> <span class="n">F</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="n">sumSq</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="p">);</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">F</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="m">25164150</span>
-</span></code></pre></div>
+<hr />
+<h2 id="5-sweep-phase">5. Sweep Phase<a class="headerlink" href="#5-sweep-phase" title="Permanent link">&para;</a></h2>
+<h3 id="purpose_1">Purpose:<a class="headerlink" href="#purpose_1" title="Permanent link">&para;</a></h3>
+<p>To reclaim memory by freeing objects that were not marked as reachable.</p>
+<h3 id="process_1">Process:<a class="headerlink" href="#process_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Traverse the Global List:</strong><br />
+  The <code>gc_sweep</code> function iterates over the <code>gc_objects</code> list using a pointer-to-pointer technique.</li>
+<li><strong>Free Unmarked Objects:</strong><br />
+  For each object:</li>
+<li>If the <code>marked</code> flag is 0, it is considered unreachable and is freed.</li>
+<li>The <code>total_allocated</code> counter is reduced by the size of the freed object.</li>
+<li><strong>Reset Marked Flag:</strong><br />
+  For surviving objects, the mark flag is cleared (set back to 0) in preparation for the next GC cycle.</li>
+</ul>
+<hr />
+<h2 id="6-gc-cycle-gc_collect">6. GC Cycle (<code>gc_collect</code>)<a class="headerlink" href="#6-gc-cycle-gc_collect" title="Permanent link">&para;</a></h2>
+<p>The function <code>gc_collect</code> ties together the mark and sweep phases:</p>
+<ol>
+<li>
+<p><strong>Mark:</strong><br />
+<code>gc_mark_roots(stack, top)</code> is called to mark all objects reachable from the VM’s current stack.</p>
+</li>
+<li>
+<p><strong>Sweep:</strong><br />
+<code>gc_sweep()</code> is executed to free all unmarked objects and reset marks on survivors.</p>
+</li>
+</ol>
+<p>This cycle is typically triggered in the <code>NEW_OBJECT</code> opcode when <code>total_allocated</code> exceeds <code>gc_threshold</code>.</p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The garbage collector in this VM uses a <strong>mark-and-sweep</strong> strategy:</p>
+<ul>
+<li><strong>Mark Phase:</strong></li>
+<li>Traverses the root set (the VM stack).</li>
+<li>Recursively marks all reachable objects.</li>
+<li><strong>Sweep Phase:</strong></li>
+<li>Iterates over all allocated objects.</li>
+<li>Frees any object that was not marked.</li>
+<li>Resets the mark flag for objects that survive.</li>
+</ul>
 
 
 

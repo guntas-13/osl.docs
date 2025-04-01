@@ -2,50 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://guntas-13.github.io/osl.docs/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
-         <loc>https://guntas-13.github.io/osl.docs/documentation/ast_nodes/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <loc>https://guntas-13.github.io/osl.docs/dev/ast_nodes/</loc>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
-         <loc>https://guntas-13.github.io/osl.docs/documentation/bytecode/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <loc>https://guntas-13.github.io/osl.docs/dev/bytecode/</loc>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
-         <loc>https://guntas-13.github.io/osl.docs/documentation/gc/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <loc>https://guntas-13.github.io/osl.docs/dev/contribute/</loc>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
-         <loc>https://guntas-13.github.io/osl.docs/documentation/gen/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <loc>https://guntas-13.github.io/osl.docs/dev/gc/</loc>
+         <lastmod>2025-04-01</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/dev/gen/</loc>
+         <lastmod>2025-04-01</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/documentation/features/</loc>
+         <lastmod>2025-04-01</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/documentation/func/</loc>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
          <loc>https://guntas-13.github.io/osl.docs/documentation/grammar/</loc>
-         <lastmod>2025-03-25</lastmod>
-    </url>
-    <url>
-         <loc>https://guntas-13.github.io/osl.docs/documentation/grammarP/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
          <loc>https://guntas-13.github.io/osl.docs/documentation/syntax/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <lastmod>2025-04-01</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/documentation/variables/</loc>
+         <lastmod>2025-04-01</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/gettingstarted/gs/</loc>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
          <loc>https://guntas-13.github.io/osl.docs/progress/progress/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
          <loc>https://guntas-13.github.io/osl.docs/progress/week1/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
          <loc>https://guntas-13.github.io/osl.docs/progress/week2/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <lastmod>2025-04-01</lastmod>
+    </url>
+    <url>
+         <loc>https://guntas-13.github.io/osl.docs/tutorials/bytecodeEx/</loc>
+         <lastmod>2025-04-01</lastmod>
     </url>
     <url>
          <loc>https://guntas-13.github.io/osl.docs/tutorials/euler/</loc>
-         <lastmod>2025-03-25</lastmod>
+         <lastmod>2025-04-01</lastmod>
     </url>
 </urlset>
