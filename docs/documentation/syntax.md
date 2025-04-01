@@ -4,27 +4,13 @@ icon: material/code-json
 
 # Syntax of OSL
 
-## Operators and Precedence
-
-OSL supports the following operators, listed in decreasing order of precedence:
-
-| Precedence  | Operators                       | Description                                               |
-| ----------- | ------------------------------- | --------------------------------------------------------- |
-| 1 (Highest) | `()`, `√`, `-`                  | Parentheses (explicit grouping), Square root, unary minus |
-| 2           | `^`                             | Exponentiation                                            |
-| 3           | `*`, `/`                        | Multiplication, Division                                  |
-| 4           | `+`, `-`                        | Addition, Subtraction                                     |
-| 5           | `<`, `<=`, `>`, `>=`, `=`, `!=` | Relational Operators                                      |
-| 6           | `&&`, `\\`                      | Logical AND and Logical OR                                |
-| 7 (Lowest)  | `:=`                            | Assignment Operator                                       |
-
 ## Variables: Initialization and Modification
 
 ### Variable Declaration
 
 Variables can be declared using the `var` keyword:
 
-```py
+```python
 var x := 10;
 var y := x + 5;
 ```
@@ -33,7 +19,7 @@ var y := x + 5;
 
 Existing variables can be reassigned using `:=`:
 
-```py
+```python
 x := 20;
 y := x * 2;
 ```
@@ -42,51 +28,51 @@ y := x * 2;
 
 Conditional execution in OSL is handled using `if`, `else if`, and `else`:
 
-```osl
+```python
 var x := 10;
 
 if (x > 10)
-    print(x);
+    log x;
 else if (x = 10)
-    print(x + 1);
+    log x + 1;
 else
-    print(x - 1);
+    log x - 1;
 ```
 
 ### Unmatched If and Dangling Else Problem
 
-OSL follows the "else" is matched with the closest unmatched "if" rule:
+osl. follows the `"else"` is matched with the closest unmatched `"if"` rule:
 
-```osl
+```python
 var x := 7;
 if (x > 5)
 if (x > 10)
-print(x + 1);
+log x + 1;
 else
-print(x - 1);
+log x - 1;
 ```
 
 To avoid ambiguity, always use braces:
 
-```osl
+```python
 var x := 11;
 
 if (x > 5)
 {
     if (x > 10)
     {
-        print(x + 4);
+        log x + 4;
     }
     else
     {
-        print(x - 4);
+        log x - 4;
     }
 }
 ```
 
 ### Blocks
 
-```py
+```python
 var x := 5;
 {
     var x := 10;
@@ -98,7 +84,7 @@ x;
 5
 ```
 
-```py
+```python
 var x := 5;
 {
     var x := 10;
@@ -116,7 +102,7 @@ var x := 5;
 
 Functions are defined using the `fn` keyword:
 
-```py
+```python
 fn add(a, b)
 {
     return a + b;
@@ -127,13 +113,13 @@ fn add(a, b)
 
 Functions are called using parentheses:
 
-```py
+```python
 var sum := add(5, 10);
 ```
 
 ### First-Class Functions
 
-OSL treats functions as first-class citizens, meaning they can:
+osl. treats functions as first-class citizens, meaning they can:
 
 - Be assigned to variables
 - Be passed as arguments to other functions
@@ -141,7 +127,7 @@ OSL treats functions as first-class citizens, meaning they can:
 
 Example:
 
-```py
+```python
 fn multiplyBy(n)
 {
     fn inner(x)
@@ -151,15 +137,15 @@ fn multiplyBy(n)
     return inner;
 }
 
-var double := multiplyBy(2);
-var result := double(5);
+var doubleTo := multiplyBy(2);
+var result := doubleTo(5);
 ```
 
 ### Closures in Functions
 
-Functions in OSL can capture variables from their defining scope, enabling closures:
+Functions in osl can capture variables from their defining scope, enabling closures:
 
-```py
+```python
 fn f1()
 {
     var x := 10;
@@ -173,7 +159,7 @@ var msg := f1();
 msg();
 ```
 
-```py
+```python
 fn fib(n)
 {
     if (n <= 1) return n;

@@ -43,7 +43,7 @@ Below is a table describing the opcodes, their operands, and their functions in 
 | 0x50                           | JUMP            | 2 bytes (signed offset) | Unconditionally jump by the relative offset (added to PC).                                         |
 | 0x51                           | JUMP_IF_ZERO    | 2 bytes (signed offset) | Pop an INT; if zero, jump by the relative offset.                                                  |
 | 0x52                           | JUMP_IF_NONZERO | 2 bytes (signed offset) | Pop an INT; if nonzero, jump by the relative offset.                                               |
-| 0x53                           | CALL            | 2 bytes (address)       | Push the return address and jump to the subroutine at the specified address.                       |
+| 0x53                           | CALL            | None                    | Pop the jump address, pop number of args, pop the Value-ID arg pairs                               |
 | 0x54                           | RETURN          | None                    | Pop the return address from the stack and jump back to it.                                         |
 | 0x55                           | HALT            | None                    | Terminate program execution.                                                                       |
 | **Type Conversion Operations** |                 |                         |                                                                                                    |
@@ -57,3 +57,8 @@ Below is a table describing the opcodes, their operands, and their functions in 
 | 0x70                           | NEW_OBJECT      | 1 byte (field count)    | Allocate a new object with the specified number of fields; push the object pointer onto the stack. |
 | 0x71                           | GET_FIELD       | 1 byte (field index)    | Pop an object and push the value from the specified field of the object.                           |
 | 0x72                           | SET_FIELD       | 1 byte (field index)    | Pop a value and then an object; set the object's specified field to the popped value.              |
+| **Stack Memory Operations**    |                 |                         |                                                                                                    |
+| 0x80                           | STORE           | 4 byte (ID)             | Pop from stack and assign to the variable ID                                                       |
+| 0x81                           | LOAD            | 4 byte (ID)             | Push the Value corresponding to the variable ID onto the stack                                     |
+| **I/O Operations**             |                 |                         |                                                                                                    |
+| 0x90                           | LOG             | None                    | Pops and prints the value to STDOUT                                                                |

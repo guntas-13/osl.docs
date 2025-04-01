@@ -101,23 +101,26 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Getting Started: gettingstarted/gs.md
   - Documentation:
-      - Grammar: documentation/grammar.md
-      - Future Grammar: documentation/grammarP.md
-      - AST Nodes: documentation/ast_nodes.md
+      - Variables & Constants: documentation/variables.md
+      - Functions: documentation/func.md
       - Syntax: documentation/syntax.md
-      - Bytecode: documentation/bytecode.md
-      - Garbage Collection: documentation/gc.md
-      - Lexer and Parser Generator: documentation/gen.md
-      # - Doc 1: documentation/doc1.md
-      # - Doc 2: documentation/doc2.md
-      # - MkDocs Documentation: documentation/doc.md
+      - Features: documentation/features.md
+      - Grammar: documentation/grammar.md
+  - Developer Guide:
+      - Abstract Syntax: dev/ast_nodes.md
+      - Bytecode: dev/bytecode.md
+      - Garbage Collection: dev/gc.md
+      - Lexer and Parser Generator: dev/gen.md
+      - Contributing: dev/contribute.md
   - Tutorials:
       - Euler Problems: tutorials/euler.md
-  - Progress:
-      - Home: progress/progress.md
-      - Week 1: progress/week1.md
-      - Week 2: progress/week2.md
+      - ByteCode Generation: tutorials/bytecodeEx.md
+  # - Progress:
+  #     - Home: progress/progress.md
+  #     - Week 1: progress/week1.md
+  #     - Week 2: progress/week2.md
 
 extra_css:
   - stylesheets/extra.css
