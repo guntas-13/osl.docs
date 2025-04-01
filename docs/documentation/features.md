@@ -27,7 +27,7 @@ Escape analysis is a planned optimization to determine when variables can stay o
 var x := 6;
 fn f()
 {
-    var x := 6;
+    var x := 5;
     fn g()
     {
         return x;
@@ -35,5 +35,5 @@ fn f()
     return g;
 }
 var h := f();
-log h(); // 6
+log h(); // 5
 ```
