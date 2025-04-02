@@ -117,6 +117,7 @@ nav:
   - Tutorials:
       - Euler Problems: tutorials/euler.md
       - ByteCode Generation: tutorials/bytecodeEx.md
+  - Issues: issues/issues.md
   # - Progress:
   #     - Home: progress/progress.md
   #     - Week 1: progress/week1.md
