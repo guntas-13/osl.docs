@@ -4,7 +4,7 @@ icon: material/alert
 
 # Pending Issues
 
-## Python's Bytecode for Closures
+## Python's Bytecode for Closures [1 April 2025]
 
 Take a look at this code snippet:
 
@@ -207,4 +207,198 @@ def do_codegen(tree: AST, env: Environment = None):
             return code
 
         # MORE
+```
+
+## FIXED [2 April 2025]!!
+
+```python
+full_code = bytearray()
+
+def do_codegen(tree: AST, code: bytearray = None): # returns bytearray
+
+    def e_(tree: AST):
+        return do_codegen(tree)
+
+    if code is None:
+        code = bytearray()
+
+    match tree:
+
+        case LetFun(Variable(varName, i), params, body):
+            code.append(PUSH_INT)
+            code.extend(int(i).to_bytes(4, 'little'))
+            code.append(MAKEF)
+
+            new_code = bytearray()
+            # add arguments to stack
+            for param in params:
+                new_code.append(PUSH_INT)
+                new_code.extend(int(param.id).to_bytes(4, 'little'))
+            # add number of arguments
+            new_code.append(PUSH_INT)
+            new_code.extend(int(len(params)).to_bytes(4, 'little'))
+            # add function id
+            new_code.append(PUSH_INT)
+            new_code.extend(int(i).to_bytes(4, 'little'))
+            new_code.append(NEWF)
+
+            fbody = do_codegen(body)
+
+            new_code.append(JUMP)
+            new_code.extend(len(fbody).to_bytes(2, 'little'))
+            global full_code
+            new_code.extend(fbody)
+            full_code.extend(new_code)
+            return code
+
+        case CallFun(Variable(varName, i), args):
+            for arg in args:
+                code.extend(e_(arg))
+
+            code.append(PUSH_INT)
+            code.extend(int(len(args)).to_bytes(4, 'little'))
+            code.append(PUSH_INT)
+            code.extend(int(i).to_bytes(4, 'little'))
+            code.append(CALL)
+            return code
+
+def codegen(t):
+    global full_code
+    code = do_codegen(t)
+    full_code.extend(code)
+    full_code.append(HALT)
+    return full_code
+```
+
+| Opcode (Hex)              | Mnemonic | Operands | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Function Instructions** |          |          |                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 0x91                      | NEWF     | None     | Introduced in the header of bytecode for each function declaration allowing the VM to create a Function Object with Function's ID and its Arguments' ID: Pops Function's ID, Pops the number of arguments, Pops the IDs of the arguments and make a Function Object. This instruction will be followed by a JUMP past its body, hence the entry point of the Function's Body can be infered here in the VM too: PC + 4 [JUMP B1 B2] |
+| 0x92                      | MAKEF    | None     | Introduced in the code segement at the time of function declaration: Pops the Function ID, fetches the Function Object (marked from the previous NEWF), adds it into the current environment and assigns the Function Object's environment as this current environment (with its ID added - to support recursion)                                                                                                                   |
+
+```python
+var x := 5;
+
+fn foo()
+{
+    x := 10;
+    fn bar()
+    {
+        x := 15;
+        fn foobar()
+        {
+            x := 20;
+            return x;
+        }
+        log x;
+        return foobar;
+    }
+    log x;
+    return bar;
+}
+
+var f := foo();
+var g := f();
+log g();
+log x;
+```
+
+Hence, for the above code, we get the bytecode as:
+
+```bash
+# HEADER STARTS
+
+# fn foobar() -> id 4, 0 args
+PUSH_INT 0
+PUSH_INT 4
+NEWF
+JUMP 16         # JUMP past the body
+PUSH_INT 20
+STORE 1
+LOAD 1
+RETURN
+
+# fn bar() -> id 3, 1 args
+PUSH_INT 0
+PUSH_INT 3
+NEWF
+JUMP 28         # JUMP past the body
+PUSH_INT 15
+STORE 1
+PUSH_INT 4
+MAKEF           # fn foobar()
+LOAD 1
+LOG             # log x
+LOAD 4
+RETURN          # return foobar
+
+# fn foo() -> id 2, 0 args
+PUSH_INT 0
+PUSH_INT 2
+NEWF
+JUMP 28
+PUSH_INT 10
+STORE 1
+PUSH_INT 3
+MAKEF           # fn bar()
+LOAD 1
+LOG             # log x
+LOAD 3
+RETURN          # return bar
+
+# CODE BODY STARTS HERE
+PUSH_INT 5
+STORE 1         # var x := 5
+
+PUSH_INT 2
+MAKEF           # fn foo() {}
+
+PUSH_INT 0
+PUSH_INT 2
+CALL
+STORE 5
+PUSH_INT 0
+PUSH_INT 5
+CALL
+STORE 6
+PUSH_INT 0
+PUSH_INT 6
+CALL
+LOG
+LOAD 1
+LOG
+HALT
+```
+
+This is executed in the VM as:
+
+```python
+class StackVM:
+
+    def execute(self):
+        while self.pc < len(self.code.bytecode):
+            op = self.code.bytecode[self.pc]
+
+            # CODE
+
+            elif op == Opcode.NEWF:
+                fun_id = self.pop().val
+                num_args = self.pop().val
+                args_ids = []
+                for _ in range(num_args):
+                    args_ids.append(self.pop().val)
+
+                newFunObj = FunObj(self.pc+4, args_ids, None)
+                self.current_env().add(fun_id, newFunObj)
+                self.pc += 1
+
+            elif op == Opcode.MAKEF:
+                fun_id = self.pop().val
+                funObject = self.current_env().get(fun_id)
+
+                self.current_env().add(fun_id, funObject)
+                funObject.env = self.current_env().copy()
+                self.pc += 1
+
+            # CODE
 ```
