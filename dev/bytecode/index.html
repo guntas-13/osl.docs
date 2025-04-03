@@ -1050,7 +1050,7 @@
 <td>0x53</td>
 <td>CALL</td>
 <td>None</td>
-<td>Pop the jump address, pop number of args, pop the Value-ID arg pairs</td>
+<td>Pops the Function ID, Pops the Number of Arguments, Pops N arguments Values, Creates a Call Frame and assigns PC = Entry Point of the fetched function</td>
 </tr>
 <tr>
 <td>0x54</td>
@@ -1159,6 +1159,24 @@
 <td>LOG</td>
 <td>None</td>
 <td>Pops and prints the value to STDOUT</td>
+</tr>
+<tr>
+<td><strong>Function Instructions</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x91</td>
+<td>NEWF</td>
+<td>None</td>
+<td>Introduced in the header of bytecode for each function declaration allowing the VM to create a Function Object with Function's ID and its Arguments' ID: Pops Function's ID, Pops the number of arguments, Pops the IDs of the arguments and make a Function Object. This instruction will be followed by a JUMP past its body, hence the entry point of the Function's Body can be infered here in the VM too: PC + 4 [JUMP B1 B2]</td>
+</tr>
+<tr>
+<td>0x92</td>
+<td>MAKEF</td>
+<td>None</td>
+<td>Introduced in the code segement at the time of function declaration: Pops the Function ID, fetches the Function Object (marked from the previous NEWF), adds it into the current environment and assigns the Function Object's environment as this current environment (with its ID added - to support recursion)</td>
 </tr>
 </tbody>
 </table>
