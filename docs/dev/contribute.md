@@ -19,7 +19,7 @@ OSL is open-source at [https://github.com/mshandilya/osl](https://github.com/msh
 4. **Submit a Pull Request**:
    Describe your changes clearly in the PR.
 
-Check the [Issues](https://github.com/mshandilya/osl/issues) tab for tasks or propose new features!
+Check the [Issues](https://github.com/mshandilya/osl./issues) tab for tasks or propose new features!
 
 ## How to Customize
 
