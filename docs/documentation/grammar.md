@@ -33,18 +33,25 @@ icon: fontawesome/solid/spell-check
 
 - `expression` → `assignment` | `expB`
 - `assignment` → `IDENTIFIER ":=" expB`
-- `expB` → `logicOr`
-- `logicOr` → `logicAnd ("||" logicAnd)*`
+- `expB` → `logicAnd ("||" logicAnd)*`
 - `logicAnd` → `comparison ("&&" comparison)*`
 - `comparison` → `add (("<" | ">" | "<=" | ">=" | "=" | "!=") add)*`
 - `add` → `mul (("+" | "-") mul)*`
 - `mul` → `exp (("*" | "/" | "%") exp)*`
 - `exp` → `unary ("^" unary)*`
-- `unary` → `("-" | "√") unary` | `atom`
-- `atom` → `NUMBER` | `IDENTIFIER` | `funCall` | `"(" expB ")"`
+- `unary` → `("-" | "~") unary` | `secondary` | `arrayDecl`
 
-## Literals and Tokens
+## Calls, Array Decls, and Array Accesses
 
+- `secondary` → `primary` | `primary calls` | `primary ArrAccesses`
+- `calls` → `cl` | `cl calls`
+- `cl` → `"(" arguments? ")"`
+- `ArrAccesses` → `ac` | `ac ArrAccesses`
+- `ac` → `"[" expB "]"`
+
+## Primary: Literals and Tokens
+
+- `primary` → `NUMBER` | `IDENTIFIER` | `"(" expB ")"`
 - `NUMBER` → `DIGIT+ ("." DIGIT*)?` | `"." DIGIT+`
 - `DIGIT` → `"0"` | `"1"` | `"2"` | `"3"` | `"4"` | `"5"` | `"6"` | `"7"` | `"8"` | `"9"`
 - `IDENTIFIER` → `LETTER (LETTER | DIGIT | "_")*`
