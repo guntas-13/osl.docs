@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/oslMascotLogo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -562,9 +562,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#literals-and-tokens" class="md-nav__link">
+  <a href="#calls-array-decls-and-array-accesses" class="md-nav__link">
     <span class="md-ellipsis">
-      Literals and Tokens
+      Calls, Array Decls, and Array Accesses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primary-literals-and-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary: Literals and Tokens
     </span>
   </a>
   
@@ -956,9 +965,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#literals-and-tokens" class="md-nav__link">
+  <a href="#calls-array-decls-and-array-accesses" class="md-nav__link">
     <span class="md-ellipsis">
-      Literals and Tokens
+      Calls, Array Decls, and Array Accesses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primary-literals-and-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary: Literals and Tokens
     </span>
   </a>
   
@@ -1022,18 +1040,25 @@
 <ul>
 <li><code>expression</code> → <code>assignment</code> | <code>expB</code></li>
 <li><code>assignment</code> → <code>IDENTIFIER ":=" expB</code></li>
-<li><code>expB</code> → <code>logicOr</code></li>
-<li><code>logicOr</code> → <code>logicAnd ("||" logicAnd)*</code></li>
+<li><code>expB</code> → <code>logicAnd ("||" logicAnd)*</code></li>
 <li><code>logicAnd</code> → <code>comparison ("&amp;&amp;" comparison)*</code></li>
 <li><code>comparison</code> → <code>add (("&lt;" | "&gt;" | "&lt;=" | "&gt;=" | "=" | "!=") add)*</code></li>
 <li><code>add</code> → <code>mul (("+" | "-") mul)*</code></li>
 <li><code>mul</code> → <code>exp (("*" | "/" | "%") exp)*</code></li>
 <li><code>exp</code> → <code>unary ("^" unary)*</code></li>
-<li><code>unary</code> → <code>("-" | "√") unary</code> | <code>atom</code></li>
-<li><code>atom</code> → <code>NUMBER</code> | <code>IDENTIFIER</code> | <code>funCall</code> | <code>"(" expB ")"</code></li>
+<li><code>unary</code> → <code>("-" | "~") unary</code> | <code>secondary</code> | <code>arrayDecl</code></li>
 </ul>
-<h2 id="literals-and-tokens">Literals and Tokens<a class="headerlink" href="#literals-and-tokens" title="Permanent link">&para;</a></h2>
+<h2 id="calls-array-decls-and-array-accesses">Calls, Array Decls, and Array Accesses<a class="headerlink" href="#calls-array-decls-and-array-accesses" title="Permanent link">&para;</a></h2>
 <ul>
+<li><code>secondary</code> → <code>primary</code> | <code>primary calls</code> | <code>primary ArrAccesses</code></li>
+<li><code>calls</code> → <code>cl</code> | <code>cl calls</code></li>
+<li><code>cl</code> → <code>"(" arguments? ")"</code></li>
+<li><code>ArrAccesses</code> → <code>ac</code> | <code>ac ArrAccesses</code></li>
+<li><code>ac</code> → <code>"[" expB "]"</code></li>
+</ul>
+<h2 id="primary-literals-and-tokens">Primary: Literals and Tokens<a class="headerlink" href="#primary-literals-and-tokens" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>primary</code> → <code>NUMBER</code> | <code>IDENTIFIER</code> | <code>"(" expB ")"</code></li>
 <li><code>NUMBER</code> → <code>DIGIT+ ("." DIGIT*)?</code> | <code>"." DIGIT+</code></li>
 <li><code>DIGIT</code> → <code>"0"</code> | <code>"1"</code> | <code>"2"</code> | <code>"3"</code> | <code>"4"</code> | <code>"5"</code> | <code>"6"</code> | <code>"7"</code> | <code>"8"</code> | <code>"9"</code></li>
 <li><code>IDENTIFIER</code> → <code>LETTER (LETTER | DIGIT | "_")*</code></li>
