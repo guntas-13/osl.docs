@@ -1031,19 +1031,19 @@
 <tr>
 <td>0x50</td>
 <td>JUMP</td>
-<td>2 bytes (signed offset)</td>
+<td>4 bytes (signed offset)</td>
 <td>Unconditionally jump by the relative offset (added to PC).</td>
 </tr>
 <tr>
 <td>0x51</td>
 <td>JUMP_IF_ZERO</td>
-<td>2 bytes (signed offset)</td>
+<td>4 bytes (signed offset)</td>
 <td>Pop an INT; if zero, jump by the relative offset.</td>
 </tr>
 <tr>
 <td>0x52</td>
 <td>JUMP_IF_NONZERO</td>
-<td>2 bytes (signed offset)</td>
+<td>4 bytes (signed offset)</td>
 <td>Pop an INT; if nonzero, jump by the relative offset.</td>
 </tr>
 <tr>
@@ -1138,14 +1138,14 @@
 </tr>
 <tr>
 <td>0x80</td>
-<td>STORE</td>
-<td>4 byte (ID)</td>
+<td>SET</td>
+<td>8 byte (ID)</td>
 <td>Pop from stack and assign to the variable ID</td>
 </tr>
 <tr>
 <td>0x81</td>
-<td>LOAD</td>
-<td>4 byte (ID)</td>
+<td>GET</td>
+<td>8 byte (ID)</td>
 <td>Push the Value corresponding to the variable ID onto the stack</td>
 </tr>
 <tr>
@@ -1177,6 +1177,30 @@
 <td>MAKEF</td>
 <td>None</td>
 <td>Introduced in the code segement at the time of function declaration: Pops the Function ID, fetches the Function Object (marked from the previous NEWF), adds it into the current environment and assigns the Function Object's environment as this current environment (with its ID added - to support recursion)</td>
+</tr>
+<tr>
+<td><strong>Array Instructions</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x93</td>
+<td>MAKE_ARRAY</td>
+<td>2 byte (Size)</td>
+<td></td>
+</tr>
+<tr>
+<td>0x94</td>
+<td>ARRACC</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>0x97</td>
+<td>MAKE_ARRAY_DECL</td>
+<td>2 byte (Number of Dimensions)</td>
+<td></td>
 </tr>
 </tbody>
 </table>
