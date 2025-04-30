@@ -105,19 +105,22 @@ nav:
   - Documentation:
       - Variables & Constants: documentation/variables.md
       - Functions: documentation/func.md
-      - Syntax: documentation/syntax.md
+      - Syntax: documentation/syn.md
       - Features: documentation/features.md
       - Grammar: documentation/grammar.md
   - Developer Guide:
       - Abstract Syntax: dev/ast_nodes.md
-      - Bytecode: dev/bytecode.md
+      - Bytecode: dev/bytecodeLeg.md
+      - Escape Analysis: dev/escape.md
+      - Virtual Machine: dev/VM.md
       - Garbage Collection: dev/gc.md
       - Lexer and Parser Generator: dev/gen.md
       - Contributing: dev/contribute.md
   - Tutorials:
       - Euler Problems: tutorials/euler.md
-      - ByteCode Generation: tutorials/bytecodeEx.md
-  - Issues: issues/issues.md
+      - ByteCode Generation: tutorials/byteEx.md
+      - Low-Level Compiler: tutorials/cpp.md
+  # - Issues: issues/issues.md
   # - Progress:
   #     - Home: progress/progress.md
   #     - Week 1: progress/week1.md

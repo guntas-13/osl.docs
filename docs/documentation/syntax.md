@@ -100,10 +100,10 @@ var x := 5;
 
 ### Function Declaration
 
-Functions are defined using the `fn` keyword:
+Functions are defined using the `def` keyword:
 
 ```python
-fn add(a, b)
+def add(a, b)
 {
     return a + b;
 }
@@ -128,9 +128,9 @@ osl. treats functions as first-class citizens, meaning they can:
 Example:
 
 ```python
-fn multiplyBy(n)
+def multiplyBy(n)
 {
-    fn inner(x)
+    def inner(x)
     {
         return x * n;
     }
@@ -146,10 +146,10 @@ var result := doubleTo(5);
 Functions in osl can capture variables from their defining scope, enabling closures:
 
 ```python
-fn f1()
+def f1()
 {
     var x := 10;
-    fn f2()
+    def f2()
     {
         return x;
     }
@@ -160,7 +160,7 @@ msg();
 ```
 
 ```python
-fn fib(n)
+def fib(n)
 {
     if (n <= 1) return n;
     return fib(n - 1) + fib(n - 2);

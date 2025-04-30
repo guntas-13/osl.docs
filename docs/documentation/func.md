@@ -6,12 +6,12 @@ icon: material/function
 
 ## Functions as First-Class Citizens
 
-Functions in OSL are first-class, meaning they can be assigned to variables, passed as arguments, and returned from other functions.
+Functions in osl. are first-class, meaning they can be assigned to variables, passed as arguments, and returned from other functions.
 
 ```python
-fn multiplyBy(n)
+def multiplyBy(n)
 {
-    fn inner(x)
+    def inner(x)
     {
         return x * n;
     }
@@ -20,6 +20,8 @@ fn multiplyBy(n)
 
 var doubleBy := multiplyBy(2);
 log doubleBy(5); // Outputs: 10
+
+log multiplyBy(2)(5); // Outputs: 10
 ```
 
 ## Closures
@@ -27,10 +29,10 @@ log doubleBy(5); // Outputs: 10
 Functions capture their enclosing scope, enabling closures:
 
 ```python
-fn counter()
+def counter()
 {
     var count := 0;
-    fn increment()
+    def increment()
     {
         count := count + 1;
         return count;
@@ -38,9 +40,12 @@ fn counter()
     return increment;
 }
 
-var c := counter();
-log c(); // Outputs: 1
-log c(); // Outputs: 2
+var c1 := counter();
+var c2 := counter();
+log c1(); // Outputs: 1
+log c1(); // Outputs: 2
+log c2(); // Outputs: 1
+log c2(); // Outputs: 2
 ```
 
 ## Recursion
@@ -48,7 +53,7 @@ log c(); // Outputs: 2
 osl. supports recursive functions:
 
 ```python
-fn factorial(n)
+def factorial(n)
 {
     if (n <= 1) return 1;
     return n * factorial(n - 1);
