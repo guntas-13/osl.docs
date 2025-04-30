@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#current-grammar" class="md-skip">
+        <a href="#current-grammar-python-version" class="md-skip">
           Skip to content
         </a>
       
@@ -413,7 +413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../syntax/" class="md-nav__link">
+      <a href="../syn/" class="md-nav__link">
         
   
   
@@ -674,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/bytecode/" class="md-nav__link">
+      <a href="../../dev/bytecodeLeg/" class="md-nav__link">
         
   
   
@@ -682,6 +682,56 @@
   
   <span class="md-ellipsis">
     Bytecode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/escape/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 5.5a2 2 0 0 0 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2m-3.6 13.9 1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3A7.3 7.3 0 0 0 22 13v-2c-1.76.03-3.4-.89-4.3-2.4l-1-1.6c-.36-.6-1-1-1.7-1-.3 0-.5.1-.8.1L9 8.3V13h2V9.6l1.8-.7-1.6 8.1-4.9-1-.4 2zM4 9a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3v2zm1-4a1 1 0 0 1-1-1 1 1 0 0 1 1-1h5v2zm-2 8a1 1 0 0 1-1-1 1 1 0 0 1 1-1h4v2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Escape Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/VM/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38zM6.77 14.32l.37-1.76 8.79 1.85-.37 1.76zm1.16-4.21.76-1.61 8.14 3.78-.76 1.62zm2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37zm4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21zM6.59 18.41v-1.8h8.98v1.8z"/></svg>
+  
+  <span class="md-ellipsis">
+    Virtual Machine
     
   </span>
   
@@ -844,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/bytecodeEx/" class="md-nav__link">
+      <a href="../../tutorials/byteEx/" class="md-nav__link">
         
   
   
@@ -862,33 +912,34 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../issues/issues/" class="md-nav__link">
+      <a href="../../tutorials/cpp/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.5 15.97.41 2.44c-.26.14-.68.27-1.24.39-.57.13-1.24.2-2.01.2-2.21-.04-3.87-.7-4.98-1.96Q1 15.135 1 12.21c.05-2.31.72-4.08 2-5.32C4.32 5.64 5.96 5 7.94 5c.75 0 1.4.07 1.94.19s.94.25 1.2.4l-.58 2.49-1.06-.34c-.4-.1-.86-.15-1.39-.15-1.16-.01-2.12.36-2.87 1.1-.76.73-1.15 1.85-1.18 3.34 0 1.36.37 2.42 1.08 3.2.71.77 1.71 1.17 2.99 1.18l1.33-.12c.43-.08.79-.19 1.1-.32M11 11h2V9h2v2h2v2h-2v2h-2v-2h-2zm7 0h2V9h2v2h2v2h-2v2h-2v-2h-2z"/></svg>
   
   <span class="md-ellipsis">
-    Issues
+    Low-Level Compiler
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1010,7 +1061,7 @@
   
 
 
-<h1 id="current-grammar">Current Grammar<a class="headerlink" href="#current-grammar" title="Permanent link">&para;</a></h1>
+<h1 id="current-grammar-python-version">Current Grammar - Python Version<a class="headerlink" href="#current-grammar-python-version" title="Permanent link">&para;</a></h1>
 <h2 id="program-structure">Program Structure<a class="headerlink" href="#program-structure" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>program</code> → <code>declaration* EOF</code></li>
@@ -1071,201 +1122,314 @@
 <li><strong>Operator Precedence</strong>: The grammar enforces precedence from highest (<code>unary</code>) to lowest (<code>logicOr</code>), ensuring correct expression evaluation.</li>
 <li><strong>Optional Elements</strong>: Constructs like <code>parameters?</code>, <code>expression?</code>, and <code>"else" statement?</code> indicate optional components, parsed with conditional checks.</li>
 </ul>
-<h1 id="osl-grammar-recursive-descent-style">OSL Grammar (Recursive Descent Style)<a class="headerlink" href="#osl-grammar-recursive-descent-style" title="Permanent link">&para;</a></h1>
-<p>Below is the OSL grammar presented in a recursive descent style using arrow notation (<code>→</code>). This format avoids Markdown table complexities and focuses on clarity for parsing and implementation.</p>
-<h2 id="program-structure_1">Program Structure<a class="headerlink" href="#program-structure_1" title="Permanent link">&para;</a></h2>
+<h1 id="grammar-structure-unambiguous">Grammar Structure Unambiguous<a class="headerlink" href="#grammar-structure-unambiguous" title="Permanent link">&para;</a></h1>
+<p>The grammar is organized into several categories: program structure, declarations, statements, expressions, types, and literals. Below, we explain each category with examples from OSL syntax.</p>
+<h3 id="1-program-structure">1. Program Structure<a class="headerlink" href="#1-program-structure" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>Prog</code> → <code>Decl* EOF</code></li>
-<li><code>Decl</code> → <code>FunDecl</code> | <code>FunDeclB</code> | <code>VarDecl</code> | <code>Stmt</code></li>
-<li><code>Block</code> → <code>"{" Decl* "}"</code></li>
+<li>
+<p><strong>Rules</strong>:</p>
+</li>
+<li>
+<p><code>&lt;Prog&gt; ::= &lt;Decls&gt;</code>: A program is a sequence of declarations.</p>
+</li>
+<li><code>&lt;Decls&gt; ::= &lt;Decl&gt; &lt;Decls&gt; | &lt;Decl&gt;</code>: Declarations are processed sequentially.</li>
+<li><code>&lt;Block&gt; ::= LBRACE RBRACE | LBRACE &lt;Decls&gt; RBRACE</code>: A block is a sequence of declarations within <code>{}</code>.</li>
 </ul>
-<h2 id="function-declarations-and-calls_1">Function Declarations and Calls<a class="headerlink" href="#function-declarations-and-calls_1" title="Permanent link">&para;</a></h2>
+<h3 id="2-declarations">2. Declarations<a class="headerlink" href="#2-declarations" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>FunDecl</code> → <code>"fn" Type FunIden "(" Params? ")" Block</code></li>
-<li><code>FunDeclB</code> → <code>"fn" Type FunIdenB "(" Params? ")" Block</code></li>
-<li><code>FunCall</code> → <code>FunIden "(" Params? ")"</code></li>
-<li><code>FunCallB</code> → <code>FunIdenB "(" Params? ")"</code></li>
-<li><code>Params</code> → <code>Param ("," Param)*</code></li>
-<li><code>Param</code> → <code>Type (Iden | IdenB)</code></li>
+<li>
+<p><strong>Rules</strong>:</p>
+</li>
+<li>
+<p><code>&lt;Decl&gt; ::= &lt;ConstDecl&gt; | &lt;VarDecl&gt; | &lt;FunDecl&gt; | &lt;Stmt&gt;</code>: Declarations include constants, variables, functions, or statements.</p>
+</li>
+<li><code>&lt;ConstDecl&gt; ::= CONST &lt;DeclType&gt; IDEN ASSIGN &lt;Val&gt; SEMC</code>: Constant declaration with mandatory initialization.</li>
+<li><code>&lt;VarDecl&gt; ::= VAR &lt;DeclType&gt; IDEN ASSIGN &lt;Val&gt; SEMC | VAR &lt;DeclType&gt; IDEN SEMC</code>: Variable declaration with optional initialization.</li>
+<li><code>&lt;FunDecl&gt; ::= DEFINE &lt;Type&gt; IDEN LPAREN RPAREN &lt;Block&gt; | DEFINE &lt;Type&gt; IDEN LPAREN &lt;DeclParams&gt; RPAREN &lt;Block&gt;</code>: Function declaration with optional parameters.</li>
+<li><code>&lt;DeclParams&gt; ::= &lt;DeclParam&gt; | &lt;DeclParam&gt; COMMA &lt;DeclParams&gt;</code>: Parameter list.</li>
+<li><code>&lt;DeclParam&gt; ::= &lt;Type&gt; IDEN</code>: Typed parameter.</li>
 </ul>
-<h2 id="statements_1">Statements<a class="headerlink" href="#statements_1" title="Permanent link">&para;</a></h2>
+<h3 id="3-statements">3. Statements<a class="headerlink" href="#3-statements" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>Stmt</code> → <code>IfStmt</code> | <code>LogStmt</code> | <code>RetStmt</code> | <code>Block</code> | <code>ExpStmt</code></li>
-<li><code>IfStmt</code> → <code>"if" ValB Block ("elif" ValB Block)* ("else" Block)?</code></li>
-<li><code>LogStmt</code> → <code>"log" (Val | ValB) ";"</code></li>
-<li><code>RetStmt</code> → <code>"return" (Val | ValB) ";"</code></li>
-<li><code>ExpStmt</code> → <code>(Val | ValB) ";"</code></li>
-<li><code>VarDecl</code> → <code>"var" Type (IdenB | Iden | Assn | AssnB) ";"</code></li>
+<li>
+<p><strong>Rules</strong>:</p>
+</li>
+<li>
+<p><code>&lt;Stmt&gt; ::= &lt;ExpStmt&gt; | &lt;LogStmt&gt; | &lt;RetStmt&gt; | &lt;Cond&gt; | &lt;Loop&gt;</code>: Statements include expressions, logging, returns, conditionals, or loops.</p>
+</li>
+<li><code>&lt;ExpStmt&gt; ::= &lt;Val&gt; SEMC</code>: Expression statement.</li>
+<li><code>&lt;LogStmt&gt; ::= LOG &lt;Val&gt; SEMC</code>: Print a value.</li>
+<li><code>&lt;RetStmt&gt; ::= RETURN &lt;Val&gt; SEMC</code>: Return a value.</li>
+<li><code>&lt;Loop&gt; ::= WHILE &lt;Val&gt; &lt;Block&gt;</code>: While loop with a condition and block.</li>
+<li><code>&lt;Cond&gt; ::= IF &lt;Val&gt; &lt;Block&gt; | IF &lt;Val&gt; &lt;Block&gt; &lt;Else&gt; | IF &lt;Val&gt; &lt;Block&gt; &lt;Elifs&gt; | IF &lt;Val&gt; &lt;Block&gt; &lt;Elifs&gt; &lt;Else&gt;</code>: Conditional with <code>if</code>, <code>elif</code>, <code>else</code>.</li>
+<li><code>&lt;Elifs&gt; ::= &lt;Elif&gt; | &lt;Elif&gt; &lt;Elifs&gt;</code>: Multiple <code>elif</code> clauses.</li>
+<li><code>&lt;Elif&gt; ::= ELIF &lt;Val&gt; &lt;Block&gt;</code>: Single <code>elif</code> clause.</li>
+<li><code>&lt;Else&gt; ::= ELSE &lt;Block&gt;</code>: Optional <code>else</code> clause.</li>
 </ul>
-<h2 id="expressions-and-values">Expressions and Values<a class="headerlink" href="#expressions-and-values" title="Permanent link">&para;</a></h2>
-<h3 id="value-variants">Value Variants<a class="headerlink" href="#value-variants" title="Permanent link">&para;</a></h3>
+<h3 id="4-expressions">4. Expressions<a class="headerlink" href="#4-expressions" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>Val</code> → <code>Assn</code> | <code>Exp</code> | <code>Null</code></li>
-<li><code>ValB</code> → <code>AssnB</code> | <code>ExpB</code> | <code>Null</code></li>
-<li><code>Assn</code> → <code>Iden ":=" (Exp | Null)</code> | <code>Iden ":=" Assn</code></li>
-<li><code>AssnB</code> → <code>IdenB ":=" (ExpB | Null)</code> | <code>IdenB ":=" AssnB</code></li>
+<li>
+<p><strong>Rules</strong>:</p>
+</li>
+<li>
+<p><code>&lt;Val&gt; ::= &lt;Exp&gt; | &lt;Assn&gt;</code>: A value is an expression or assignment.</p>
+</li>
+<li><code>&lt;Assn&gt; ::= &lt;Loc&gt; ASSIGN &lt;Val&gt;</code>: Assignment to a location (variable, array element, or dereferenced pointer).</li>
+<li><code>&lt;Loc&gt; ::= &lt;ArrAcc&gt; | IDEN | &lt;PtrDeref&gt;</code>: Location can be an array access, identifier, or dereferenced pointer.</li>
+<li><code>&lt;Exp&gt; ::= &lt;UOp&gt; | &lt;BinOp&gt; | &lt;UnAmb&gt;</code>: Expressions include unary operations, binary operations, or unambiguous terms.</li>
+<li><code>&lt;BinOp&gt; ::= &lt;Shift&gt; | &lt;Xand&gt; | &lt;Xor&gt; | &lt;And&gt; | &lt;Or&gt; | &lt;Mod&gt; | &lt;Pow&gt; | &lt;Sub&gt; | &lt;Div&gt; | &lt;Add&gt; | &lt;Mul&gt; | &lt;Eq&gt; | &lt;Neq&gt; | &lt;Less&gt; | &lt;Great&gt; | &lt;ArrAcc&gt;</code>: Binary operations with clear precedence.</li>
+<li><code>&lt;UOp&gt; ::= &lt;UnSign&gt; | &lt;UnNot&gt; | &lt;PtrDeref&gt; | &lt;FunCall&gt; | &lt;Ptr&gt;</code>: Unary operations (sign, logical not, dereference, function call, pointer).</li>
+<li><code>&lt;UnAmb&gt; ::= &lt;Atom&gt; | &lt;Arr&gt; | &lt;Ptr&gt; | IDEN | &lt;ArrAcc&gt; | LPAREN &lt;Exp&gt; RPAREN</code>: Unambiguous terms (literals, arrays, pointers, identifiers, array accesses, parenthesized expressions).</li>
 </ul>
-<h3 id="expressions-typed-expb">Expressions (Typed: <code>ExpB</code>)<a class="headerlink" href="#expressions-typed-expb" title="Permanent link">&para;</a></h3>
+<h3 id="5-arrays-and-array-access">5. Arrays and Array Access<a class="headerlink" href="#5-arrays-and-array-access" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>ExpB</code> → <code>UnAmbB</code> | <code>OrB</code> | <code>NotB</code> | <code>AndB</code> | <code>Less</code> | <code>Greater</code> | <code>Eq</code> | <code>NotEq</code></li>
-<li><code>UnAmbB</code> → <code>Bool</code> | <code>"(" ExpB ")"</code> | <code>IdenB</code> | <code>FunCallB</code></li>
-<li><code>OrB</code> → <code>UnAmbB</code> | <code>UnAmbB "||" OrB</code></li>
-<li><code>AndB</code> → <code>UnAmbB</code> | <code>UnAmbB "&amp;&amp;" AndB</code></li>
-<li><code>NotB</code> → <code>UnAmbB</code> | <code>"~" NotB</code></li>
-<li><code>Eq</code> → <code>UnAmbB</code> | <code>Val "=" Val</code> | <code>ValB "=" ValB</code></li>
-<li><code>NotEq</code> → <code>UnAmbB</code> | <code>Val "~=" Val</code> | <code>ValB "~=" ValB</code></li>
-<li><code>Less</code> → <code>Val "&lt;" Val</code> | <code>Val "&lt;=" Val</code> | <code>Val "=" Val</code> | <code>Val "&lt;" Less</code> | <code>Val "&lt;=" Less</code> | <code>Val "=" Less</code></li>
-<li><code>Greater</code> → <code>Val "&gt;" Val</code> | <code>Val "&gt;=" Val</code> | <code>Val "=" Val</code> | <code>Val "&gt;" Greater</code> | <code>Val "&gt;=" Greater</code> | <code>Val "=" Greater</code></li>
+<li>
+<p><strong>Rules</strong>:</p>
+</li>
+<li>
+<p><code>&lt;Arr&gt; ::= LBRACE &lt;Args&gt; RBRACE</code>: Array literal with comma-separated values.</p>
+</li>
+<li><code>&lt;ArrAcc&gt; ::= &lt;Arr&gt; &lt;VMats&gt; | IDEN &lt;VMats&gt; | LPAREN &lt;Exp&gt; RPAREN &lt;VMats&gt;</code>: Array access with multiple indices.</li>
+<li><code>&lt;VMats&gt; ::= &lt;VMat&gt; &lt;VMats&gt; | &lt;VMat&gt;</code>: Multiple index brackets.</li>
+<li><code>&lt;VMat&gt; ::= LBOX &lt;Val&gt; RBOX</code>: Single index bracket.</li>
+<li><code>&lt;ArrType&gt; ::= &lt;AtomType&gt; &lt;Mats&gt; | &lt;FunType&gt; &lt;Mats&gt; | &lt;PtrType&gt; &lt;Mats&gt;</code>: Array type with dimensions.</li>
+<li><code>&lt;ArrDeclType&gt; ::= &lt;AtomType&gt; &lt;VMats&gt; | &lt;FunType&gt; &lt;VMats&gt; | &lt;PtrType&gt; &lt;VMats&gt;</code>: Declared array type with fixed sizes.</li>
 </ul>
-<h3 id="expressions-untyped-exp">Expressions (Untyped: <code>Exp</code>)<a class="headerlink" href="#expressions-untyped-exp" title="Permanent link">&para;</a></h3>
+<h3 id="6-functions-and-function-calls">6. Functions and Function Calls<a class="headerlink" href="#6-functions-and-function-calls" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>Exp</code> → <code>Add</code> | <code>Multiply</code> | <code>Divide</code> | <code>Subtract</code> | <code>Power</code> | <code>Modulo</code> | <code>And</code> | <code>Or</code> | <code>Not</code> | <code>Xor</code> | <code>Xand</code> | <code>Shift</code> | <code>UnaryNeg</code> | <code>UnAmb</code></li>
-<li><code>UnAmb</code> → <code>Number</code> | <code>"(" Exp ")"</code> | <code>Iden</code> | <code>FunCall</code></li>
-<li><code>Add</code> → <code>UnAmb</code> | <code>UnAmb "+" Add</code></li>
-<li><code>Multiply</code> → <code>UnAmb</code> | <code>UnAmb "*" Multiply</code></li>
-<li><code>Divide</code> → <code>UnAmb</code> | <code>Multiply "/" UnAmb</code></li>
-<li><code>Subtract</code> → <code>UnAmb</code> | <code>Add "-" UnAmb</code></li>
-<li><code>Power</code> → <code>UnAmb</code> | <code>UnAmb "^" UnAmb</code></li>
-<li><code>Modulo</code> → <code>UnAmb</code> | <code>UnAmb "%" UnAmb</code></li>
-<li><code>Or</code> → <code>UnAmb</code> | <code>UnAmb "|" Or</code></li>
-<li><code>And</code> → <code>UnAmb</code> | <code>UnAmb "&amp;" And</code></li>
-<li><code>Xor</code> → <code>UnAmb</code> | <code>UnAmb "!|" Xor</code></li>
-<li><code>Xand</code> → <code>UnAmb</code> | <code>UnAmb "!&amp;" Xand</code></li>
-<li><code>Shift</code> → <code>UnAmb "&gt;&gt;" UnAmb</code> | <code>UnAmb "&lt;&lt;" UnAmb</code></li>
-<li><code>Not</code> → <code>UnAmb</code> | <code>"~" Not</code></li>
-<li><code>UnaryNeg</code> → <code>UnAmb</code> | <code>"-" UnaryNeg</code> | <code>"+" UnaryNeg</code></li>
+<li>
+<p><strong>Rules</strong>:</p>
+</li>
+<li>
+<p><code>&lt;FunDecl&gt; ::= DEFINE &lt;Type&gt; IDEN LPAREN RPAREN &lt;Block&gt; | DEFINE &lt;Type&gt; IDEN LPAREN &lt;DeclParams&gt; RPAREN &lt;Block&gt;</code>: Function declaration.</p>
+</li>
+<li><code>&lt;FunCall&gt; ::= &lt;UnAmb&gt; &lt;Calls&gt;</code>: Function call with chained calls.</li>
+<li><code>&lt;Calls&gt; ::= &lt;Call&gt; &lt;Calls&gt; | &lt;Call&gt;</code>: Multiple call arguments.</li>
+<li><code>&lt;Call&gt; ::= LPAREN &lt;Args&gt; RPAREN | LPAREN RPAREN</code>: Single call with optional arguments.</li>
+<li><code>&lt;Args&gt; ::= &lt;Val&gt; | &lt;Val&gt; COMMA &lt;Args&gt;</code>: Comma-separated arguments.</li>
+<li><code>&lt;FunType&gt; ::= TFN LPAREN &lt;SigParams&gt; RPAREN RETURNS &lt;Type&gt; | TFN LPAREN RPAREN RETURNS &lt;Type&gt;</code>: Function type signature.</li>
 </ul>
-<h2 id="types-and-literals">Types and Literals<a class="headerlink" href="#types-and-literals" title="Permanent link">&para;</a></h2>
+<h3 id="7-pointers-and-dereferencing">7. Pointers and Dereferencing<a class="headerlink" href="#7-pointers-and-dereferencing" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>Type</code> → <code>"bool"</code> | <code>"i8"</code> | <code>"i16"</code> | <code>"i32"</code> | <code>"i64"</code> | <code>"i128"</code> | <code>"u8"</code> | <code>"u16"</code> | <code>"u32"</code> | <code>"u64"</code> | <code>"u128"</code> | <code>"f8"</code> | <code>"f16"</code> | <code>"f32"</code> | <code>"f64"</code> | <code>"f128"</code> | <code>"c8"</code></li>
-<li><code>Number</code> → <code>(bINTEGER bFRACTION bEXPONENT)</code> | <code>(oINTEGER oFRACTION oEXPONENT)</code> | <code>(dINTEGER dFRACTION dEXPONENT)</code> | <code>(hINTEGER hFRACTION hEXPONENT)</code></li>
+<li>
+<p><strong>Rules</strong>:</p>
+</li>
+<li>
+<p><code>&lt;Ptr&gt; ::= HASH &lt;Loc&gt;</code>: Pointer to a location.</p>
+</li>
+<li><code>&lt;PtrDeref&gt; ::= AT &lt;UnAmb&gt;</code>: Dereference a pointer.</li>
+<li><code>&lt;PtrType&gt; ::= HASH &lt;Type&gt;</code>: Pointer type.</li>
 </ul>
-<h3 id="numeric-literal-components">Numeric Literal Components<a class="headerlink" href="#numeric-literal-components" title="Permanent link">&para;</a></h3>
+<h3 id="8-types-and-literals">8. Types and Literals<a class="headerlink" href="#8-types-and-literals" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>bINTEGER</code> → <code>"0b" BITS</code> | <code>"0B" BITS</code></li>
-<li><code>oINTEGER</code> → <code>"0o" OCTS</code> | <code>"0O" OCTS</code></li>
-<li><code>dINTEGER</code> → <code>DIGITS</code></li>
-<li><code>hINTEGER</code> → <code>"0x" HEXES</code> | <code>"0X" HEXES</code></li>
-<li><code>bFRACTION</code> → <code>""</code> | <code>"." BITS</code></li>
-<li><code>oFRACTION</code> → <code>""</code> | <code>"." OCTS</code></li>
-<li><code>dFRACTION</code> → <code>""</code> | <code>"." DIGITS</code></li>
-<li><code>hFRACTION</code> → <code>""</code> | <code>"." HEXES</code></li>
-<li><code>bEXPONENT</code> → <code>""</code> | <code>"e" BITS</code></li>
-<li><code>oEXPONENT</code> → <code>""</code> | <code>"e" OCTS</code></li>
-<li><code>dEXPONENT</code> → <code>""</code> | <code>"e" DIGITS</code></li>
-<li><code>hEXPONENT</code> → <code>""</code> | <code>"p" HEXES</code></li>
+<li><strong>Rules</strong>:</li>
+<li><code>&lt;Type&gt; ::= &lt;AtomType&gt; | &lt;CompType&gt;</code>: Types are atomic or composite.</li>
+<li><code>&lt;AtomType&gt; ::= NULL | TBOOL | TC8 | TU8 | ... | TF128</code>: Basic types (null, bool, integers, floats, char).</li>
+<li><code>&lt;CompType&gt; ::= &lt;FunType&gt; | &lt;ArrType&gt; | &lt;PtrType&gt;</code>: Composite types (functions, arrays, pointers).</li>
+<li><code>&lt;Atom&gt; ::= NULL | &lt;Bool&gt; | &lt;Char&gt; | &lt;Number&gt;</code>: Literals for null, booleans, characters, and numbers.</li>
+<li><code>&lt;Number&gt; ::= BIN | OCT | DEC | HEX</code>: Numeric literals in binary, octal, decimal, or hexadecimal.</li>
 </ul>
-<h3 id="token-definitions">Token Definitions<a class="headerlink" href="#token-definitions" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>BIT</code> → <code>"0"</code> | <code>"1"</code></li>
-<li><code>BITS</code> → <code>BIT?</code></li>
-<li><code>OCT</code> → <code>"0".."7"</code></li>
-<li><code>OCTS</code> → <code>OCT?</code></li>
-<li><code>DIGIT</code> → <code>"0".."9"</code></li>
-<li><code>DIGITS</code> → <code>DIGIT?</code></li>
-<li><code>HEX</code> → <code>"0".."9"</code> | <code>"a".."f"</code> | <code>"A".."F"</code></li>
-<li><code>HEXES</code> → <code>HEX?</code></li>
-<li><code>Bool</code> → <code>"true"</code> | <code>"false"</code></li>
-<li><code>Iden</code> → <code>LETTER (LETTER | DIGIT | "_")*</code></li>
-<li><code>IdenB</code> → <code>LETTER (LETTER | DIGIT | "_")*</code></li>
-<li><code>LETTER</code> → <code>"a".."z"</code> | <code>"A".."Z"</code></li>
-</ul>
-<h2 id="notes-on-recursive-descent_1">Notes on Recursive Descent<a class="headerlink" href="#notes-on-recursive-descent_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Left Recursion</strong>: Productions like <code>Add</code>, <code>Multiply</code>, <code>OrB</code>, etc., are left-recursive and can be parsed iteratively to avoid infinite recursion.</li>
-<li><strong>Right Recursion</strong>: <code>Not</code>, <code>UnaryNeg</code>, etc., are right-recursive, fitting naturally into recursive descent parsing.</li>
-<li><strong>Ambiguity</strong>: The grammar separates typed (<code>B</code> suffix) and untyped constructs to minimize ambiguity, though overlaps (e.g., <code>Val</code> vs. <code>ValB</code>) may need precedence rules.</li>
-<li><strong>Null</strong>: Represents an uninitialized or void value, applicable in assignments and returns.</li>
-</ul>
-<h1 id="promised-unambiguous-grammar">Promised Unambiguous Grammar<a class="headerlink" href="#promised-unambiguous-grammar" title="Permanent link">&para;</a></h1>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">program</span> <span class="err">→</span> <span class="n">declaration</span><span class="o">*</span> <span class="n">EOF</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">declaration</span> <span class="err">→</span> <span class="n">funDecl</span> <span class="o">|</span> <span class="n">funcDeclB</span> <span class="o">|</span> <span class="n">varDecl</span> <span class="o">|</span> <span class="n">statement</span><span class="p">;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">funDeclB</span> <span class="err">→</span> <span class="s2">&quot;fn&quot;</span> <span class="n">TYPE</span> <span class="n">FUNIDENB</span> <span class="s2">&quot;(&quot;</span> <span class="n">parameters</span><span class="err">?</span> <span class="s2">&quot;)&quot;</span> <span class="n">block</span><span class="p">;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">funDecl</span> <span class="err">→</span> <span class="s2">&quot;fn&quot;</span> <span class="n">TYPE</span> <span class="n">FUNIDEN</span> <span class="s2">&quot;(&quot;</span> <span class="n">parameters</span><span class="err">?</span> <span class="s2">&quot;)&quot;</span> <span class="n">block</span><span class="p">;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">varDecl</span> <span class="err">→</span> <span class="s2">&quot;var&quot;</span> <span class="n">TYPE</span> <span class="n">IDENTIFIER</span> <span class="p">(</span><span class="s2">&quot;:=&quot;</span> <span class="n">expression</span><span class="p">)</span><span class="err">?</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">statement</span> <span class="err">→</span> <span class="n">ifStmt</span> <span class="o">|</span> <span class="n">printStmt</span> <span class="o">|</span> <span class="n">returnStmt</span> <span class="o">|</span> <span class="n">block</span> <span class="o">|</span> <span class="n">expressionStmt</span><span class="p">;</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">ifStmt</span> <span class="err">→</span> <span class="s2">&quot;if&quot;</span> <span class="n">expression</span> <span class="n">block</span> <span class="p">(</span><span class="s2">&quot;else&quot;</span> <span class="n">block</span><span class="p">)</span><span class="err">?</span><span class="p">;</span> <span class="o">//</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">mandatory</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">ambiguity</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">printStmt</span> <span class="err">→</span> <span class="s2">&quot;print&quot;</span> <span class="s2">&quot;(&quot;</span> <span class="n">expression</span> <span class="s2">&quot;)&quot;</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">returnStmt</span> <span class="err">→</span> <span class="s2">&quot;return&quot;</span> <span class="p">(</span><span class="n">expression</span><span class="p">)</span><span class="err">?</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">block</span> <span class="err">→</span> <span class="s2">&quot;{&quot;</span> <span class="n">declaration</span><span class="o">*</span> <span class="s2">&quot;}&quot;</span><span class="p">;</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">expressionStmt</span> <span class="err">→</span> <span class="n">expression</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">expression</span> <span class="err">→</span> <span class="n">assignment</span> <span class="o">|</span> <span class="n">ExpB</span><span class="p">;</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">assignment</span> <span class="err">→</span> <span class="n">IDENTIFIER</span> <span class="s2">&quot;:=&quot;</span> <span class="n">ExpB</span><span class="p">;</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">parameters</span> <span class="err">→</span> <span class="n">IDENTIFIER</span> <span class="p">(</span><span class="s2">&quot;,&quot;</span> <span class="n">IDENTIFIER</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">ExpB</span> <span class="err">→</span> <span class="n">UnAmbB</span> <span class="o">|</span> <span class="n">OrB</span> <span class="o">|</span> <span class="n">NotB</span> <span class="o">|</span> <span class="n">AndB</span> <span class="o">|</span> <span class="n">Less</span> <span class="o">|</span> <span class="n">Greater</span><span class="p">;</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">OrB</span> <span class="err">→</span> <span class="n">UnAmbB</span> <span class="o">|</span> <span class="n">UnAmbB</span> <span class="s2">&quot;|&quot;</span> <span class="n">OrB</span><span class="p">;</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">NotB</span> <span class="err">→</span> <span class="n">UnAmbB</span> <span class="o">|</span> <span class="s2">&quot;~&quot;</span> <span class="n">NotB</span><span class="p">;</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="n">AndB</span> <span class="err">→</span> <span class="n">UnAmbB</span> <span class="o">|</span> <span class="n">UnAmbB</span> <span class="s2">&quot;&amp;&quot;</span> <span class="n">AndB</span><span class="p">;</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="n">Less</span> <span class="err">→</span> <span class="n">Exp</span> <span class="p">(</span><span class="s2">&quot;&lt;&quot;</span> <span class="o">|</span> <span class="s2">&quot;&lt;=&quot;</span> <span class="o">|</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span> <span class="n">Exp</span> <span class="o">|</span> <span class="n">Exp</span> <span class="s2">&quot;&lt;&quot;</span> <span class="n">Less</span> <span class="o">|</span> <span class="n">Exp</span> <span class="s2">&quot;&lt;=&quot;</span> <span class="n">Less</span> <span class="o">|</span> <span class="n">Exp</span> <span class="s2">&quot;=&quot;</span> <span class="n">Less</span><span class="p">;</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">Greater</span> <span class="err">→</span> <span class="n">Exp</span> <span class="p">(</span><span class="s2">&quot;&gt;&quot;</span> <span class="o">|</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="o">|</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span> <span class="n">Exp</span> <span class="o">|</span> <span class="n">Exp</span> <span class="s2">&quot;&gt;&quot;</span> <span class="n">Greater</span> <span class="o">|</span> <span class="n">Exp</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="n">Greater</span> <span class="o">|</span> <span class="n">Exp</span> <span class="s2">&quot;=&quot;</span> <span class="n">Greater</span><span class="p">;</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="n">UnAmbB</span> <span class="err">→</span> <span class="n">BOOL</span> <span class="o">|</span> <span class="n">IDENTIFIER</span> <span class="o">|</span> <span class="n">funCall</span> <span class="o">|</span> <span class="s2">&quot;(&quot;</span> <span class="n">ExpB</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="n">Exp</span> <span class="err">→</span> <span class="n">Add</span> <span class="o">|</span> <span class="n">Multiply</span> <span class="o">|</span> <span class="n">Divide</span> <span class="o">|</span> <span class="n">Subtract</span> <span class="o">|</span> <span class="n">Power</span> <span class="o">|</span> <span class="n">Modulo</span> <span class="o">|</span> <span class="n">And</span> <span class="o">|</span> <span class="n">Or</span> <span class="o">|</span> <span class="n">Not</span> <span class="o">|</span> <span class="n">Xor</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    <span class="o">|</span> <span class="n">Xand</span> <span class="o">|</span> <span class="n">Shift</span> <span class="o">|</span> <span class="n">UnaryNeg</span> <span class="o">|</span> <span class="n">UnAmb</span><span class="p">;</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="n">Add</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">UnAmb</span> <span class="s2">&quot;+&quot;</span> <span class="n">Add</span><span class="p">;</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="n">Multiply</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">UnAmb</span> <span class="s2">&quot;*&quot;</span> <span class="n">Multiply</span><span class="p">;</span>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="n">Divide</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">Multiply</span> <span class="s2">&quot;/&quot;</span> <span class="n">UnAmb</span><span class="p">;</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="n">Subtract</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">Add</span> <span class="s2">&quot;-&quot;</span> <span class="n">UnAmb</span><span class="p">;</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="n">Power</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">UnAmb</span> <span class="s2">&quot;^&quot;</span> <span class="n">UnAmb</span><span class="p">;</span>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="n">Modulo</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">UnAmb</span> <span class="s2">&quot;%&quot;</span> <span class="n">UnAmb</span><span class="p">;</span>
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="n">Or</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">UnAmb</span> <span class="s2">&quot;|&quot;</span> <span class="n">Or</span><span class="p">;</span>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="n">And</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">UnAmb</span> <span class="s2">&quot;&amp;&quot;</span> <span class="n">And</span><span class="p">;</span>
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="n">Xor</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">UnAmb</span> <span class="s2">&quot;!|&quot;</span> <span class="n">Xor</span><span class="p">;</span>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="n">Xand</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="n">UnAmb</span> <span class="s2">&quot;!&amp;&quot;</span> <span class="n">Xand</span><span class="p">;</span>
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="n">Shift</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="p">(</span><span class="s2">&quot;&gt;&gt;&quot;</span> <span class="o">|</span> <span class="s2">&quot;&lt;&lt;&quot;</span><span class="p">)</span> <span class="n">UnAmb</span><span class="p">;</span>
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="n">Not</span> <span class="err">→</span> <span class="n">UnAmb</span> <span class="o">|</span> <span class="s2">&quot;~&quot;</span> <span class="n">Not</span><span class="p">;</span>
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="n">UnaryNeg</span> <span class="err">→</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">|</span> <span class="s2">&quot;+&quot;</span><span class="p">)</span> <span class="n">UnaryNeg</span> <span class="o">|</span> <span class="n">UnAmb</span><span class="p">;</span>
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
-</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="n">UnAmb</span> <span class="err">→</span> <span class="n">NUMBER</span> <span class="o">|</span> <span class="n">IDENTIFIER</span> <span class="o">|</span> <span class="n">funCall</span> <span class="o">|</span> <span class="s2">&quot;(&quot;</span> <span class="n">Exp</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span>
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="n">funCall</span> <span class="err">→</span> <span class="n">IDENTIFIER</span> <span class="s2">&quot;(&quot;</span> <span class="n">arguments</span><span class="err">?</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span>
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="n">arguments</span> <span class="err">→</span> <span class="n">ExpB</span> <span class="p">(</span><span class="s2">&quot;,&quot;</span> <span class="n">ExpB</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
-</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="n">NUMBER</span> <span class="err">→</span> <span class="p">(</span><span class="n">bINTEGER</span> <span class="n">bFRACTION</span> <span class="n">bEXPONENT</span><span class="p">)</span>
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="o">|</span> <span class="p">(</span><span class="n">oINTEGER</span> <span class="n">oFRACTION</span> <span class="n">oEXPONENT</span><span class="p">)</span>
-</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>    <span class="o">|</span> <span class="p">(</span><span class="n">dINTEGER</span> <span class="n">dFRACTION</span> <span class="n">dEXPONENT</span><span class="p">)</span>
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>    <span class="o">|</span> <span class="p">(</span><span class="n">hINTEGER</span> <span class="n">hFRACTION</span> <span class="n">hEXPONENT</span><span class="p">);</span>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="n">hEXPONENT</span> <span class="err">→</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>    <span class="o">|</span> <span class="s2">&quot;p&quot;</span> <span class="n">HEXES</span><span class="p">;</span>
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="n">bEXPONENT</span> <span class="err">→</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    <span class="o">|</span> <span class="s2">&quot;e&quot;</span> <span class="n">BITS</span><span class="p">;</span>
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="n">oEXPONENT</span> <span class="err">→</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>    <span class="o">|</span> <span class="s2">&quot;e&quot;</span> <span class="n">OCTS</span><span class="p">;</span>
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="n">dEXPONENT</span> <span class="err">→</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>    <span class="o">|</span> <span class="s2">&quot;e&quot;</span> <span class="n">DIGITS</span><span class="p">;</span>
-</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="n">bfraction</span> <span class="err">→</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>    <span class="o">|</span> <span class="s2">&quot;.&quot;</span> <span class="n">BITS</span><span class="p">;</span>
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="n">ofraction</span> <span class="err">→</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>    <span class="o">|</span> <span class="s2">&quot;.&quot;</span> <span class="n">OCTS</span><span class="p">;</span>
-</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="n">dfraction</span> <span class="err">→</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>    <span class="o">|</span> <span class="s2">&quot;.&quot;</span> <span class="n">DIGITS</span><span class="p">;</span>
-</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="n">hfraction</span> <span class="err">→</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>    <span class="o">|</span> <span class="s2">&quot;.&quot;</span> <span class="n">HEXES</span><span class="p">;</span>
-</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="n">bINTEGER</span> <span class="err">→</span> <span class="s2">&quot;0b&quot;</span> <span class="n">BITS</span>
-</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>    <span class="o">|</span> <span class="s2">&quot;0B&quot;</span> <span class="n">BITS</span><span class="p">;</span>
-</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="n">oINTEGER</span> <span class="err">→</span> <span class="s2">&quot;0o&quot;</span> <span class="n">OCTS</span>
-</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a>    <span class="o">|</span> <span class="s2">&quot;0O&quot;</span> <span class="n">OCTS</span><span class="p">;</span>
-</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="n">dINTEGER</span> <span class="err">→</span> <span class="n">DIGITS</span><span class="p">;</span>
-</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="n">hINTEGER</span> <span class="err">→</span> <span class="s2">&quot;0x&quot;</span> <span class="n">HEXES</span>
-</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a>    <span class="o">|</span> <span class="s2">&quot;0X&quot;</span> <span class="n">HEXES</span><span class="p">;</span>
-</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="n">BIT</span> <span class="err">→</span> <span class="s2">&quot;0&quot;</span> <span class="o">|</span> <span class="s2">&quot;1&quot;</span><span class="p">;</span>
-</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="n">BITS</span> <span class="err">→</span> <span class="n">BIT</span><span class="err">?</span><span class="p">;</span>
-</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="n">OCT</span> <span class="err">→</span> <span class="s2">&quot;0&quot;</span><span class="o">..</span><span class="s2">&quot;7&quot;</span><span class="p">;</span>
-</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="n">OCTS</span> <span class="err">→</span> <span class="n">OCT</span><span class="err">?</span><span class="p">;</span>
-</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="n">DIGIT</span> <span class="err">→</span> <span class="s2">&quot;0&quot;</span><span class="o">..</span><span class="s2">&quot;9&quot;</span><span class="p">;</span>
-</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="n">DIGITS</span> <span class="err">→</span> <span class="n">DIGIT</span><span class="err">?</span><span class="p">;</span>
-</span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="n">HEX</span> <span class="err">→</span> <span class="s2">&quot;0&quot;</span><span class="o">..</span><span class="s2">&quot;9&quot;</span> <span class="o">|</span> <span class="s2">&quot;a&quot;</span><span class="o">..</span><span class="s2">&quot;f&quot;</span> <span class="o">|</span> <span class="s2">&quot;A&quot;</span><span class="o">..</span><span class="s2">&quot;F&quot;</span><span class="p">;</span>
-</span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="n">HEXES</span> <span class="err">→</span> <span class="n">HEX</span><span class="err">?</span><span class="p">;</span>
-</span><span id="__span-0-84"><a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="n">BOOL</span> <span class="err">→</span> <span class="s2">&quot;true&quot;</span> <span class="o">|</span> <span class="s2">&quot;false&quot;</span><span class="p">;</span>
-</span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="n">IDENTIFIER</span> <span class="err">→</span> <span class="n">LETTER</span> <span class="p">(</span><span class="n">LETTER</span> <span class="o">|</span> <span class="n">DIGIT</span> <span class="o">|</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="n">LETTER</span> <span class="err">→</span> <span class="s2">&quot;a&quot;</span> <span class="o">..</span> <span class="s2">&quot;z&quot;</span> <span class="o">|</span> <span class="s2">&quot;A&quot;</span> <span class="o">..</span> <span class="s2">&quot;Z&quot;</span><span class="p">;</span>
-</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="n">TYPE</span> <span class="err">→</span> <span class="s2">&quot;i8&quot;</span> <span class="o">|</span> <span class="s2">&quot;i16&quot;</span> <span class="o">|</span> <span class="s2">&quot;i32&quot;</span> <span class="o">|</span> <span class="s2">&quot;i64&quot;</span> <span class="o">|</span> <span class="s2">&quot;i128&quot;</span> <span class="o">|</span> <span class="s2">&quot;u8&quot;</span> <span class="o">|</span> <span class="s2">&quot;u16&quot;</span> <span class="o">|</span> <span class="s2">&quot;u32&quot;</span> <span class="o">|</span> <span class="s2">&quot;u64&quot;</span> <span class="o">|</span> <span class="s2">&quot;u128&quot;</span> <span class="o">|</span> <span class="s2">&quot;bool&quot;</span><span class="p">;</span>
-</span></code></pre></div>
+<!--
+# OSL Grammar (Recursive Descent Style)
+
+Below is the OSL grammar presented in a recursive descent style using arrow notation (`→`). This format avoids Markdown table complexities and focuses on clarity for parsing and implementation.
+
+## Program Structure
+
+- `Prog` → `Decl* EOF`
+- `Decl` → `FunDecl` | `FunDeclB` | `VarDecl` | `Stmt`
+- `Block` → `"{" Decl* "}"`
+
+## Function Declarations and Calls
+
+- `FunDecl` → `"fn" Type FunIden "(" Params? ")" Block`
+- `FunDeclB` → `"fn" Type FunIdenB "(" Params? ")" Block`
+- `FunCall` → `FunIden "(" Params? ")"`
+- `FunCallB` → `FunIdenB "(" Params? ")"`
+- `Params` → `Param ("," Param)*`
+- `Param` → `Type (Iden | IdenB)`
+
+## Statements
+
+- `Stmt` → `IfStmt` | `LogStmt` | `RetStmt` | `Block` | `ExpStmt`
+- `IfStmt` → `"if" ValB Block ("elif" ValB Block)* ("else" Block)?`
+- `LogStmt` → `"log" (Val | ValB) ";"`
+- `RetStmt` → `"return" (Val | ValB) ";"`
+- `ExpStmt` → `(Val | ValB) ";"`
+- `VarDecl` → `"var" Type (IdenB | Iden | Assn | AssnB) ";"`
+
+## Expressions and Values
+
+### Value Variants
+
+- `Val` → `Assn` | `Exp` | `Null`
+- `ValB` → `AssnB` | `ExpB` | `Null`
+- `Assn` → `Iden ":=" (Exp | Null)` | `Iden ":=" Assn`
+- `AssnB` → `IdenB ":=" (ExpB | Null)` | `IdenB ":=" AssnB`
+
+### Expressions (Typed: `ExpB`)
+
+- `ExpB` → `UnAmbB` | `OrB` | `NotB` | `AndB` | `Less` | `Greater` | `Eq` | `NotEq`
+- `UnAmbB` → `Bool` | `"(" ExpB ")"` | `IdenB` | `FunCallB`
+- `OrB` → `UnAmbB` | `UnAmbB "||" OrB`
+- `AndB` → `UnAmbB` | `UnAmbB "&&" AndB`
+- `NotB` → `UnAmbB` | `"~" NotB`
+- `Eq` → `UnAmbB` | `Val "=" Val` | `ValB "=" ValB`
+- `NotEq` → `UnAmbB` | `Val "~=" Val` | `ValB "~=" ValB`
+- `Less` → `Val "<" Val` | `Val "<=" Val` | `Val "=" Val` | `Val "<" Less` | `Val "<=" Less` | `Val "=" Less`
+- `Greater` → `Val ">" Val` | `Val ">=" Val` | `Val "=" Val` | `Val ">" Greater` | `Val ">=" Greater` | `Val "=" Greater`
+
+### Expressions (Untyped: `Exp`)
+
+- `Exp` → `Add` | `Multiply` | `Divide` | `Subtract` | `Power` | `Modulo` | `And` | `Or` | `Not` | `Xor` | `Xand` | `Shift` | `UnaryNeg` | `UnAmb`
+- `UnAmb` → `Number` | `"(" Exp ")"` | `Iden` | `FunCall`
+- `Add` → `UnAmb` | `UnAmb "+" Add`
+- `Multiply` → `UnAmb` | `UnAmb "*" Multiply`
+- `Divide` → `UnAmb` | `Multiply "/" UnAmb`
+- `Subtract` → `UnAmb` | `Add "-" UnAmb`
+- `Power` → `UnAmb` | `UnAmb "^" UnAmb`
+- `Modulo` → `UnAmb` | `UnAmb "%" UnAmb`
+- `Or` → `UnAmb` | `UnAmb "|" Or`
+- `And` → `UnAmb` | `UnAmb "&" And`
+- `Xor` → `UnAmb` | `UnAmb "!|" Xor`
+- `Xand` → `UnAmb` | `UnAmb "!&" Xand`
+- `Shift` → `UnAmb ">>" UnAmb` | `UnAmb "<<" UnAmb`
+- `Not` → `UnAmb` | `"~" Not`
+- `UnaryNeg` → `UnAmb` | `"-" UnaryNeg` | `"+" UnaryNeg`
+
+## Types and Literals
+
+- `Type` → `"bool"` | `"i8"` | `"i16"` | `"i32"` | `"i64"` | `"i128"` | `"u8"` | `"u16"` | `"u32"` | `"u64"` | `"u128"` | `"f8"` | `"f16"` | `"f32"` | `"f64"` | `"f128"` | `"c8"`
+- `Number` → `(bINTEGER bFRACTION bEXPONENT)` | `(oINTEGER oFRACTION oEXPONENT)` | `(dINTEGER dFRACTION dEXPONENT)` | `(hINTEGER hFRACTION hEXPONENT)`
+
+### Numeric Literal Components
+
+- `bINTEGER` → `"0b" BITS` | `"0B" BITS`
+- `oINTEGER` → `"0o" OCTS` | `"0O" OCTS`
+- `dINTEGER` → `DIGITS`
+- `hINTEGER` → `"0x" HEXES` | `"0X" HEXES`
+- `bFRACTION` → `""` | `"." BITS`
+- `oFRACTION` → `""` | `"." OCTS`
+- `dFRACTION` → `""` | `"." DIGITS`
+- `hFRACTION` → `""` | `"." HEXES`
+- `bEXPONENT` → `""` | `"e" BITS`
+- `oEXPONENT` → `""` | `"e" OCTS`
+- `dEXPONENT` → `""` | `"e" DIGITS`
+- `hEXPONENT` → `""` | `"p" HEXES`
+
+### Token Definitions
+
+- `BIT` → `"0"` | `"1"`
+- `BITS` → `BIT?`
+- `OCT` → `"0".."7"`
+- `OCTS` → `OCT?`
+- `DIGIT` → `"0".."9"`
+- `DIGITS` → `DIGIT?`
+- `HEX` → `"0".."9"` | `"a".."f"` | `"A".."F"`
+- `HEXES` → `HEX?`
+- `Bool` → `"true"` | `"false"`
+- `Iden` → `LETTER (LETTER | DIGIT | "_")*`
+- `IdenB` → `LETTER (LETTER | DIGIT | "_")*`
+- `LETTER` → `"a".."z"` | `"A".."Z"`
+
+## Notes on Recursive Descent
+
+- **Left Recursion**: Productions like `Add`, `Multiply`, `OrB`, etc., are left-recursive and can be parsed iteratively to avoid infinite recursion.
+- **Right Recursion**: `Not`, `UnaryNeg`, etc., are right-recursive, fitting naturally into recursive descent parsing.
+- **Ambiguity**: The grammar separates typed (`B` suffix) and untyped constructs to minimize ambiguity, though overlaps (e.g., `Val` vs. `ValB`) may need precedence rules.
+- **Null**: Represents an uninitialized or void value, applicable in assignments and returns.
+
+# Promised Unambiguous Grammar
+
+```py
+program → declaration* EOF;
+
+declaration → funDecl | funcDeclB | varDecl | statement;
+
+funDeclB → "fn" TYPE FUNIDENB "(" parameters? ")" block;
+funDecl → "fn" TYPE FUNIDEN "(" parameters? ")" block;
+varDecl → "var" TYPE IDENTIFIER (":=" expression)? ";";
+statement → ifStmt | printStmt | returnStmt | block | expressionStmt;
+
+ifStmt → "if" expression block ("else" block)?; // block is mandatory to avoid ambiguity
+printStmt → "print" "(" expression ")" ";";
+returnStmt → "return" (expression)? ";";
+block → "{" declaration* "}";
+expressionStmt → expression ";";
+
+expression → assignment | ExpB;
+assignment → IDENTIFIER ":=" ExpB;
+
+parameters → IDENTIFIER ("," IDENTIFIER)*;
+
+ExpB → UnAmbB | OrB | NotB | AndB | Less | Greater;
+OrB → UnAmbB | UnAmbB "|" OrB;
+NotB → UnAmbB | "~" NotB;
+AndB → UnAmbB | UnAmbB "&" AndB;
+Less → Exp ("<" | "<=" | "=") Exp | Exp "<" Less | Exp "<=" Less | Exp "=" Less;
+Greater → Exp (">" | ">=" | "=") Exp | Exp ">" Greater | Exp ">=" Greater | Exp "=" Greater;
+UnAmbB → BOOL | IDENTIFIER | funCall | "(" ExpB ")";
+
+Exp → Add | Multiply | Divide | Subtract | Power | Modulo | And | Or | Not | Xor
+    | Xand | Shift | UnaryNeg | UnAmb;
+Add → UnAmb | UnAmb "+" Add;
+Multiply → UnAmb | UnAmb "*" Multiply;
+Divide → UnAmb | Multiply "/" UnAmb;
+Subtract → UnAmb | Add "-" UnAmb;
+Power → UnAmb | UnAmb "^" UnAmb;
+Modulo → UnAmb | UnAmb "%" UnAmb;
+Or → UnAmb | UnAmb "|" Or;
+And → UnAmb | UnAmb "&" And;
+Xor → UnAmb | UnAmb "!|" Xor;
+Xand → UnAmb | UnAmb "!&" Xand;
+Shift → UnAmb (">>" | "<<") UnAmb;
+Not → UnAmb | "~" Not;
+UnaryNeg → ("-" | "+") UnaryNeg | UnAmb;
+
+UnAmb → NUMBER | IDENTIFIER | funCall | "(" Exp ")";
+funCall → IDENTIFIER "(" arguments? ")";
+arguments → ExpB ("," ExpB)*;
+
+NUMBER → (bINTEGER bFRACTION bEXPONENT)
+    | (oINTEGER oFRACTION oEXPONENT)
+    | (dINTEGER dFRACTION dEXPONENT)
+    | (hINTEGER hFRACTION hEXPONENT);
+hEXPONENT → ""
+    | "p" HEXES;
+bEXPONENT → ""
+    | "e" BITS;
+oEXPONENT → ""
+    | "e" OCTS;
+dEXPONENT → ""
+    | "e" DIGITS;
+bfraction → ""
+    | "." BITS;
+ofraction → ""
+    | "." OCTS;
+dfraction → ""
+    | "." DIGITS;
+hfraction → ""
+    | "." HEXES;
+bINTEGER → "0b" BITS
+    | "0B" BITS;
+oINTEGER → "0o" OCTS
+    | "0O" OCTS;
+dINTEGER → DIGITS;
+hINTEGER → "0x" HEXES
+    | "0X" HEXES;
+BIT → "0" | "1";
+BITS → BIT?;
+OCT → "0".."7";
+OCTS → OCT?;
+DIGIT → "0".."9";
+DIGITS → DIGIT?;
+HEX → "0".."9" | "a".."f" | "A".."F";
+HEXES → HEX?;
+BOOL → "true" | "false";
+IDENTIFIER → LETTER (LETTER | DIGIT | "_")*;
+LETTER → "a" .. "z" | "A" .. "Z";
+TYPE → "i8" | "i16" | "i32" | "i64" | "i128" | "u8" | "u16" | "u32" | "u64" | "u128" | "bool";
+``` -->
 
 
 
