@@ -386,6 +386,31 @@
   
   
     <li class="md-nav__item">
+      <a href="../../documentation/arrays/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 5v14h2v2H3V3h4v2zm15 2H7v2h13zm0 4H7v2h13zm0 4H7v2h13z"/></svg>
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../documentation/func/" class="md-nav__link">
         
   
@@ -419,31 +444,6 @@
   
   <span class="md-ellipsis">
     Syntax
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../documentation/features/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.06 13.09 5.63 5.59-3.32 3.28-5.59-5.59v-.92l2.36-2.36zm.91-2.53L16 9.6l-4.79 4.8v1.97L5.58 22 2.3 18.68l5.59-5.59h1.97l.78-.78L6.8 8.46H5.5L2.69 5.62 5.31 3l2.8 2.8v1.31L12 10.95l2.66-2.66-.96-1.01L15 5.97h-2.66l-.65-.65L15 2l.66.66v2.66L16.97 4l3.28 3.28c1.09 1.1 1.09 2.89 0 3.98l-1.97-2.01z"/></svg>
-  
-  <span class="md-ellipsis">
-    Features
     
   </span>
   
@@ -692,21 +692,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 6h3l3.29-3.3a1 1 0 0 1 1.42 0l2.58 2.59a1 1 0 0 1 0 1.41L19 9h-8v2a1 1 0 0 1-1 1 1 1 0 0 1-1-1V8a2 2 0 0 1 2-2m-6 5v4l-2.29 2.29a1 1 0 0 0 0 1.41l2.58 2.59a1 1 0 0 0 1.42 0L11 17h4a1 1 0 0 0 1-1v-1h1a1 1 0 0 0 1-1v-1h1a1 1 0 0 0 1-1v-1h-7v1a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9Z"/></svg>
-  
-  <span class="md-ellipsis">
-    Contributing
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -720,34 +705,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-customize" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to Customize
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -901,23 +858,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-customize" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to Customize
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -936,7 +876,7 @@
 
 
 <h1 id="how-to-contribute">How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permanent link">&para;</a></h1>
-<p>OSL is open-source at <a href="https://github.com/mshandilya/osl">https://github.com/mshandilya/osl</a>. To contribute:</p>
+<p>osl. is open-source at <a href="https://github.com/mshandilya/osl">https://github.com/mshandilya/osl</a>. To contribute:</p>
 <ol>
 <li><strong>Fork the Repository</strong>:
    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/osl.git
@@ -950,12 +890,6 @@
    Describe your changes clearly in the PR.</li>
 </ol>
 <p>Check the <a href="https://github.com/mshandilya/osl./issues">Issues</a> tab for tasks or propose new features!</p>
-<h2 id="how-to-customize">How to Customize<a class="headerlink" href="#how-to-customize" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Extend the VM</strong>: Add new opcodes in <code>vm.c</code> or <code>stack_vm.py</code> and update the interpreter.</li>
-<li><strong>Modify Grammar</strong>: Edit <code>osl_parser.py</code> or the unambiguous grammar for new syntax.</li>
-<li><strong>Codegen Tweaks</strong>: Adjust <code>codegen.py</code> to generate custom bytecode.</li>
-</ul>
 
 
 

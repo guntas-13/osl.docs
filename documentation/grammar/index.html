@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://guntas-13.github.io/osl.docs/documentation/grammar/">
       
       
-        <link rel="prev" href="../features/">
+        <link rel="prev" href="../syn/">
       
       
         <link rel="next" href="../../dev/ast_nodes/">
@@ -388,6 +388,31 @@
   
   
     <li class="md-nav__item">
+      <a href="../arrays/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 5v14h2v2H3V3h4v2zm15 2H7v2h13zm0 4H7v2h13zm0 4H7v2h13z"/></svg>
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../func/" class="md-nav__link">
         
   
@@ -421,31 +446,6 @@
   
   <span class="md-ellipsis">
     Syntax
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.06 13.09 5.63 5.59-3.32 3.28-5.59-5.59v-.92l2.36-2.36zm.91-2.53L16 9.6l-4.79 4.8v1.97L5.58 22 2.3 18.68l5.59-5.59h1.97l.78-.78L6.8 8.46H5.5L2.69 5.62 5.31 3l2.8 2.8v1.31L12 10.95l2.66-2.66-.96-1.01L15 5.97h-2.66l-.65-.65L15 2l.66.66v2.66L16.97 4l3.28 3.28c1.09 1.1 1.09 2.89 0 3.98l-1.97-2.01z"/></svg>
-  
-  <span class="md-ellipsis">
-    Features
     
   </span>
   
@@ -1070,7 +1070,7 @@
 </ul>
 <h2 id="function-declarations-and-calls">Function Declarations and Calls<a class="headerlink" href="#function-declarations-and-calls" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>funDecl</code> → <code>"fn" IDENTIFIER "(" parameters? ")" block</code></li>
+<li><code>funDecl</code> → <code>"def" IDENTIFIER "(" parameters? ")" block</code></li>
 <li><code>parameters</code> → <code>IDENTIFIER ("," IDENTIFIER)*</code></li>
 <li><code>funCall</code> → <code>IDENTIFIER "(" arguments? ")"</code></li>
 <li><code>arguments</code> → <code>expB ("," expB)*</code></li>
@@ -1093,10 +1093,9 @@
 <li><code>assignment</code> → <code>IDENTIFIER ":=" expB</code></li>
 <li><code>expB</code> → <code>logicAnd ("||" logicAnd)*</code></li>
 <li><code>logicAnd</code> → <code>comparison ("&amp;&amp;" comparison)*</code></li>
-<li><code>comparison</code> → <code>add (("&lt;" | "&gt;" | "&lt;=" | "&gt;=" | "=" | "!=") add)*</code></li>
+<li><code>comparison</code> → <code>add (("&lt;" | "&gt;" | "&lt;=" | "&gt;=" | "=" | "~=") add)*</code></li>
 <li><code>add</code> → <code>mul (("+" | "-") mul)*</code></li>
-<li><code>mul</code> → <code>exp (("*" | "/" | "%") exp)*</code></li>
-<li><code>exp</code> → <code>unary ("^" unary)*</code></li>
+<li><code>mul</code> → <code>unary (("*" | "/" | "%") unary)*</code></li>
 <li><code>unary</code> → <code>("-" | "~") unary</code> | <code>secondary</code> | <code>arrayDecl</code></li>
 </ul>
 <h2 id="calls-array-decls-and-array-accesses">Calls, Array Decls, and Array Accesses<a class="headerlink" href="#calls-array-decls-and-array-accesses" title="Permanent link">&para;</a></h2>
@@ -1123,6 +1122,23 @@
 <li><strong>Optional Elements</strong>: Constructs like <code>parameters?</code>, <code>expression?</code>, and <code>"else" statement?</code> indicate optional components, parsed with conditional checks.</li>
 </ul>
 <h1 id="grammar-structure-unambiguous">Grammar Structure Unambiguous<a class="headerlink" href="#grammar-structure-unambiguous" title="Permanent link">&para;</a></h1>
+<p>The osl grammar is structured to define a program as a sequence of declarations, which include variable declarations, function declarations, and statements. It supports:</p>
+<ul>
+<li><strong>Typed System</strong>: Variables and functions are explicitly typed (e.g., <code>i32</code>, <code>bool</code>, array types, function types).</li>
+<li><strong>Dynamic Arrays</strong>: Arrays can be initialized with values or declared with fixed sizes.</li>
+<li><strong>First-Class Functions and Closures</strong>: Functions can be assigned to variables and capture their environment.</li>
+<li><strong>Pointers and Dereferencing</strong>: Support for pointer types and operations.</li>
+<li><strong>Control Flow</strong>: Conditional statements (<code>if</code>, <code>elif</code>, <code>else</code>), loops (<code>while</code>), and return statements.</li>
+<li><strong>Expressions</strong>: A rich expression system with unary, binary, and array access operations.</li>
+</ul>
+<p>The grammar avoids ambiguities by:</p>
+<ul>
+<li>Separating typed and untyped constructs (e.g., <code>Val</code> vs. <code>Loc</code>).</li>
+<li>Using mandatory blocks for control flow to eliminate dangling-else issues.</li>
+<li>Defining clear precedence for operators and expressions.</li>
+<li>Supporting recursive descent parsing with iterative handling of left-recursive productions (e.g., <code>Add</code>, <code>Mul</code>).</li>
+</ul>
+<h2 id="grammar-structure">Grammar Structure<a class="headerlink" href="#grammar-structure" title="Permanent link">&para;</a></h2>
 <p>The grammar is organized into several categories: program structure, declarations, statements, expressions, types, and literals. Below, we explain each category with examples from OSL syntax.</p>
 <h3 id="1-program-structure">1. Program Structure<a class="headerlink" href="#1-program-structure" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1133,7 +1149,23 @@
 <p><code>&lt;Prog&gt; ::= &lt;Decls&gt;</code>: A program is a sequence of declarations.</p>
 </li>
 <li><code>&lt;Decls&gt; ::= &lt;Decl&gt; &lt;Decls&gt; | &lt;Decl&gt;</code>: Declarations are processed sequentially.</li>
-<li><code>&lt;Block&gt; ::= LBRACE RBRACE | LBRACE &lt;Decls&gt; RBRACE</code>: A block is a sequence of declarations within <code>{}</code>.</li>
+<li>
+<p><code>&lt;Block&gt; ::= LBRACE RBRACE | LBRACE &lt;Decls&gt; RBRACE</code>: A block is a sequence of declarations within <code>{}</code>.</p>
+</li>
+<li>
+<p><strong>Description</strong>: A program consists of declarations (variable, function, or statement). Blocks encapsulate declarations, used in functions, conditionals, and loops, ensuring scoped environments.</p>
+</li>
+<li>
+<p><strong>Example</strong>:
+  <div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">var</span> <span class="n">i32</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">i32</span> <span class="n">fact</span><span class="p">(</span><span class="n">i32</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">log</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></code></pre></div>
+  This program declares a variable, a function, and a statement within a global block.</p>
+</li>
 </ul>
 <h3 id="2-declarations">2. Declarations<a class="headerlink" href="#2-declarations" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1147,7 +1179,22 @@
 <li><code>&lt;VarDecl&gt; ::= VAR &lt;DeclType&gt; IDEN ASSIGN &lt;Val&gt; SEMC | VAR &lt;DeclType&gt; IDEN SEMC</code>: Variable declaration with optional initialization.</li>
 <li><code>&lt;FunDecl&gt; ::= DEFINE &lt;Type&gt; IDEN LPAREN RPAREN &lt;Block&gt; | DEFINE &lt;Type&gt; IDEN LPAREN &lt;DeclParams&gt; RPAREN &lt;Block&gt;</code>: Function declaration with optional parameters.</li>
 <li><code>&lt;DeclParams&gt; ::= &lt;DeclParam&gt; | &lt;DeclParam&gt; COMMA &lt;DeclParams&gt;</code>: Parameter list.</li>
-<li><code>&lt;DeclParam&gt; ::= &lt;Type&gt; IDEN</code>: Typed parameter.</li>
+<li>
+<p><code>&lt;DeclParam&gt; ::= &lt;Type&gt; IDEN</code>: Typed parameter.</p>
+</li>
+<li>
+<p><strong>Description</strong>: Declarations define the program’s structure. Constants and variables are typed, functions support multiple parameters, and all declarations end with a semicolon (<code>;</code>).</p>
+</li>
+<li>
+<p><strong>Example</strong>:
+  <div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">const</span> <span class="n">i32</span> <span class="n">MAX</span> <span class="o">:=</span> <span class="mi">100</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">var</span> <span class="n">i32</span> <span class="n">count</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">i32</span> <span class="n">add</span><span class="p">(</span><span class="n">i32</span> <span class="n">a</span><span class="p">,</span> <span class="n">i32</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span></code></pre></div>
+  Declares a constant, a variable, and a function with two parameters.</p>
+</li>
 </ul>
 <h3 id="3-statements">3. Statements<a class="headerlink" href="#3-statements" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1164,7 +1211,29 @@
 <li><code>&lt;Cond&gt; ::= IF &lt;Val&gt; &lt;Block&gt; | IF &lt;Val&gt; &lt;Block&gt; &lt;Else&gt; | IF &lt;Val&gt; &lt;Block&gt; &lt;Elifs&gt; | IF &lt;Val&gt; &lt;Block&gt; &lt;Elifs&gt; &lt;Else&gt;</code>: Conditional with <code>if</code>, <code>elif</code>, <code>else</code>.</li>
 <li><code>&lt;Elifs&gt; ::= &lt;Elif&gt; | &lt;Elif&gt; &lt;Elifs&gt;</code>: Multiple <code>elif</code> clauses.</li>
 <li><code>&lt;Elif&gt; ::= ELIF &lt;Val&gt; &lt;Block&gt;</code>: Single <code>elif</code> clause.</li>
-<li><code>&lt;Else&gt; ::= ELSE &lt;Block&gt;</code>: Optional <code>else</code> clause.</li>
+<li>
+<p><code>&lt;Else&gt; ::= ELSE &lt;Block&gt;</code>: Optional <code>else</code> clause.</p>
+</li>
+<li>
+<p><strong>Description</strong>: Statements control program execution. <code>log</code> outputs values, <code>return</code> exits functions, <code>while</code> loops iterate, and conditionals (<code>if</code>, <code>elif</code>, <code>else</code>) branch based on conditions. Blocks are mandatory to avoid ambiguity (e.g., dangling-else problem).</p>
+</li>
+<li>
+<p><strong>Example</strong>:
+  <div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">var</span> <span class="n">i32</span> <span class="n">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">log</span> <span class="n">i</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">i</span> <span class="o">:=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">log</span> <span class="s2">&quot;Done&quot;</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span> <span class="k">elif</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">log</span> <span class="s2">&quot;Overflow&quot;</span><span class="p">;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">log</span> <span class="s2">&quot;Error&quot;</span><span class="p">;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
+</span></code></pre></div>
+  A loop and conditional with logging statements.</p>
+</li>
 </ul>
 <h3 id="4-expressions">4. Expressions<a class="headerlink" href="#4-expressions" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1179,7 +1248,22 @@
 <li><code>&lt;Exp&gt; ::= &lt;UOp&gt; | &lt;BinOp&gt; | &lt;UnAmb&gt;</code>: Expressions include unary operations, binary operations, or unambiguous terms.</li>
 <li><code>&lt;BinOp&gt; ::= &lt;Shift&gt; | &lt;Xand&gt; | &lt;Xor&gt; | &lt;And&gt; | &lt;Or&gt; | &lt;Mod&gt; | &lt;Pow&gt; | &lt;Sub&gt; | &lt;Div&gt; | &lt;Add&gt; | &lt;Mul&gt; | &lt;Eq&gt; | &lt;Neq&gt; | &lt;Less&gt; | &lt;Great&gt; | &lt;ArrAcc&gt;</code>: Binary operations with clear precedence.</li>
 <li><code>&lt;UOp&gt; ::= &lt;UnSign&gt; | &lt;UnNot&gt; | &lt;PtrDeref&gt; | &lt;FunCall&gt; | &lt;Ptr&gt;</code>: Unary operations (sign, logical not, dereference, function call, pointer).</li>
-<li><code>&lt;UnAmb&gt; ::= &lt;Atom&gt; | &lt;Arr&gt; | &lt;Ptr&gt; | IDEN | &lt;ArrAcc&gt; | LPAREN &lt;Exp&gt; RPAREN</code>: Unambiguous terms (literals, arrays, pointers, identifiers, array accesses, parenthesized expressions).</li>
+<li>
+<p><code>&lt;UnAmb&gt; ::= &lt;Atom&gt; | &lt;Arr&gt; | &lt;Ptr&gt; | IDEN | &lt;ArrAcc&gt; | LPAREN &lt;Exp&gt; RPAREN</code>: Unambiguous terms (literals, arrays, pointers, identifiers, array accesses, parenthesized expressions).</p>
+</li>
+<li>
+<p><strong>Description</strong>: Expressions are the core of OSL’s computation, supporting arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>^</code>), logical (<code>&amp;</code>, <code>|</code>, <code>!|</code>, <code>!&amp;</code>), comparison (<code>=</code>, <code>~=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>), and bitwise operations (<code>&lt;&lt;</code>, <code>&gt;&gt;</code>). Array accesses and function calls are integrated into expressions, allowing complex computations.</p>
+</li>
+<li>
+<p><strong>Example</strong>:
+  <div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">var</span> <span class="n">i32</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">var</span> <span class="n">i32</span> <span class="n">y</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span> <span class="o">//</span> <span class="mi">13</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">var</span> <span class="nb">bool</span> <span class="n">z</span> <span class="o">:=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">);</span> <span class="o">//</span> <span class="n">true</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">x</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">^</span> <span class="mi">2</span><span class="p">;</span> <span class="o">//</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">log</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="o">//</span> <span class="n">Array</span> <span class="n">access</span>
+</span></code></pre></div>
+  Demonstrates arithmetic, logical, and array access expressions.</p>
+</li>
 </ul>
 <h3 id="5-arrays-and-array-access">5. Arrays and Array Access<a class="headerlink" href="#5-arrays-and-array-access" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1193,7 +1277,21 @@
 <li><code>&lt;VMats&gt; ::= &lt;VMat&gt; &lt;VMats&gt; | &lt;VMat&gt;</code>: Multiple index brackets.</li>
 <li><code>&lt;VMat&gt; ::= LBOX &lt;Val&gt; RBOX</code>: Single index bracket.</li>
 <li><code>&lt;ArrType&gt; ::= &lt;AtomType&gt; &lt;Mats&gt; | &lt;FunType&gt; &lt;Mats&gt; | &lt;PtrType&gt; &lt;Mats&gt;</code>: Array type with dimensions.</li>
-<li><code>&lt;ArrDeclType&gt; ::= &lt;AtomType&gt; &lt;VMats&gt; | &lt;FunType&gt; &lt;VMats&gt; | &lt;PtrType&gt; &lt;VMats&gt;</code>: Declared array type with fixed sizes.</li>
+<li>
+<p><code>&lt;ArrDeclType&gt; ::= &lt;AtomType&gt; &lt;VMats&gt; | &lt;FunType&gt; &lt;VMats&gt; | &lt;PtrType&gt; &lt;VMats&gt;</code>: Declared array type with fixed sizes.</p>
+</li>
+<li>
+<p><strong>Description</strong>: Arrays can be dynamically initialized (e.g., <code>[1, 2, 3]</code>) or declared with fixed sizes (e.g., <code>i32[2][3]</code>). Multi-dimensional arrays are supported, with access via multiple <code>[index]</code> brackets. Array types are explicitly declared.</p>
+</li>
+<li>
+<p><strong>Example</strong>:
+  <div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">var</span> <span class="n">i32</span> <span class="n">arr</span> <span class="o">:=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">var</span> <span class="n">i32</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="n">matrix</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">log</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="o">//</span> <span class="n">Prints</span> <span class="mi">1</span>
+</span></code></pre></div>
+  Shows array initialization, declaration, and access.</p>
+</li>
 </ul>
 <h3 id="6-functions-and-function-calls">6. Functions and Function Calls<a class="headerlink" href="#6-functions-and-function-calls" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1207,8 +1305,39 @@
 <li><code>&lt;Calls&gt; ::= &lt;Call&gt; &lt;Calls&gt; | &lt;Call&gt;</code>: Multiple call arguments.</li>
 <li><code>&lt;Call&gt; ::= LPAREN &lt;Args&gt; RPAREN | LPAREN RPAREN</code>: Single call with optional arguments.</li>
 <li><code>&lt;Args&gt; ::= &lt;Val&gt; | &lt;Val&gt; COMMA &lt;Args&gt;</code>: Comma-separated arguments.</li>
-<li><code>&lt;FunType&gt; ::= TFN LPAREN &lt;SigParams&gt; RPAREN RETURNS &lt;Type&gt; | TFN LPAREN RPAREN RETURNS &lt;Type&gt;</code>: Function type signature.</li>
+<li>
+<p><code>&lt;FunType&gt; ::= TFN LPAREN &lt;SigParams&gt; RPAREN RETURNS &lt;Type&gt; | TFN LPAREN RPAREN RETURNS &lt;Type&gt;</code>: Function type signature.</p>
+</li>
+<li>
+<p><strong>Description</strong>: Functions are first-class, supporting closures via captured variables. Function calls can be chained (e.g., <code>f(10)(5)</code> for nested functions). Types specify return and parameter types.</p>
+</li>
+<li>
+<p><strong>Example</strong>:</p>
+</li>
 </ul>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">i32</span> <span class="n">counter</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  <span class="n">var</span> <span class="n">i32</span> <span class="n">count</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  <span class="k">def</span><span class="w"> </span><span class="nf">i32</span> <span class="n">inc</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>      <span class="n">count</span> <span class="o">:=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>      <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  <span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  <span class="k">return</span> <span class="n">inc</span><span class="p">;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">var</span> <span class="n">fn</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">i32</span> <span class="n">c1</span> <span class="o">:=</span> <span class="n">counter</span><span class="p">();</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">log</span> <span class="n">c1</span><span class="p">();</span> <span class="o">//</span> <span class="n">Prints</span> <span class="mi">1</span>
+</span></code></pre></div>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">nav</span> <span class="n">bar</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="n">log</span> <span class="mi">7</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">nav</span> <span class="n">foo</span><span class="p">(</span><span class="n">fn</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">nav</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  <span class="n">f</span><span class="p">();</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  <span class="n">log</span> <span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">);</span>
+</span></code></pre></div>
+<p>A closure example with a counter function.</p>
 <h3 id="7-pointers-and-dereferencing">7. Pointers and Dereferencing<a class="headerlink" href="#7-pointers-and-dereferencing" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -1218,218 +1347,91 @@
 <p><code>&lt;Ptr&gt; ::= HASH &lt;Loc&gt;</code>: Pointer to a location.</p>
 </li>
 <li><code>&lt;PtrDeref&gt; ::= AT &lt;UnAmb&gt;</code>: Dereference a pointer.</li>
-<li><code>&lt;PtrType&gt; ::= HASH &lt;Type&gt;</code>: Pointer type.</li>
+<li>
+<p><code>&lt;PtrType&gt; ::= HASH &lt;Type&gt;</code>: Pointer type.</p>
+</li>
+<li>
+<p><strong>Description</strong>: Pointers reference memory locations, and dereferencing accesses the pointed-to value. Pointer types are explicitly declared, supporting low-level memory operations.</p>
+</li>
+<li>
+<p><strong>Example</strong>:
+  <div class="language-py highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">var</span> <span class="n">i32</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">var</span> <span class="c1">#i32 p := #x; // Pointer to x</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nd">@p</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">//</span> <span class="n">Dereference</span> <span class="ow">and</span> <span class="nb">set</span> <span class="n">x</span> <span class="n">to</span> <span class="mi">10</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">log</span> <span class="n">x</span><span class="p">;</span> <span class="o">//</span> <span class="n">Prints</span> <span class="mi">10</span>
+</span></code></pre></div>
+  Demonstrates pointer creation and dereferencing.</p>
+</li>
 </ul>
 <h3 id="8-types-and-literals">8. Types and Literals<a class="headerlink" href="#8-types-and-literals" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Rules</strong>:</li>
-<li><code>&lt;Type&gt; ::= &lt;AtomType&gt; | &lt;CompType&gt;</code>: Types are atomic or composite.</li>
+<li>
+<p><strong>Rules</strong>:</p>
+</li>
+<li>
+<p><code>&lt;Type&gt; ::= &lt;AtomType&gt; | &lt;CompType&gt;</code>: Types are atomic or composite.</p>
+</li>
 <li><code>&lt;AtomType&gt; ::= NULL | TBOOL | TC8 | TU8 | ... | TF128</code>: Basic types (null, bool, integers, floats, char).</li>
 <li><code>&lt;CompType&gt; ::= &lt;FunType&gt; | &lt;ArrType&gt; | &lt;PtrType&gt;</code>: Composite types (functions, arrays, pointers).</li>
 <li><code>&lt;Atom&gt; ::= NULL | &lt;Bool&gt; | &lt;Char&gt; | &lt;Number&gt;</code>: Literals for null, booleans, characters, and numbers.</li>
-<li><code>&lt;Number&gt; ::= BIN | OCT | DEC | HEX</code>: Numeric literals in binary, octal, decimal, or hexadecimal.</li>
+<li>
+<p><code>&lt;Number&gt; ::= BIN | OCT | DEC | HEX</code>: Numeric literals in binary, octal, decimal, or hexadecimal.</p>
+</li>
+<li>
+<p><strong>Description</strong>: OSL’s type system includes primitive types (<code>i32</code>, <code>bool</code>, <code>f64</code>), composite types (arrays, functions, pointers), and literals for various numeric formats.</p>
+</li>
+<li>
+<p><strong>Example</strong>:
+  <div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">var</span> <span class="nb">bool</span> <span class="n">flag</span> <span class="o">:=</span> <span class="n">true</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">var</span> <span class="n">i32</span> <span class="n">num</span> <span class="o">:=</span> <span class="mh">0xFF</span><span class="p">;</span> <span class="o">//</span> <span class="n">Hexadecimal</span> <span class="mi">255</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">var</span> <span class="n">f64</span> <span class="n">pi</span> <span class="o">:=</span> <span class="mf">3.14</span><span class="p">;</span>
+</span></code></pre></div>
+  Shows type declarations and literals.</p>
+</li>
 </ul>
-<!--
-# OSL Grammar (Recursive Descent Style)
-
-Below is the OSL grammar presented in a recursive descent style using arrow notation (`→`). This format avoids Markdown table complexities and focuses on clarity for parsing and implementation.
-
-## Program Structure
-
-- `Prog` → `Decl* EOF`
-- `Decl` → `FunDecl` | `FunDeclB` | `VarDecl` | `Stmt`
-- `Block` → `"{" Decl* "}"`
-
-## Function Declarations and Calls
-
-- `FunDecl` → `"fn" Type FunIden "(" Params? ")" Block`
-- `FunDeclB` → `"fn" Type FunIdenB "(" Params? ")" Block`
-- `FunCall` → `FunIden "(" Params? ")"`
-- `FunCallB` → `FunIdenB "(" Params? ")"`
-- `Params` → `Param ("," Param)*`
-- `Param` → `Type (Iden | IdenB)`
-
-## Statements
-
-- `Stmt` → `IfStmt` | `LogStmt` | `RetStmt` | `Block` | `ExpStmt`
-- `IfStmt` → `"if" ValB Block ("elif" ValB Block)* ("else" Block)?`
-- `LogStmt` → `"log" (Val | ValB) ";"`
-- `RetStmt` → `"return" (Val | ValB) ";"`
-- `ExpStmt` → `(Val | ValB) ";"`
-- `VarDecl` → `"var" Type (IdenB | Iden | Assn | AssnB) ";"`
-
-## Expressions and Values
-
-### Value Variants
-
-- `Val` → `Assn` | `Exp` | `Null`
-- `ValB` → `AssnB` | `ExpB` | `Null`
-- `Assn` → `Iden ":=" (Exp | Null)` | `Iden ":=" Assn`
-- `AssnB` → `IdenB ":=" (ExpB | Null)` | `IdenB ":=" AssnB`
-
-### Expressions (Typed: `ExpB`)
-
-- `ExpB` → `UnAmbB` | `OrB` | `NotB` | `AndB` | `Less` | `Greater` | `Eq` | `NotEq`
-- `UnAmbB` → `Bool` | `"(" ExpB ")"` | `IdenB` | `FunCallB`
-- `OrB` → `UnAmbB` | `UnAmbB "||" OrB`
-- `AndB` → `UnAmbB` | `UnAmbB "&&" AndB`
-- `NotB` → `UnAmbB` | `"~" NotB`
-- `Eq` → `UnAmbB` | `Val "=" Val` | `ValB "=" ValB`
-- `NotEq` → `UnAmbB` | `Val "~=" Val` | `ValB "~=" ValB`
-- `Less` → `Val "<" Val` | `Val "<=" Val` | `Val "=" Val` | `Val "<" Less` | `Val "<=" Less` | `Val "=" Less`
-- `Greater` → `Val ">" Val` | `Val ">=" Val` | `Val "=" Val` | `Val ">" Greater` | `Val ">=" Greater` | `Val "=" Greater`
-
-### Expressions (Untyped: `Exp`)
-
-- `Exp` → `Add` | `Multiply` | `Divide` | `Subtract` | `Power` | `Modulo` | `And` | `Or` | `Not` | `Xor` | `Xand` | `Shift` | `UnaryNeg` | `UnAmb`
-- `UnAmb` → `Number` | `"(" Exp ")"` | `Iden` | `FunCall`
-- `Add` → `UnAmb` | `UnAmb "+" Add`
-- `Multiply` → `UnAmb` | `UnAmb "*" Multiply`
-- `Divide` → `UnAmb` | `Multiply "/" UnAmb`
-- `Subtract` → `UnAmb` | `Add "-" UnAmb`
-- `Power` → `UnAmb` | `UnAmb "^" UnAmb`
-- `Modulo` → `UnAmb` | `UnAmb "%" UnAmb`
-- `Or` → `UnAmb` | `UnAmb "|" Or`
-- `And` → `UnAmb` | `UnAmb "&" And`
-- `Xor` → `UnAmb` | `UnAmb "!|" Xor`
-- `Xand` → `UnAmb` | `UnAmb "!&" Xand`
-- `Shift` → `UnAmb ">>" UnAmb` | `UnAmb "<<" UnAmb`
-- `Not` → `UnAmb` | `"~" Not`
-- `UnaryNeg` → `UnAmb` | `"-" UnaryNeg` | `"+" UnaryNeg`
-
-## Types and Literals
-
-- `Type` → `"bool"` | `"i8"` | `"i16"` | `"i32"` | `"i64"` | `"i128"` | `"u8"` | `"u16"` | `"u32"` | `"u64"` | `"u128"` | `"f8"` | `"f16"` | `"f32"` | `"f64"` | `"f128"` | `"c8"`
-- `Number` → `(bINTEGER bFRACTION bEXPONENT)` | `(oINTEGER oFRACTION oEXPONENT)` | `(dINTEGER dFRACTION dEXPONENT)` | `(hINTEGER hFRACTION hEXPONENT)`
-
-### Numeric Literal Components
-
-- `bINTEGER` → `"0b" BITS` | `"0B" BITS`
-- `oINTEGER` → `"0o" OCTS` | `"0O" OCTS`
-- `dINTEGER` → `DIGITS`
-- `hINTEGER` → `"0x" HEXES` | `"0X" HEXES`
-- `bFRACTION` → `""` | `"." BITS`
-- `oFRACTION` → `""` | `"." OCTS`
-- `dFRACTION` → `""` | `"." DIGITS`
-- `hFRACTION` → `""` | `"." HEXES`
-- `bEXPONENT` → `""` | `"e" BITS`
-- `oEXPONENT` → `""` | `"e" OCTS`
-- `dEXPONENT` → `""` | `"e" DIGITS`
-- `hEXPONENT` → `""` | `"p" HEXES`
-
-### Token Definitions
-
-- `BIT` → `"0"` | `"1"`
-- `BITS` → `BIT?`
-- `OCT` → `"0".."7"`
-- `OCTS` → `OCT?`
-- `DIGIT` → `"0".."9"`
-- `DIGITS` → `DIGIT?`
-- `HEX` → `"0".."9"` | `"a".."f"` | `"A".."F"`
-- `HEXES` → `HEX?`
-- `Bool` → `"true"` | `"false"`
-- `Iden` → `LETTER (LETTER | DIGIT | "_")*`
-- `IdenB` → `LETTER (LETTER | DIGIT | "_")*`
-- `LETTER` → `"a".."z"` | `"A".."Z"`
-
-## Notes on Recursive Descent
-
-- **Left Recursion**: Productions like `Add`, `Multiply`, `OrB`, etc., are left-recursive and can be parsed iteratively to avoid infinite recursion.
-- **Right Recursion**: `Not`, `UnaryNeg`, etc., are right-recursive, fitting naturally into recursive descent parsing.
-- **Ambiguity**: The grammar separates typed (`B` suffix) and untyped constructs to minimize ambiguity, though overlaps (e.g., `Val` vs. `ValB`) may need precedence rules.
-- **Null**: Represents an uninitialized or void value, applicable in assignments and returns.
-
-# Promised Unambiguous Grammar
-
-```py
-program → declaration* EOF;
-
-declaration → funDecl | funcDeclB | varDecl | statement;
-
-funDeclB → "fn" TYPE FUNIDENB "(" parameters? ")" block;
-funDecl → "fn" TYPE FUNIDEN "(" parameters? ")" block;
-varDecl → "var" TYPE IDENTIFIER (":=" expression)? ";";
-statement → ifStmt | printStmt | returnStmt | block | expressionStmt;
-
-ifStmt → "if" expression block ("else" block)?; // block is mandatory to avoid ambiguity
-printStmt → "print" "(" expression ")" ";";
-returnStmt → "return" (expression)? ";";
-block → "{" declaration* "}";
-expressionStmt → expression ";";
-
-expression → assignment | ExpB;
-assignment → IDENTIFIER ":=" ExpB;
-
-parameters → IDENTIFIER ("," IDENTIFIER)*;
-
-ExpB → UnAmbB | OrB | NotB | AndB | Less | Greater;
-OrB → UnAmbB | UnAmbB "|" OrB;
-NotB → UnAmbB | "~" NotB;
-AndB → UnAmbB | UnAmbB "&" AndB;
-Less → Exp ("<" | "<=" | "=") Exp | Exp "<" Less | Exp "<=" Less | Exp "=" Less;
-Greater → Exp (">" | ">=" | "=") Exp | Exp ">" Greater | Exp ">=" Greater | Exp "=" Greater;
-UnAmbB → BOOL | IDENTIFIER | funCall | "(" ExpB ")";
-
-Exp → Add | Multiply | Divide | Subtract | Power | Modulo | And | Or | Not | Xor
-    | Xand | Shift | UnaryNeg | UnAmb;
-Add → UnAmb | UnAmb "+" Add;
-Multiply → UnAmb | UnAmb "*" Multiply;
-Divide → UnAmb | Multiply "/" UnAmb;
-Subtract → UnAmb | Add "-" UnAmb;
-Power → UnAmb | UnAmb "^" UnAmb;
-Modulo → UnAmb | UnAmb "%" UnAmb;
-Or → UnAmb | UnAmb "|" Or;
-And → UnAmb | UnAmb "&" And;
-Xor → UnAmb | UnAmb "!|" Xor;
-Xand → UnAmb | UnAmb "!&" Xand;
-Shift → UnAmb (">>" | "<<") UnAmb;
-Not → UnAmb | "~" Not;
-UnaryNeg → ("-" | "+") UnaryNeg | UnAmb;
-
-UnAmb → NUMBER | IDENTIFIER | funCall | "(" Exp ")";
-funCall → IDENTIFIER "(" arguments? ")";
-arguments → ExpB ("," ExpB)*;
-
-NUMBER → (bINTEGER bFRACTION bEXPONENT)
-    | (oINTEGER oFRACTION oEXPONENT)
-    | (dINTEGER dFRACTION dEXPONENT)
-    | (hINTEGER hFRACTION hEXPONENT);
-hEXPONENT → ""
-    | "p" HEXES;
-bEXPONENT → ""
-    | "e" BITS;
-oEXPONENT → ""
-    | "e" OCTS;
-dEXPONENT → ""
-    | "e" DIGITS;
-bfraction → ""
-    | "." BITS;
-ofraction → ""
-    | "." OCTS;
-dfraction → ""
-    | "." DIGITS;
-hfraction → ""
-    | "." HEXES;
-bINTEGER → "0b" BITS
-    | "0B" BITS;
-oINTEGER → "0o" OCTS
-    | "0O" OCTS;
-dINTEGER → DIGITS;
-hINTEGER → "0x" HEXES
-    | "0X" HEXES;
-BIT → "0" | "1";
-BITS → BIT?;
-OCT → "0".."7";
-OCTS → OCT?;
-DIGIT → "0".."9";
-DIGITS → DIGIT?;
-HEX → "0".."9" | "a".."f" | "A".."F";
-HEXES → HEX?;
-BOOL → "true" | "false";
-IDENTIFIER → LETTER (LETTER | DIGIT | "_")*;
-LETTER → "a" .. "z" | "A" .. "Z";
-TYPE → "i8" | "i16" | "i32" | "i64" | "i128" | "u8" | "u16" | "u32" | "u64" | "u128" | "bool";
-``` -->
+<h2 id="design-choices-and-features">Design Choices and Features<a class="headerlink" href="#design-choices-and-features" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Unambiguity</strong>:</p>
+</li>
+<li>
+<p>Mandatory blocks in <code>if</code>, <code>elif</code>, <code>else</code>, and <code>while</code> eliminate dangling-else ambiguities.</p>
+</li>
+<li>Separate rules for locations (<code>Loc</code>) and values (<code>Val</code>) clarify assignment targets.</li>
+<li>
+<p>Explicit typing reduces parsing conflicts (e.g., <code>i32</code> vs. <code>fn</code> types).</p>
+</li>
+<li>
+<p><strong>Recursive Descent</strong>:</p>
+</li>
+<li>
+<p>Left-recursive rules (e.g., <code>Add</code>, <code>Mul</code>) are iterable in a parser.</p>
+</li>
+<li>Right-recursive rules (e.g., <code>UnNot</code>, <code>UnSign</code>) fit recursive descent naturally.</li>
+<li>
+<p>Parenthesized expressions (<code>LPAREN &lt;Exp&gt; RPAREN</code>) resolve operator precedence.</p>
+</li>
+<li>
+<p><strong>Rich Type System</strong>:</p>
+</li>
+<li>
+<p>Supports multiple integer (<code>i8</code> to <code>i128</code>), unsigned integer (<code>u8</code> to <code>u128</code>), and floating-point (<code>f16</code> to <code>f128</code>) types.</p>
+</li>
+<li>
+<p>Composite types enable complex data structures and function signatures.</p>
+</li>
+<li>
+<p><strong>Closure Support</strong>:</p>
+</li>
+<li>
+<p>Functions can capture variables, enabled by the VM’s linked-list environment and escape analysis in codegen.</p>
+</li>
+<li>
+<p><strong>Array Flexibility</strong>:</p>
+</li>
+<li>Dynamic arrays (<code>{1, 2, 3}</code>) and declared arrays (<code>i32[2][3]</code>) support diverse use cases.</li>
+<li>Multi-dimensional access (<code>arr[0][1]</code>) is integrated into expressions.</li>
+</ol>
 
 
 

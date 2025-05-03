@@ -386,6 +386,31 @@
   
   
     <li class="md-nav__item">
+      <a href="../../documentation/arrays/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 5v14h2v2H3V3h4v2zm15 2H7v2h13zm0 4H7v2h13zm0 4H7v2h13z"/></svg>
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../documentation/func/" class="md-nav__link">
         
   
@@ -419,31 +444,6 @@
   
   <span class="md-ellipsis">
     Syntax
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../documentation/features/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.06 13.09 5.63 5.59-3.32 3.28-5.59-5.59v-.92l2.36-2.36zm.91-2.53L16 9.6l-4.79 4.8v1.97L5.58 22 2.3 18.68l5.59-5.59h1.97l.78-.78L6.8 8.46H5.5L2.69 5.62 5.31 3l2.8 2.8v1.31L12 10.95l2.66-2.66-.96-1.01L15 5.97h-2.66l-.65-.65L15 2l.66.66v2.66L16.97 4l3.28 3.28c1.09 1.1 1.09 2.89 0 3.98l-1.97-2.01z"/></svg>
-  
-  <span class="md-ellipsis">
-    Features
     
   </span>
   
@@ -868,6 +868,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#closures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#counter-with-closure" class="md-nav__link">
     <span class="md-ellipsis">
       Counter with Closure
@@ -1013,6 +1022,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#closures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#counter-with-closure" class="md-nav__link">
     <span class="md-ellipsis">
       Counter with Closure
@@ -1082,7 +1100,7 @@
 <li><strong>Control Flow</strong>: <code>JUMP</code>, <code>JUMP_IF_ZERO</code>, and <code>RETURN</code> manage program flow, supporting conditionals and loops.</li>
 </ul>
 <h2 id="factorial-function">Factorial Function<a class="headerlink" href="#factorial-function" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">}</span>
@@ -1091,36 +1109,36 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">log</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 </span></code></pre></div>
 <h2 id="bytecode">Bytecode<a class="headerlink" href="#bytecode" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>JUMP 92                  # Skip function body to setup code (jump forward 92 bytes)
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>BIND 2                   # Bind parameter n to ID 2 in the current scope
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>GET 2                    # Push value of n (ID 2) onto the stack
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>PUSH_INT 0               # Push 0 for comparison with n
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>EQ                       # Pop n and 0, push 1 if n == 0, else 0
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>JUMP_IF_ZERO 10          # If top is 0 (n != 0), jump forward 10 bytes to skip return 1
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>PUSH_INT 1               # Push 1 (base case result)
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>RETURN                   # Pop 1 and return address, return to caller
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>GET 2                    # Push n (ID 2)
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>PUSH_INT 95              # Push placeholder return address
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>GET 2                    # Push n again
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>PUSH_INT 1               # Push 1
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>SUB                      # Pop n and 1, push n - 1
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>GET 1                    # Push fact function object (ID 1)
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>CALL                     # Call fact(n-1), push return address, execute function
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>MUL                      # Pop n and fact(n-1), push n * fact(n-1)
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>RETURN                   # Pop result and return address, return to caller
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>PUSH_INT 5               # Push entry point (offset 5, start of BIND 2)
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>PUSH_INT 97              # Push exit point (offset 97, after function body)
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>MAKE_FUNC                # Pop entry/exit points, create function object, push it
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>BIND 1                   # Bind function object to fact (ID 1)
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>GET 1                    # Push fact function object
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>PUSH_INT 0               # Push 0 (no captured variables)
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>MAKE_CLOSURE             # Create empty closure for fact
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>PUSH_INT 172             # Push placeholder return address
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>PUSH_INT 5               # Push argument 5
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>GET 1                    # Push fact function object
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>CALL                     # Call fact(5), push return address
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>LOG                      # Pop result (120), print it
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>HALT                     # Terminate execution
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">JUMP</span> <span class="mi">92</span>                  <span class="c1"># Skip function body to setup code (jump forward 92 bytes)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">BIND</span> <span class="mi">2</span>                   <span class="c1"># Bind parameter n to ID 2 in the current scope</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">GET</span> <span class="mi">2</span>                    <span class="c1"># Push value of n (ID 2) onto the stack</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>               <span class="c1"># Push 0 for comparison with n</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">EQ</span>                       <span class="c1"># Pop n and 0, push 1 if n == 0, else 0</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">JUMP_IF_ZERO</span> <span class="mi">10</span>          <span class="c1"># If top is 0 (n != 0), jump forward 10 bytes to skip return 1</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push 1 (base case result)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">RETURN</span>                   <span class="c1"># Pop 1 and return address, return to caller</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">GET</span> <span class="mi">2</span>                    <span class="c1"># Push n (ID 2)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">PUSH_INT</span> <span class="mi">95</span>              <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">GET</span> <span class="mi">2</span>                    <span class="c1"># Push n again</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push 1</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">SUB</span>                      <span class="c1"># Pop n and 1, push n - 1</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push fact function object (ID 1)</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">CALL</span>                     <span class="c1"># Call fact(n-1), push return address, execute function</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">MUL</span>                      <span class="c1"># Pop n and fact(n-1), push n * fact(n-1)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="n">RETURN</span>                   <span class="c1"># Pop result and return address, return to caller</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>               <span class="c1"># Push entry point (offset 5, start of BIND 2)</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">PUSH_INT</span> <span class="mi">97</span>              <span class="c1"># Push exit point (offset 97, after function body)</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="n">MAKE_FUNC</span>                <span class="c1"># Pop entry/exit points, create function object, push it</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">BIND</span> <span class="mi">1</span>                   <span class="c1"># Bind function object to fact (ID 1)</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push fact function object</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>               <span class="c1"># Push 0 (no captured variables)</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="n">MAKE_CLOSURE</span>             <span class="c1"># Create empty closure for fact</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="n">PUSH_INT</span> <span class="mi">172</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>               <span class="c1"># Push argument 5</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push fact function object</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="n">CALL</span>                     <span class="c1"># Call fact(5), push return address</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="n">LOG</span>                      <span class="c1"># Pop result (120), print it</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="n">HALT</span>                     <span class="c1"># Terminate execution</span>
 </span></code></pre></div>
 <ul>
 <li><strong>Purpose</strong>: Computes <code>fact(5)</code> (120) using a recursive function and prints the result.</li>
@@ -1133,7 +1151,7 @@
 <li><strong>Comments</strong>: Each instruction is annotated with its effect on the stack or environment, clarifying control flow (e.g., jumps) and function setup.</li>
 </ul>
 <h2 id="array-manipulation">Array Manipulation<a class="headerlink" href="#array-manipulation" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">var</span> <span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">];</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">var</span> <span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">];</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="n">x</span> <span class="o">-</span> <span class="mi">7</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">log</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
@@ -1142,61 +1160,61 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">var</span> <span class="n">a</span><span class="p">[</span><span class="n">M</span><span class="p">][</span><span class="n">M</span> <span class="o">+</span> <span class="n">N</span><span class="p">];</span>
 </span></code></pre></div>
 <h2 id="bytecode_1">Bytecode<a class="headerlink" href="#bytecode_1" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>PUSH_INT 7               # Push 7 (last element of arr)
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>PUSH_INT 6               # Push 6 (third element of arr)
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>PUSH_INT 5               # Push 5 (second element of [4, 5])
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>PUSH_INT 4               # Push 4 (first element of [4, 5])
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>MAKE_ARRAY 2             # Pop 4, 5, create array [4, 5], push it
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>PUSH_INT 3               # Push 3 (second element of [2, 3, [4, 5]])
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>PUSH_INT 2               # Push 2 (first element of [2, 3, [4, 5]])
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>MAKE_ARRAY 3             # Pop 2, 3, [4, 5], create array [2, 3, [4, 5]], push it
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>PUSH_INT 1               # Push 1 (first element of arr)
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>MAKE_ARRAY 4             # Pop 1, [2, 3, [4, 5]], 6, 7, create array [1, [2, 3, [4, 5]], 6, 7], push it
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>BIND 1                   # Bind array to arr (ID 1)
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>PUSH_INT 0               # Push index 0
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>PUSH_INT 1               # Push index 1
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>GET 1                    # Push arr (ID 1)
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>ARRACC                   # Pop arr, 1, push arr[1]
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>ARRACC                   # Pop arr[1], 0, push arr[1][0] (2)
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>PUSH_INT 1               # Push index 1
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>PUSH_INT 2               # Push index 2
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>PUSH_INT 1               # Push index 1
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>GET 1                    # Push arr
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>ARRACC                   # Pop arr, 1, push arr[1]
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>ARRACC                   # Pop arr[1], 2, push arr[1][2]
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>ARRACC                   # Pop arr[1][2], 1, push arr[1][2][1] (5)
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>ADD                      # Pop 2, 5, push 2 + 5 = 7
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>BIND 2                   # Bind 7 to x (ID 2)
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>PUSH_INT 10              # Push value 10
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>GET 2                    # Push x (7)
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>PUSH_INT 7               # Push 7
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>SUB                      # Pop 7, 7, push 7 - 7 = 0
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>PUSH_INT 2               # Push index 2
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>PUSH_INT 1               # Push index 1
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>GET 1                    # Push arr
-</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>ARRACC                   # Pop arr, 1, push arr[1]
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>ARRACC                   # Pop arr[1], 2, push arr[1][2]
-</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>ARRACC                   # Pop arr[1][2], 0, push arr[1][2][0]
-</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>STORE                    # Pop 10, arr[1][2], 0, store 10 at arr[1][2][0]
-</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>PUSH_INT 0               # Push index 0
-</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>PUSH_INT 2               # Push index 2
-</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>PUSH_INT 1               # Push index 1
-</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>GET 1                    # Push arr
-</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>ARRACC                   # Pop arr, 1, push arr[1]
-</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>ARRACC                   # Pop arr[1], 2, push arr[1][2]
-</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>ARRACC                   # Pop arr[1][2], 0, push arr[1][2][0] (10)
-</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>LOG                      # Pop 10, print it
-</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>PUSH_INT 1               # Push 1
-</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>BIND 3                   # Bind 1 to M (ID 3)
-</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>PUSH_INT 2               # Push 2
-</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>BIND 4                   # Bind 2 to N (ID 4)
-</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>GET 3                    # Push M (1)
-</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>GET 3                    # Push M (1)
-</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>GET 4                    # Push N (2)
-</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>ADD                      # Pop 1, 2, push 1 + 2 = 3
-</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>MAKE_ARRAY_DECL 2        # Pop 1, 3, create 2D array [1][3] initialized to 0
-</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>BIND 5                   # Bind array to a (ID 5)
-</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>HALT                     # Terminate execution
+<div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">PUSH_INT</span> <span class="mi">7</span>               <span class="c1"># Push 7 (last element of arr)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">PUSH_INT</span> <span class="mi">6</span>               <span class="c1"># Push 6 (third element of arr)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>               <span class="c1"># Push 5 (second element of [4, 5])</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">PUSH_INT</span> <span class="mi">4</span>               <span class="c1"># Push 4 (first element of [4, 5])</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">MAKE_ARRAY</span> <span class="mi">2</span>             <span class="c1"># Pop 4, 5, create array [4, 5], push it</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">PUSH_INT</span> <span class="mi">3</span>               <span class="c1"># Push 3 (second element of [2, 3, [4, 5]])</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>               <span class="c1"># Push 2 (first element of [2, 3, [4, 5]])</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">MAKE_ARRAY</span> <span class="mi">3</span>             <span class="c1"># Pop 2, 3, [4, 5], create array [2, 3, [4, 5]], push it</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push 1 (first element of arr)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">MAKE_ARRAY</span> <span class="mi">4</span>             <span class="c1"># Pop 1, [2, 3, [4, 5]], 6, 7, create array [1, [2, 3, [4, 5]], 6, 7], push it</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">BIND</span> <span class="mi">1</span>                   <span class="c1"># Bind array to arr (ID 1)</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>               <span class="c1"># Push index 0</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push index 1</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push arr (ID 1)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr, 1, push arr[1]</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr[1], 0, push arr[1][0] (2)</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push index 1</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>               <span class="c1"># Push index 2</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push index 1</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push arr</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr, 1, push arr[1]</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr[1], 2, push arr[1][2]</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr[1][2], 1, push arr[1][2][1] (5)</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="n">ADD</span>                      <span class="c1"># Pop 2, 5, push 2 + 5 = 7</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="n">BIND</span> <span class="mi">2</span>                   <span class="c1"># Bind 7 to x (ID 2)</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="n">PUSH_INT</span> <span class="mi">10</span>              <span class="c1"># Push value 10</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">GET</span> <span class="mi">2</span>                    <span class="c1"># Push x (7)</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">PUSH_INT</span> <span class="mi">7</span>               <span class="c1"># Push 7</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">SUB</span>                      <span class="c1"># Pop 7, 7, push 7 - 7 = 0</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>               <span class="c1"># Push index 2</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push index 1</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push arr</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr, 1, push arr[1]</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr[1], 2, push arr[1][2]</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr[1][2], 0, push arr[1][2][0]</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="n">STORE</span>                    <span class="c1"># Pop 10, arr[1][2], 0, store 10 at arr[1][2][0]</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>               <span class="c1"># Push index 0</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>               <span class="c1"># Push index 2</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push index 1</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push arr</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr, 1, push arr[1]</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr[1], 2, push arr[1][2]</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="n">ARRACC</span>                   <span class="c1"># Pop arr[1][2], 0, push arr[1][2][0] (10)</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="n">LOG</span>                      <span class="c1"># Pop 10, print it</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push 1</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="n">BIND</span> <span class="mi">3</span>                   <span class="c1"># Bind 1 to M (ID 3)</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>               <span class="c1"># Push 2</span>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="n">BIND</span> <span class="mi">4</span>                   <span class="c1"># Bind 2 to N (ID 4)</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="n">GET</span> <span class="mi">3</span>                    <span class="c1"># Push M (1)</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="n">GET</span> <span class="mi">3</span>                    <span class="c1"># Push M (1)</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="n">GET</span> <span class="mi">4</span>                    <span class="c1"># Push N (2)</span>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="n">ADD</span>                      <span class="c1"># Pop 1, 2, push 1 + 2 = 3</span>
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="n">MAKE_ARRAY_DECL</span> <span class="mi">2</span>        <span class="c1"># Pop 1, 3, create 2D array [1][3] initialized to 0</span>
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="n">BIND</span> <span class="mi">5</span>                   <span class="c1"># Bind array to a (ID 5)</span>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="n">HALT</span>                     <span class="c1"># Terminate execution</span>
 </span></code></pre></div>
 <ul>
 <li><strong>Purpose</strong>: Creates a nested array, computes <code>x</code> using multi-dimensional indexing, updates an element, and declares a 2D array.</li>
@@ -1207,80 +1225,141 @@
 <li><code>MAKE_ARRAY_DECL</code>: Creates a zero-initialized 2D array <code>[1][3]</code>.</li>
 <li><strong>Comments</strong>: Detail the construction of nested arrays, index calculations, and array modifications, making the sequence of <code>ARRACC</code> calls clear.</li>
 </ul>
+<h2 id="closures">Closures<a class="headerlink" href="#closures" title="Permanent link">&para;</a></h2>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="p">{</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="p">}</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">return</span> <span class="n">bar</span><span class="p">;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">log</span> <span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">5</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">JUMP</span> <span class="mi">148</span>    <span class="c1"># &lt;- definition of foo</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">BIND</span> <span class="mi">2</span>      <span class="c1"># &lt;- foo&#39;s entry point of body</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">PUSH_INT</span> <span class="mi">3</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">BIND</span> <span class="mi">3</span>      <span class="c1"># &lt;- var x := 3;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">JUMP</span> <span class="mi">40</span>     <span class="c1"># &lt;- definition of bar</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">BIND</span> <span class="mi">5</span>      <span class="c1"># &lt;- bar&#39;s entry point of body</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">GET</span> <span class="mi">3</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">GET</span> <span class="mi">2</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">ADD</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">GET</span> <span class="mi">5</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">ADD</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="n">RETURN</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="n">RETURN</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">PUSH_INT</span> <span class="mi">37</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="n">PUSH_INT</span> <span class="mi">77</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="n">MAKE_FUNC</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="n">BIND</span> <span class="mi">4</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="n">GET</span> <span class="mi">4</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>    <span class="c1"># &lt;- bar requires x (id=3), y(id=2) from outer scope.</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="n">PUSH_INT</span> <span class="mi">3</span>    <span class="c1"># z(id=5) is not required in the closure since that is a parameter (escape analysis)</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="n">MAKE_CLOSURE</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="n">GET</span> <span class="mi">4</span>       <span class="c1"># &lt;- body of foo continues</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="n">RETURN</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="n">RETURN</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="n">PUSH_INT</span> <span class="mi">153</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="n">MAKE_FUNC</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="n">BIND</span> <span class="mi">1</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="n">GET</span> <span class="mi">1</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>    <span class="c1"># &lt;- since foo is global, it does not require any variables from outer scope to close</span>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="n">MAKE_CLOSURE</span>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="c1"># main program starts here</span>
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="n">PUSH_INT</span> <span class="mi">247</span>  <span class="c1"># &lt;- return address for bar&#39;s call</span>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>    <span class="c1"># &lt;- argument for bar</span>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="n">PUSH_INT</span> <span class="mi">246</span>  <span class="c1"># &lt;- return address for foo&#39;s call</span>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>    <span class="c1"># &lt;- argument for foo</span>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="n">GET</span> <span class="mi">1</span>         <span class="c1"># &lt;- foo&#39;s function object is fetched in the VM</span>
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="n">CALL</span>
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="n">CALL</span>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="n">LOG</span>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="n">HALT</span>
+</span></code></pre></div>
 <h2 id="counter-with-closure">Counter with Closure<a class="headerlink" href="#counter-with-closure" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">counter</span><span class="p">()</span> <span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">var</span> <span class="n">count</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">inc</span><span class="p">()</span> <span class="p">{</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="n">count</span> <span class="o">:=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="p">}</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">return</span> <span class="n">inc</span><span class="p">;</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">var</span> <span class="n">c1</span> <span class="o">:=</span> <span class="n">counter</span><span class="p">();</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">var</span> <span class="n">c2</span> <span class="o">:=</span> <span class="n">counter</span><span class="p">();</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">log</span> <span class="n">c1</span><span class="p">();</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">log</span> <span class="n">c1</span><span class="p">();</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">log</span> <span class="n">c1</span><span class="p">();</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">log</span> <span class="n">c2</span><span class="p">();</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">log</span> <span class="n">c2</span><span class="p">();</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">counter</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">var</span> <span class="n">count</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">inc</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="n">count</span> <span class="o">:=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="p">}</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="k">return</span> <span class="n">inc</span><span class="p">;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">var</span> <span class="n">c1</span> <span class="o">:=</span> <span class="n">counter</span><span class="p">();</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">var</span> <span class="n">c2</span> <span class="o">:=</span> <span class="n">counter</span><span class="p">();</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">log</span> <span class="n">c1</span><span class="p">();</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">log</span> <span class="n">c1</span><span class="p">();</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">log</span> <span class="n">c1</span><span class="p">();</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">log</span> <span class="n">c2</span><span class="p">();</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">log</span> <span class="n">c2</span><span class="p">();</span>
 </span></code></pre></div>
 <h4 id="commented-bytecode">Commented Bytecode<a class="headerlink" href="#commented-bytecode" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>JUMP 127                 # Skip counter body to setup code (jump forward 127 bytes)
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>PUSH_INT 0               # Push 0 (initial count)
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>BIND 2                   # Bind 0 to count (ID 2)
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>JUMP 38                  # Skip inc body to setup code (jump forward 38 bytes)
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>GET 2                    # Push count (ID 2)
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>PUSH_INT 1               # Push 1
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>ADD                      # Pop count, 1, push count + 1
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>SET 2                    # Pop count + 1, update count (ID 2)
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>GET 2                    # Push updated count
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>RETURN                   # Pop count and return address, return to caller
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>PUSH_INT 28              # Push entry point for inc (offset 28)
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>PUSH_INT 66              # Push exit point for inc (offset 66)
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>MAKE_FUNC                # Pop entry/exit points, create inc function, push it
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>BIND 3                   # Bind inc function to ID 3
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>GET 3                    # Push inc function
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>PUSH_INT 2               # Push ID 2 (count)
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>PUSH_INT 1               # Push 1 (number of captured variables)
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>MAKE_CLOSURE             # Pop ID 2, 1, create closure for inc capturing count
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>GET 3                    # Push inc function
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>RETURN                   # Pop inc and return address, return to counter caller
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>PUSH_INT 5               # Push entry point for counter (offset 5)
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>PUSH_INT 132             # Push exit point for counter (offset 132)
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>MAKE_FUNC                # Pop entry/exit points, create counter function, push it
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>BIND 1                   # Bind counter function to ID 1
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>GET 1                    # Push counter function
-</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>PUSH_INT 0               # Push 0 (no captured variables)
-</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>MAKE_CLOSURE             # Create empty closure for counter
-</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>PUSH_INT 198             # Push placeholder return address
-</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>GET 1                    # Push counter function
-</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>CALL                     # Call counter, push return address, get inc
-</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>BIND 4                   # Bind inc to c1 (ID 4)
-</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>PUSH_INT 226             # Push placeholder return address
-</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>GET 1                    # Push counter function
-</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>CALL                     # Call counter again, get another inc
-</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>BIND 5                   # Bind inc to c2 (ID 5)
-</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>PUSH_INT 254             # Push placeholder return address
-</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>GET 4                    # Push c1 (inc)
-</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>CALL                     # Call c1, push return address, increment count (1)
-</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>LOG                      # Pop 1, print it
-</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>PUSH_INT 274             # Push placeholder return address
-</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>GET 4                    # Push c1
-</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>CALL                     # Call c1, increment count (2)
-</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>LOG                      # Pop 2, print it
-</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>PUSH_INT 294             # Push placeholder return address
-</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>GET 4                    # Push c1
-</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>CALL                     # Call c1, increment count (3)
-</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>LOG                      # Pop 3, print it
-</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>PUSH_INT 314             # Push placeholder return address
-</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>GET 5                    # Push c2
-</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>CALL                     # Call c2, increment count (1)
-</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>LOG                      # Pop 1, print it
-</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>PUSH_INT 334             # Push placeholder return address
-</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>GET 5                    # Push c2
-</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>CALL                     # Call c2, increment count (2)
-</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>LOG                      # Pop 2, print it
-</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>HALT                     # Terminate execution
+<div class="language-py highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">JUMP</span> <span class="mi">127</span>                 <span class="c1"># Skip counter body to setup code (jump forward 127 bytes)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>               <span class="c1"># Push 0 (initial count)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">BIND</span> <span class="mi">2</span>                   <span class="c1"># Bind 0 to count (ID 2)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">JUMP</span> <span class="mi">38</span>                  <span class="c1"># Skip inc body to setup code (jump forward 38 bytes)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">GET</span> <span class="mi">2</span>                    <span class="c1"># Push count (ID 2)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push 1</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">ADD</span>                      <span class="c1"># Pop count, 1, push count + 1</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">SET</span> <span class="mi">2</span>                    <span class="c1"># Pop count + 1, update count (ID 2)</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">GET</span> <span class="mi">2</span>                    <span class="c1"># Push updated count</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">RETURN</span>                   <span class="c1"># Pop count and return address, return to caller</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">PUSH_INT</span> <span class="mi">28</span>              <span class="c1"># Push entry point for inc (offset 28)</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="n">PUSH_INT</span> <span class="mi">66</span>              <span class="c1"># Push exit point for inc (offset 66)</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="n">MAKE_FUNC</span>                <span class="c1"># Pop entry/exit points, create inc function, push it</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">BIND</span> <span class="mi">3</span>                   <span class="c1"># Bind inc function to ID 3</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="n">GET</span> <span class="mi">3</span>                    <span class="c1"># Push inc function</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>               <span class="c1"># Push ID 2 (count)</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push 1 (number of captured variables)</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="n">MAKE_CLOSURE</span>             <span class="c1"># Pop ID 2, 1, create closure for inc capturing count</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="n">GET</span> <span class="mi">3</span>                    <span class="c1"># Push inc function</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="n">RETURN</span>                   <span class="c1"># Pop inc and return address, return to counter caller</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>               <span class="c1"># Push entry point for counter (offset 5)</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="n">PUSH_INT</span> <span class="mi">132</span>             <span class="c1"># Push exit point for counter (offset 132)</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="n">MAKE_FUNC</span>                <span class="c1"># Pop entry/exit points, create counter function, push it</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="n">BIND</span> <span class="mi">1</span>                   <span class="c1"># Bind counter function to ID 1</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push counter function</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>               <span class="c1"># Push 0 (no captured variables)</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="n">MAKE_CLOSURE</span>             <span class="c1"># Create empty closure for counter</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="n">PUSH_INT</span> <span class="mi">198</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push counter function</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="n">CALL</span>                     <span class="c1"># Call counter, push return address, get inc</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="n">BIND</span> <span class="mi">4</span>                   <span class="c1"># Bind inc to c1 (ID 4)</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="n">PUSH_INT</span> <span class="mi">226</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push counter function</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="n">CALL</span>                     <span class="c1"># Call counter again, get another inc</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="n">BIND</span> <span class="mi">5</span>                   <span class="c1"># Bind inc to c2 (ID 5)</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="n">PUSH_INT</span> <span class="mi">254</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="n">GET</span> <span class="mi">4</span>                    <span class="c1"># Push c1 (inc)</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="n">CALL</span>                     <span class="c1"># Call c1, push return address, increment count (1)</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="n">LOG</span>                      <span class="c1"># Pop 1, print it</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="n">PUSH_INT</span> <span class="mi">274</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="n">GET</span> <span class="mi">4</span>                    <span class="c1"># Push c1</span>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="n">CALL</span>                     <span class="c1"># Call c1, increment count (2)</span>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="n">LOG</span>                      <span class="c1"># Pop 2, print it</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="n">PUSH_INT</span> <span class="mi">294</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="n">GET</span> <span class="mi">4</span>                    <span class="c1"># Push c1</span>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="n">CALL</span>                     <span class="c1"># Call c1, increment count (3)</span>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="n">LOG</span>                      <span class="c1"># Pop 3, print it</span>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="n">PUSH_INT</span> <span class="mi">314</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="n">GET</span> <span class="mi">5</span>                    <span class="c1"># Push c2</span>
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="n">CALL</span>                     <span class="c1"># Call c2, increment count (1)</span>
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="n">LOG</span>                      <span class="c1"># Pop 1, print it</span>
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="n">PUSH_INT</span> <span class="mi">334</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="n">GET</span> <span class="mi">5</span>                    <span class="c1"># Push c2</span>
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="n">CALL</span>                     <span class="c1"># Call c2, increment count (2)</span>
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a><span class="n">LOG</span>                      <span class="c1"># Pop 2, print it</span>
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="n">HALT</span>                     <span class="c1"># Terminate execution</span>
 </span></code></pre></div>
 <ul>
 <li><strong>Purpose</strong>: Creates two counters (<code>c1</code>, <code>c2</code>) with separate <code>count</code> variables, demonstrating closure state persistence.</li>
@@ -1291,131 +1370,131 @@
 <li><strong>Comments</strong>: Highlight the closure setup, variable capture, and repeated calls, clarifying how <code>c1</code> and <code>c2</code> maintain separate states.</li>
 </ul>
 <h2 id="nested-closures">Nested Closures<a class="headerlink" href="#nested-closures" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">var</span> <span class="n">c</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="n">var</span> <span class="n">y</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="k">def</span><span class="w"> </span><span class="nf">hh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            <span class="n">hh</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>            <span class="k">return</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="p">}</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="k">def</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>            <span class="n">var</span> <span class="n">tmp</span> <span class="o">:=</span> <span class="mi">8</span><span class="p">;</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>            <span class="n">b</span> <span class="o">:=</span> <span class="n">tmp</span><span class="p">;</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>            <span class="n">var</span> <span class="n">z</span> <span class="o">:=</span> <span class="n">b</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>            <span class="n">b</span> <span class="o">:=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">g</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>            <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">hh</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>        <span class="p">}</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>        <span class="k">return</span> <span class="n">h</span><span class="p">;</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="p">}</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="k">return</span> <span class="n">g</span><span class="p">;</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="p">}</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="n">var</span> <span class="n">t</span> <span class="o">:=</span> <span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)(</span><span class="mi">5</span><span class="p">)(</span><span class="mi">3</span><span class="p">);</span>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="n">log</span> <span class="n">t</span><span class="p">;</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">var</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">var</span> <span class="n">c</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="n">var</span> <span class="n">y</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="k">def</span><span class="w"> </span><span class="nf">hh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>            <span class="n">hh</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>            <span class="k">return</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="k">def</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>            <span class="n">var</span> <span class="n">tmp</span> <span class="o">:=</span> <span class="mi">8</span><span class="p">;</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>            <span class="n">b</span> <span class="o">:=</span> <span class="n">tmp</span><span class="p">;</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>            <span class="n">var</span> <span class="n">z</span> <span class="o">:=</span> <span class="n">b</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>            <span class="n">b</span> <span class="o">:=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">g</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>            <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">hh</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>        <span class="p">}</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>        <span class="k">return</span> <span class="n">h</span><span class="p">;</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="p">}</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>    <span class="k">return</span> <span class="n">g</span><span class="p">;</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">}</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="n">var</span> <span class="n">t</span> <span class="o">:=</span> <span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)(</span><span class="mi">5</span><span class="p">)(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="n">log</span> <span class="n">t</span><span class="p">;</span>
 </span></code></pre></div>
 <h2 id="bytecode_2">Bytecode<a class="headerlink" href="#bytecode_2" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>PUSH_INT 5               # Push 5
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>BIND 1                   # Bind 5 to x (ID 1)
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>JUMP 529                 # Skip f body to setup code (jump forward 529 bytes)
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>BIND 3                   # Bind parameter a to ID 3
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>PUSH_INT 0               # Push 0
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>BIND 4                   # Bind 0 to c (ID 4)
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>JUMP 422                 # Skip g body to setup code (jump forward 422 bytes)
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>BIND 6                   # Bind parameter b to ID 6
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>PUSH_INT 10              # Push 10
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>BIND 7                   # Bind 10 to y (ID 7)
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>JUMP 57                  # Skip hh body to setup code (jump forward 57 bytes)
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>BIND 9                   # Bind parameter z to ID 9
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>PUSH_INT 124             # Push placeholder return address
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>PUSH_INT 1               # Push argument 1
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>GET 8                    # Push hh function (ID 8)
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>CALL                     # Call hh(1), recursive call (no-op due to return)
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>GET 9                    # Push z
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>PUSH_INT 1               # Push 1
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>ADD                      # Pop z, 1, push z + 1
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>RETURN                   # Pop z + 1 and return address, return to caller
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>PUSH_INT 87              # Push entry point for hh (offset 87)
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>PUSH_INT 144             # Push exit point for hh (offset 144)
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>MAKE_FUNC                # Pop entry/exit points, create hh function, push it
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>BIND 8                   # Bind hh to ID 8
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>GET 8                    # Push hh function
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>PUSH_INT 8               # Push ID 8 (hh, self-referential)
-</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>PUSH_INT 1               # Push 1 (number of captured variables)
-</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>MAKE_CLOSURE             # Pop ID 8, 1, create closure for hh capturing itself
-</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>JUMP 179                 # Skip h body to setup code (jump forward 179 bytes)
-</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>BIND 11                  # Bind parameter d to ID 11
-</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>PUSH_INT 8               # Push 8
-</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>BIND 12                  # Bind 8 to tmp (ID 12)
-</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>GET 12                   # Push tmp
-</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>SET 6                    # Pop tmp, update b (ID 6) to 8
-</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>GET 6                    # Push b
-</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>PUSH_INT 2               # Push 2
-</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>MUL                      # Pop b, 2, push b * 2
-</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>BIND 13                  # Bind b * 2 to z (ID 13)
-</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>GET 6                    # Push b
-</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>PUSH_INT 315             # Push placeholder return address
-</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>GET 11                   # Push d
-</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>GET 5                    # Push g function (ID 5)
-</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>CALL                     # Call g(d), push return address
-</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>ADD                      # Pop b, g(d), push b + g(d)
-</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>SET 6                    # Pop b + g(d), update b
-</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>GET 3                    # Push a
-</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>GET 6                    # Push b
-</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>ADD                      # Pop a, b, push a + b
-</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>GET 11                   # Push d
-</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>ADD                      # Pop a + b, d, push a + b + d
-</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>PUSH_INT 382             # Push placeholder return address
-</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>GET 1                    # Push x (ID 1, value 5)
-</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>GET 8                    # Push hh function
-</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>CALL                     # Call hh(x), push return address, compute hh(5) = 6
-</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>ADD                      # Pop a + b + d, hh(x), push a + b + d + hh(x)
-</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a>RETURN                   # Pop result and return address, return to caller
-</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a>PUSH_INT 205             # Push entry point for h (offset 205)
-</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>PUSH_INT 384             # Push exit point for h (offset 384)
-</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>MAKE_FUNC                # Pop entry/exit points, create h function, push it
-</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>BIND 10                  # Bind h to ID 10
-</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>GET 10                   # Push h function
-</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>PUSH_INT 6               # Push ID 6 (b)
-</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a>PUSH_INT 8               # Push ID 8 (hh)
-</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>PUSH_INT 3               # Push ID 3 (a)
-</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a>PUSH_INT 5               # Push ID 5 (g)
-</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a>PUSH_INT 4               # Push 4 (number of captured variables)
-</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a>MAKE_CLOSURE             # Pop IDs and count, create closure for h
-</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a>GET 10                   # Push h function
-</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a>RETURN                   # Pop h and return address, return to g caller
-</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>PUSH_INT 55              # Push entry point for g (offset 55)
-</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>PUSH_INT 477             # Push exit point for g (offset 477)
-</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a>MAKE_FUNC                # Pop entry/exit points, create g function, push it
-</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a>BIND 5                   # Bind g to ID 5
-</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a>GET 5                    # Push g function
-</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a>PUSH_INT 3               # Push ID 3 (a)
-</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>PUSH_INT 5               # Push ID 5 (g)
-</span><span id="__span-7-77"><a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a>PUSH_INT 2               # Push 2 (number of captured variables)
-</span><span id="__span-7-78"><a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a>MAKE_CLOSURE             # Pop IDs and count, create closure for g
-</span><span id="__span-7-79"><a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a>GET 5                    # Push g function
-</span><span id="__span-7-80"><a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a>RETURN                   # Pop g and return address, return to f caller
-</span><span id="__span-7-81"><a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a>PUSH_INT 23              # Push entry point for f (offset 23)
-</span><span id="__span-7-82"><a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a>PUSH_INT 552             # Push exit point for f (offset 552)
-</span><span id="__span-7-83"><a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a>MAKE_FUNC                # Pop entry/exit points, create f function, push it
-</span><span id="__span-7-84"><a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a>BIND 2                   # Bind f to ID 2
-</span><span id="__span-7-85"><a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a>GET 2                    # Push f function
-</span><span id="__span-7-86"><a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a>PUSH_INT 0               # Push 0 (no captured variables)
-</span><span id="__span-7-87"><a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a>MAKE_CLOSURE             # Create empty closure for f
-</span><span id="__span-7-88"><a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a>PUSH_INT 665             # Push placeholder return address
-</span><span id="__span-7-89"><a id="__codelineno-7-89" name="__codelineno-7-89" href="#__codelineno-7-89"></a>PUSH_INT 3               # Push argument 3
-</span><span id="__span-7-90"><a id="__codelineno-7-90" name="__codelineno-7-90" href="#__codelineno-7-90"></a>PUSH_INT 664             # Push placeholder return address
-</span><span id="__span-7-91"><a id="__codelineno-7-91" name="__codelineno-7-91" href="#__codelineno-7-91"></a>PUSH_INT 5               # Push argument 5
-</span><span id="__span-7-92"><a id="__codelineno-7-92" name="__codelineno-7-92" href="#__codelineno-7-92"></a>PUSH_INT 663             # Push placeholder return address
-</span><span id="__span-7-93"><a id="__codelineno-7-93" name="__codelineno-7-93" href="#__codelineno-7-93"></a>PUSH_INT 10              # Push argument 10
-</span><span id="__span-7-94"><a id="__codelineno-7-94" name="__codelineno-7-94" href="#__codelineno-7-94"></a>GET 2                    # Push f function
-</span><span id="__span-7-95"><a id="__codelineno-7-95" name="__codelineno-7-95" href="#__codelineno-7-95"></a>CALL                     # Call f(10), push return address, get g
-</span><span id="__span-7-96"><a id="__codelineno-7-96" name="__codelineno-7-96" href="#__codelineno-7-96"></a>CALL                     # Call g(5), push return address, get h
-</span><span id="__span-7-97"><a id="__codelineno-7-97" name="__codelineno-7-97" href="#__codelineno-7-97"></a>CALL                     # Call h(3), push return address
-</span><span id="__span-7-98"><a id="__codelineno-7-98" name="__codelineno-7-98" href="#__codelineno-7-98"></a>BIND 14                  # Bind result to t (ID 14)
-</span><span id="__span-7-99"><a id="__codelineno-7-99" name="__codelineno-7-99" href="#__codelineno-7-99"></a>GET 14                   # Push t
-</span><span id="__span-7-100"><a id="__codelineno-7-100" name="__codelineno-7-100" href="#__codelineno-7-100"></a>LOG                      # Pop t, print it
-</span><span id="__span-7-101"><a id="__codelineno-7-101" name="__codelineno-7-101" href="#__codelineno-7-101"></a>HALT                     # Terminate execution
+<div class="language-py highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>               <span class="c1"># Push 5</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">BIND</span> <span class="mi">1</span>                   <span class="c1"># Bind 5 to x (ID 1)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">JUMP</span> <span class="mi">529</span>                 <span class="c1"># Skip f body to setup code (jump forward 529 bytes)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">BIND</span> <span class="mi">3</span>                   <span class="c1"># Bind parameter a to ID 3</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>               <span class="c1"># Push 0</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">BIND</span> <span class="mi">4</span>                   <span class="c1"># Bind 0 to c (ID 4)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">JUMP</span> <span class="mi">422</span>                 <span class="c1"># Skip g body to setup code (jump forward 422 bytes)</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">BIND</span> <span class="mi">6</span>                   <span class="c1"># Bind parameter b to ID 6</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">PUSH_INT</span> <span class="mi">10</span>              <span class="c1"># Push 10</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">BIND</span> <span class="mi">7</span>                   <span class="c1"># Bind 10 to y (ID 7)</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="n">JUMP</span> <span class="mi">57</span>                  <span class="c1"># Skip hh body to setup code (jump forward 57 bytes)</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="n">BIND</span> <span class="mi">9</span>                   <span class="c1"># Bind parameter z to ID 9</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="n">PUSH_INT</span> <span class="mi">124</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push argument 1</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="n">GET</span> <span class="mi">8</span>                    <span class="c1"># Push hh function (ID 8)</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="n">CALL</span>                     <span class="c1"># Call hh(1), recursive call (no-op due to return)</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="n">GET</span> <span class="mi">9</span>                    <span class="c1"># Push z</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push 1</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="n">ADD</span>                      <span class="c1"># Pop z, 1, push z + 1</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="n">RETURN</span>                   <span class="c1"># Pop z + 1 and return address, return to caller</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="n">PUSH_INT</span> <span class="mi">87</span>              <span class="c1"># Push entry point for hh (offset 87)</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="n">PUSH_INT</span> <span class="mi">144</span>             <span class="c1"># Push exit point for hh (offset 144)</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="n">MAKE_FUNC</span>                <span class="c1"># Pop entry/exit points, create hh function, push it</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="n">BIND</span> <span class="mi">8</span>                   <span class="c1"># Bind hh to ID 8</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="n">GET</span> <span class="mi">8</span>                    <span class="c1"># Push hh function</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="n">PUSH_INT</span> <span class="mi">8</span>               <span class="c1"># Push ID 8 (hh, self-referential)</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="n">PUSH_INT</span> <span class="mi">1</span>               <span class="c1"># Push 1 (number of captured variables)</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="n">MAKE_CLOSURE</span>             <span class="c1"># Pop ID 8, 1, create closure for hh capturing itself</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="n">JUMP</span> <span class="mi">179</span>                 <span class="c1"># Skip h body to setup code (jump forward 179 bytes)</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="n">BIND</span> <span class="mi">11</span>                  <span class="c1"># Bind parameter d to ID 11</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="n">PUSH_INT</span> <span class="mi">8</span>               <span class="c1"># Push 8</span>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="n">BIND</span> <span class="mi">12</span>                  <span class="c1"># Bind 8 to tmp (ID 12)</span>
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="n">GET</span> <span class="mi">12</span>                   <span class="c1"># Push tmp</span>
+</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="n">SET</span> <span class="mi">6</span>                    <span class="c1"># Pop tmp, update b (ID 6) to 8</span>
+</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="n">GET</span> <span class="mi">6</span>                    <span class="c1"># Push b</span>
+</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>               <span class="c1"># Push 2</span>
+</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a><span class="n">MUL</span>                      <span class="c1"># Pop b, 2, push b * 2</span>
+</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a><span class="n">BIND</span> <span class="mi">13</span>                  <span class="c1"># Bind b * 2 to z (ID 13)</span>
+</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a><span class="n">GET</span> <span class="mi">6</span>                    <span class="c1"># Push b</span>
+</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="n">PUSH_INT</span> <span class="mi">315</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a><span class="n">GET</span> <span class="mi">11</span>                   <span class="c1"># Push d</span>
+</span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="n">GET</span> <span class="mi">5</span>                    <span class="c1"># Push g function (ID 5)</span>
+</span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="n">CALL</span>                     <span class="c1"># Call g(d), push return address</span>
+</span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a><span class="n">ADD</span>                      <span class="c1"># Pop b, g(d), push b + g(d)</span>
+</span><span id="__span-9-45"><a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a><span class="n">SET</span> <span class="mi">6</span>                    <span class="c1"># Pop b + g(d), update b</span>
+</span><span id="__span-9-46"><a id="__codelineno-9-46" name="__codelineno-9-46" href="#__codelineno-9-46"></a><span class="n">GET</span> <span class="mi">3</span>                    <span class="c1"># Push a</span>
+</span><span id="__span-9-47"><a id="__codelineno-9-47" name="__codelineno-9-47" href="#__codelineno-9-47"></a><span class="n">GET</span> <span class="mi">6</span>                    <span class="c1"># Push b</span>
+</span><span id="__span-9-48"><a id="__codelineno-9-48" name="__codelineno-9-48" href="#__codelineno-9-48"></a><span class="n">ADD</span>                      <span class="c1"># Pop a, b, push a + b</span>
+</span><span id="__span-9-49"><a id="__codelineno-9-49" name="__codelineno-9-49" href="#__codelineno-9-49"></a><span class="n">GET</span> <span class="mi">11</span>                   <span class="c1"># Push d</span>
+</span><span id="__span-9-50"><a id="__codelineno-9-50" name="__codelineno-9-50" href="#__codelineno-9-50"></a><span class="n">ADD</span>                      <span class="c1"># Pop a + b, d, push a + b + d</span>
+</span><span id="__span-9-51"><a id="__codelineno-9-51" name="__codelineno-9-51" href="#__codelineno-9-51"></a><span class="n">PUSH_INT</span> <span class="mi">382</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-9-52"><a id="__codelineno-9-52" name="__codelineno-9-52" href="#__codelineno-9-52"></a><span class="n">GET</span> <span class="mi">1</span>                    <span class="c1"># Push x (ID 1, value 5)</span>
+</span><span id="__span-9-53"><a id="__codelineno-9-53" name="__codelineno-9-53" href="#__codelineno-9-53"></a><span class="n">GET</span> <span class="mi">8</span>                    <span class="c1"># Push hh function</span>
+</span><span id="__span-9-54"><a id="__codelineno-9-54" name="__codelineno-9-54" href="#__codelineno-9-54"></a><span class="n">CALL</span>                     <span class="c1"># Call hh(x), push return address, compute hh(5) = 6</span>
+</span><span id="__span-9-55"><a id="__codelineno-9-55" name="__codelineno-9-55" href="#__codelineno-9-55"></a><span class="n">ADD</span>                      <span class="c1"># Pop a + b + d, hh(x), push a + b + d + hh(x)</span>
+</span><span id="__span-9-56"><a id="__codelineno-9-56" name="__codelineno-9-56" href="#__codelineno-9-56"></a><span class="n">RETURN</span>                   <span class="c1"># Pop result and return address, return to caller</span>
+</span><span id="__span-9-57"><a id="__codelineno-9-57" name="__codelineno-9-57" href="#__codelineno-9-57"></a><span class="n">PUSH_INT</span> <span class="mi">205</span>             <span class="c1"># Push entry point for h (offset 205)</span>
+</span><span id="__span-9-58"><a id="__codelineno-9-58" name="__codelineno-9-58" href="#__codelineno-9-58"></a><span class="n">PUSH_INT</span> <span class="mi">384</span>             <span class="c1"># Push exit point for h (offset 384)</span>
+</span><span id="__span-9-59"><a id="__codelineno-9-59" name="__codelineno-9-59" href="#__codelineno-9-59"></a><span class="n">MAKE_FUNC</span>                <span class="c1"># Pop entry/exit points, create h function, push it</span>
+</span><span id="__span-9-60"><a id="__codelineno-9-60" name="__codelineno-9-60" href="#__codelineno-9-60"></a><span class="n">BIND</span> <span class="mi">10</span>                  <span class="c1"># Bind h to ID 10</span>
+</span><span id="__span-9-61"><a id="__codelineno-9-61" name="__codelineno-9-61" href="#__codelineno-9-61"></a><span class="n">GET</span> <span class="mi">10</span>                   <span class="c1"># Push h function</span>
+</span><span id="__span-9-62"><a id="__codelineno-9-62" name="__codelineno-9-62" href="#__codelineno-9-62"></a><span class="n">PUSH_INT</span> <span class="mi">6</span>               <span class="c1"># Push ID 6 (b)</span>
+</span><span id="__span-9-63"><a id="__codelineno-9-63" name="__codelineno-9-63" href="#__codelineno-9-63"></a><span class="n">PUSH_INT</span> <span class="mi">8</span>               <span class="c1"># Push ID 8 (hh)</span>
+</span><span id="__span-9-64"><a id="__codelineno-9-64" name="__codelineno-9-64" href="#__codelineno-9-64"></a><span class="n">PUSH_INT</span> <span class="mi">3</span>               <span class="c1"># Push ID 3 (a)</span>
+</span><span id="__span-9-65"><a id="__codelineno-9-65" name="__codelineno-9-65" href="#__codelineno-9-65"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>               <span class="c1"># Push ID 5 (g)</span>
+</span><span id="__span-9-66"><a id="__codelineno-9-66" name="__codelineno-9-66" href="#__codelineno-9-66"></a><span class="n">PUSH_INT</span> <span class="mi">4</span>               <span class="c1"># Push 4 (number of captured variables)</span>
+</span><span id="__span-9-67"><a id="__codelineno-9-67" name="__codelineno-9-67" href="#__codelineno-9-67"></a><span class="n">MAKE_CLOSURE</span>             <span class="c1"># Pop IDs and count, create closure for h</span>
+</span><span id="__span-9-68"><a id="__codelineno-9-68" name="__codelineno-9-68" href="#__codelineno-9-68"></a><span class="n">GET</span> <span class="mi">10</span>                   <span class="c1"># Push h function</span>
+</span><span id="__span-9-69"><a id="__codelineno-9-69" name="__codelineno-9-69" href="#__codelineno-9-69"></a><span class="n">RETURN</span>                   <span class="c1"># Pop h and return address, return to g caller</span>
+</span><span id="__span-9-70"><a id="__codelineno-9-70" name="__codelineno-9-70" href="#__codelineno-9-70"></a><span class="n">PUSH_INT</span> <span class="mi">55</span>              <span class="c1"># Push entry point for g (offset 55)</span>
+</span><span id="__span-9-71"><a id="__codelineno-9-71" name="__codelineno-9-71" href="#__codelineno-9-71"></a><span class="n">PUSH_INT</span> <span class="mi">477</span>             <span class="c1"># Push exit point for g (offset 477)</span>
+</span><span id="__span-9-72"><a id="__codelineno-9-72" name="__codelineno-9-72" href="#__codelineno-9-72"></a><span class="n">MAKE_FUNC</span>                <span class="c1"># Pop entry/exit points, create g function, push it</span>
+</span><span id="__span-9-73"><a id="__codelineno-9-73" name="__codelineno-9-73" href="#__codelineno-9-73"></a><span class="n">BIND</span> <span class="mi">5</span>                   <span class="c1"># Bind g to ID 5</span>
+</span><span id="__span-9-74"><a id="__codelineno-9-74" name="__codelineno-9-74" href="#__codelineno-9-74"></a><span class="n">GET</span> <span class="mi">5</span>                    <span class="c1"># Push g function</span>
+</span><span id="__span-9-75"><a id="__codelineno-9-75" name="__codelineno-9-75" href="#__codelineno-9-75"></a><span class="n">PUSH_INT</span> <span class="mi">3</span>               <span class="c1"># Push ID 3 (a)</span>
+</span><span id="__span-9-76"><a id="__codelineno-9-76" name="__codelineno-9-76" href="#__codelineno-9-76"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>               <span class="c1"># Push ID 5 (g)</span>
+</span><span id="__span-9-77"><a id="__codelineno-9-77" name="__codelineno-9-77" href="#__codelineno-9-77"></a><span class="n">PUSH_INT</span> <span class="mi">2</span>               <span class="c1"># Push 2 (number of captured variables)</span>
+</span><span id="__span-9-78"><a id="__codelineno-9-78" name="__codelineno-9-78" href="#__codelineno-9-78"></a><span class="n">MAKE_CLOSURE</span>             <span class="c1"># Pop IDs and count, create closure for g</span>
+</span><span id="__span-9-79"><a id="__codelineno-9-79" name="__codelineno-9-79" href="#__codelineno-9-79"></a><span class="n">GET</span> <span class="mi">5</span>                    <span class="c1"># Push g function</span>
+</span><span id="__span-9-80"><a id="__codelineno-9-80" name="__codelineno-9-80" href="#__codelineno-9-80"></a><span class="n">RETURN</span>                   <span class="c1"># Pop g and return address, return to f caller</span>
+</span><span id="__span-9-81"><a id="__codelineno-9-81" name="__codelineno-9-81" href="#__codelineno-9-81"></a><span class="n">PUSH_INT</span> <span class="mi">23</span>              <span class="c1"># Push entry point for f (offset 23)</span>
+</span><span id="__span-9-82"><a id="__codelineno-9-82" name="__codelineno-9-82" href="#__codelineno-9-82"></a><span class="n">PUSH_INT</span> <span class="mi">552</span>             <span class="c1"># Push exit point for f (offset 552)</span>
+</span><span id="__span-9-83"><a id="__codelineno-9-83" name="__codelineno-9-83" href="#__codelineno-9-83"></a><span class="n">MAKE_FUNC</span>                <span class="c1"># Pop entry/exit points, create f function, push it</span>
+</span><span id="__span-9-84"><a id="__codelineno-9-84" name="__codelineno-9-84" href="#__codelineno-9-84"></a><span class="n">BIND</span> <span class="mi">2</span>                   <span class="c1"># Bind f to ID 2</span>
+</span><span id="__span-9-85"><a id="__codelineno-9-85" name="__codelineno-9-85" href="#__codelineno-9-85"></a><span class="n">GET</span> <span class="mi">2</span>                    <span class="c1"># Push f function</span>
+</span><span id="__span-9-86"><a id="__codelineno-9-86" name="__codelineno-9-86" href="#__codelineno-9-86"></a><span class="n">PUSH_INT</span> <span class="mi">0</span>               <span class="c1"># Push 0 (no captured variables)</span>
+</span><span id="__span-9-87"><a id="__codelineno-9-87" name="__codelineno-9-87" href="#__codelineno-9-87"></a><span class="n">MAKE_CLOSURE</span>             <span class="c1"># Create empty closure for f</span>
+</span><span id="__span-9-88"><a id="__codelineno-9-88" name="__codelineno-9-88" href="#__codelineno-9-88"></a><span class="n">PUSH_INT</span> <span class="mi">665</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-9-89"><a id="__codelineno-9-89" name="__codelineno-9-89" href="#__codelineno-9-89"></a><span class="n">PUSH_INT</span> <span class="mi">3</span>               <span class="c1"># Push argument 3</span>
+</span><span id="__span-9-90"><a id="__codelineno-9-90" name="__codelineno-9-90" href="#__codelineno-9-90"></a><span class="n">PUSH_INT</span> <span class="mi">664</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-9-91"><a id="__codelineno-9-91" name="__codelineno-9-91" href="#__codelineno-9-91"></a><span class="n">PUSH_INT</span> <span class="mi">5</span>               <span class="c1"># Push argument 5</span>
+</span><span id="__span-9-92"><a id="__codelineno-9-92" name="__codelineno-9-92" href="#__codelineno-9-92"></a><span class="n">PUSH_INT</span> <span class="mi">663</span>             <span class="c1"># Push placeholder return address</span>
+</span><span id="__span-9-93"><a id="__codelineno-9-93" name="__codelineno-9-93" href="#__codelineno-9-93"></a><span class="n">PUSH_INT</span> <span class="mi">10</span>              <span class="c1"># Push argument 10</span>
+</span><span id="__span-9-94"><a id="__codelineno-9-94" name="__codelineno-9-94" href="#__codelineno-9-94"></a><span class="n">GET</span> <span class="mi">2</span>                    <span class="c1"># Push f function</span>
+</span><span id="__span-9-95"><a id="__codelineno-9-95" name="__codelineno-9-95" href="#__codelineno-9-95"></a><span class="n">CALL</span>                     <span class="c1"># Call f(10), push return address, get g</span>
+</span><span id="__span-9-96"><a id="__codelineno-9-96" name="__codelineno-9-96" href="#__codelineno-9-96"></a><span class="n">CALL</span>                     <span class="c1"># Call g(5), push return address, get h</span>
+</span><span id="__span-9-97"><a id="__codelineno-9-97" name="__codelineno-9-97" href="#__codelineno-9-97"></a><span class="n">CALL</span>                     <span class="c1"># Call h(3), push return address</span>
+</span><span id="__span-9-98"><a id="__codelineno-9-98" name="__codelineno-9-98" href="#__codelineno-9-98"></a><span class="n">BIND</span> <span class="mi">14</span>                  <span class="c1"># Bind result to t (ID 14)</span>
+</span><span id="__span-9-99"><a id="__codelineno-9-99" name="__codelineno-9-99" href="#__codelineno-9-99"></a><span class="n">GET</span> <span class="mi">14</span>                   <span class="c1"># Push t</span>
+</span><span id="__span-9-100"><a id="__codelineno-9-100" name="__codelineno-9-100" href="#__codelineno-9-100"></a><span class="n">LOG</span>                      <span class="c1"># Pop t, print it</span>
+</span><span id="__span-9-101"><a id="__codelineno-9-101" name="__codelineno-9-101" href="#__codelineno-9-101"></a><span class="n">HALT</span>                     <span class="c1"># Terminate execution</span>
 </span></code></pre></div>
 <ul>
 <li><strong>Purpose</strong>: Demonstrates nested closures with <code>f</code> returning <code>g</code>, <code>g</code> returning <code>h</code>, and <code>h</code> using <code>hh</code>, computing a result from <code>f(10)(5)(3)</code>.</li>

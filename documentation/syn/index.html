@@ -16,7 +16,7 @@
         <link rel="prev" href="../func/">
       
       
-        <link rel="next" href="../features/">
+        <link rel="next" href="../grammar/">
       
       
       <link rel="icon" href="../../assets/oslMascotLogo.svg">
@@ -371,6 +371,31 @@
   
   <span class="md-ellipsis">
     Variables & Constants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arrays/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 5v14h2v2H3V3h4v2zm15 2H7v2h13zm0 4H7v2h13zm0 4H7v2h13z"/></svg>
+  
+  <span class="md-ellipsis">
+    Arrays
     
   </span>
   
@@ -743,31 +768,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.06 13.09 5.63 5.59-3.32 3.28-5.59-5.59v-.92l2.36-2.36zm.91-2.53L16 9.6l-4.79 4.8v1.97L5.58 22 2.3 18.68l5.59-5.59h1.97l.78-.78L6.8 8.46H5.5L2.69 5.62 5.31 3l2.8 2.8v1.31L12 10.95l2.66-2.66-.96-1.01L15 5.97h-2.66l-.65-.65L15 2l.66.66v2.66L16.97 4l3.28 3.28c1.09 1.1 1.09 2.89 0 3.98l-1.97-2.01z"/></svg>
-  
-  <span class="md-ellipsis">
-    Features
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1562,6 +1562,7 @@
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">log</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>           <span class="o">//</span> <span class="n">Call</span> <span class="n">fact</span> <span class="k">with</span> <span class="n">argument</span> <span class="mi">5</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">var</span> <span class="n">f</span> <span class="o">:=</span> <span class="n">counter</span><span class="p">();</span>    <span class="o">//</span> <span class="n">Call</span> <span class="n">counter</span> <span class="n">to</span> <span class="n">get</span> <span class="n">inc</span> <span class="n">function</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">log</span> <span class="n">f</span><span class="p">();</span>               <span class="o">//</span> <span class="n">Call</span> <span class="n">inc</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">log</span> <span class="n">counter</span><span class="p">()();</span>       <span class="o">//</span> <span class="n">Chained</span> <span class="n">call</span> <span class="o">-&gt;</span> <span class="n">creates</span> <span class="n">a</span> <span class="n">new</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">inc</span> <span class="ow">and</span> <span class="n">calls</span> <span class="n">it</span> <span class="n">right</span> <span class="n">away</span>
 </span></code></pre></div>
 <h3 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1646,6 +1647,7 @@
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">log</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">;</span>         <span class="o">//</span> <span class="n">Prints</span> <span class="mi">0</span> <span class="p">(</span><span class="n">false</span><span class="p">)</span>
 </span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">log</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>       <span class="o">//</span> <span class="n">Prints</span> <span class="mf">3.5</span>
 </span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">log</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>         <span class="o">//</span> <span class="n">Prints</span> <span class="mi">1</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">log</span> <span class="n">x</span> <span class="o">~=</span> <span class="n">y</span><span class="p">;</span>        <span class="o">//</span> <span class="n">Prints</span> <span class="mi">1</span> <span class="p">(</span><span class="n">true</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="features_5">Features<a class="headerlink" href="#features_5" title="Permanent link">&para;</a></h3>
 <ul>
