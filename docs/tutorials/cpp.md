@@ -29,7 +29,7 @@ def i32 a(i32 b, i32 c, fn(i32[][], f64)->nav f){
     var i32 v := 3;
 }
 
-var fn(i32, i32)->i32 b := a;
+var fn(i32, i32, fn(i32[][], f64)->nav)->i32 b := a;
 ```
 
 ## Example 2
