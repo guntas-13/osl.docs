@@ -104,9 +104,9 @@ nav:
   - Getting Started: gettingstarted/gs.md
   - Documentation:
       - Variables & Constants: documentation/variables.md
+      - Arrays: documentation/arrays.md
       - Functions: documentation/func.md
       - Syntax: documentation/syn.md
-      - Features: documentation/features.md
       - Grammar: documentation/grammar.md
   - Developer Guide:
       - Abstract Syntax: dev/ast_nodes.md

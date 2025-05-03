@@ -12,7 +12,7 @@ icon: fontawesome/solid/spell-check
 
 ## Function Declarations and Calls
 
-- `funDecl` → `"fn" IDENTIFIER "(" parameters? ")" block`
+- `funDecl` → `"def" IDENTIFIER "(" parameters? ")" block`
 - `parameters` → `IDENTIFIER ("," IDENTIFIER)*`
 - `funCall` → `IDENTIFIER "(" arguments? ")"`
 - `arguments` → `expB ("," expB)*`
@@ -35,10 +35,9 @@ icon: fontawesome/solid/spell-check
 - `assignment` → `IDENTIFIER ":=" expB`
 - `expB` → `logicAnd ("||" logicAnd)*`
 - `logicAnd` → `comparison ("&&" comparison)*`
-- `comparison` → `add (("<" | ">" | "<=" | ">=" | "=" | "!=") add)*`
+- `comparison` → `add (("<" | ">" | "<=" | ">=" | "=" | "~=") add)*`
 - `add` → `mul (("+" | "-") mul)*`
-- `mul` → `exp (("*" | "/" | "%") exp)*`
-- `exp` → `unary ("^" unary)*`
+- `mul` → `unary (("*" | "/" | "%") unary)*`
 - `unary` → `("-" | "~") unary` | `secondary` | `arrayDecl`
 
 ## Calls, Array Decls, and Array Accesses
@@ -66,6 +65,24 @@ icon: fontawesome/solid/spell-check
 
 # Grammar Structure Unambiguous
 
+The osl grammar is structured to define a program as a sequence of declarations, which include variable declarations, function declarations, and statements. It supports:
+
+- **Typed System**: Variables and functions are explicitly typed (e.g., `i32`, `bool`, array types, function types).
+- **Dynamic Arrays**: Arrays can be initialized with values or declared with fixed sizes.
+- **First-Class Functions and Closures**: Functions can be assigned to variables and capture their environment.
+- **Pointers and Dereferencing**: Support for pointer types and operations.
+- **Control Flow**: Conditional statements (`if`, `elif`, `else`), loops (`while`), and return statements.
+- **Expressions**: A rich expression system with unary, binary, and array access operations.
+
+The grammar avoids ambiguities by:
+
+- Separating typed and untyped constructs (e.g., `Val` vs. `Loc`).
+- Using mandatory blocks for control flow to eliminate dangling-else issues.
+- Defining clear precedence for operators and expressions.
+- Supporting recursive descent parsing with iterative handling of left-recursive productions (e.g., `Add`, `Mul`).
+
+## Grammar Structure
+
 The grammar is organized into several categories: program structure, declarations, statements, expressions, types, and literals. Below, we explain each category with examples from OSL syntax.
 
 ### 1. Program Structure
@@ -75,6 +92,19 @@ The grammar is organized into several categories: program structure, declaration
   - `<Prog> ::= <Decls>`: A program is a sequence of declarations.
   - `<Decls> ::= <Decl> <Decls> | <Decl>`: Declarations are processed sequentially.
   - `<Block> ::= LBRACE RBRACE | LBRACE <Decls> RBRACE`: A block is a sequence of declarations within `{}`.
+
+- **Description**: A program consists of declarations (variable, function, or statement). Blocks encapsulate declarations, used in functions, conditionals, and loops, ensuring scoped environments.
+
+- **Example**:
+  ```py
+  var i32 x := 5;
+  def i32 fact(i32 n) {
+    if (n = 0) { return 1; }
+    return n * fact(n - 1);
+  }
+  log fact(5);
+  ```
+  This program declares a variable, a function, and a statement within a global block.
 
 ### 2. Declarations
 
@@ -86,6 +116,18 @@ The grammar is organized into several categories: program structure, declaration
   - `<FunDecl> ::= DEFINE <Type> IDEN LPAREN RPAREN <Block> | DEFINE <Type> IDEN LPAREN <DeclParams> RPAREN <Block>`: Function declaration with optional parameters.
   - `<DeclParams> ::= <DeclParam> | <DeclParam> COMMA <DeclParams>`: Parameter list.
   - `<DeclParam> ::= <Type> IDEN`: Typed parameter.
+
+- **Description**: Declarations define the program’s structure. Constants and variables are typed, functions support multiple parameters, and all declarations end with a semicolon (`;`).
+
+- **Example**:
+  ```py
+  const i32 MAX := 100;
+  var i32 count := 0;
+  def i32 add(i32 a, i32 b) {
+      return a + b;
+  }
+  ```
+  Declares a constant, a variable, and a function with two parameters.
 
 ### 3. Statements
 
@@ -101,6 +143,25 @@ The grammar is organized into several categories: program structure, declaration
   - `<Elif> ::= ELIF <Val> <Block>`: Single `elif` clause.
   - `<Else> ::= ELSE <Block>`: Optional `else` clause.
 
+- **Description**: Statements control program execution. `log` outputs values, `return` exits functions, `while` loops iterate, and conditionals (`if`, `elif`, `else`) branch based on conditions. Blocks are mandatory to avoid ambiguity (e.g., dangling-else problem).
+
+- **Example**:
+  ```py
+  var i32 i := 0;
+  while (i < 5) {
+      log i;
+      i := i + 1;
+  }
+  if (i = 5) {
+      log "Done";
+  } elif (i > 5) {
+      log "Overflow";
+  } else {
+      log "Error";
+  }
+  ```
+  A loop and conditional with logging statements.
+
 ### 4. Expressions
 
 - **Rules**:
@@ -113,6 +174,18 @@ The grammar is organized into several categories: program structure, declaration
   - `<UOp> ::= <UnSign> | <UnNot> | <PtrDeref> | <FunCall> | <Ptr>`: Unary operations (sign, logical not, dereference, function call, pointer).
   - `<UnAmb> ::= <Atom> | <Arr> | <Ptr> | IDEN | <ArrAcc> | LPAREN <Exp> RPAREN`: Unambiguous terms (literals, arrays, pointers, identifiers, array accesses, parenthesized expressions).
 
+- **Description**: Expressions are the core of OSL’s computation, supporting arithmetic (`+`, `-`, `*`, `/`, `%`, `^`), logical (`&`, `|`, `!|`, `!&`), comparison (`=`, `~=`, `<`, `>`, `<=`, `>=`), and bitwise operations (`<<`, `>>`). Array accesses and function calls are integrated into expressions, allowing complex computations.
+
+- **Example**:
+  ```py
+  var i32 x := 5;
+  var i32 y := x * 2 + 3; // 13
+  var bool z := (x < 10) & (y > 10); // true
+  x := x ^ 2; // x = 25
+  log y[0]; // Array access
+  ```
+  Demonstrates arithmetic, logical, and array access expressions.
+
 ### 5. Arrays and Array Access
 
 - **Rules**:
@@ -123,6 +196,17 @@ The grammar is organized into several categories: program structure, declaration
   - `<VMat> ::= LBOX <Val> RBOX`: Single index bracket.
   - `<ArrType> ::= <AtomType> <Mats> | <FunType> <Mats> | <PtrType> <Mats>`: Array type with dimensions.
   - `<ArrDeclType> ::= <AtomType> <VMats> | <FunType> <VMats> | <PtrType> <VMats>`: Declared array type with fixed sizes.
+
+- **Description**: Arrays can be dynamically initialized (e.g., `[1, 2, 3]`) or declared with fixed sizes (e.g., `i32[2][3]`). Multi-dimensional arrays are supported, with access via multiple `[index]` brackets. Array types are explicitly declared.
+
+- **Example**:
+  ```py
+  var i32 arr := {1, 2, 3};
+  var i32[2][2] matrix;
+  matrix[0][1] := 5;
+  log arr[0]; // Prints 1
+  ```
+  Shows array initialization, declaration, and access.
 
 ### 6. Functions and Function Calls
 
@@ -135,6 +219,38 @@ The grammar is organized into several categories: program structure, declaration
   - `<Args> ::= <Val> | <Val> COMMA <Args>`: Comma-separated arguments.
   - `<FunType> ::= TFN LPAREN <SigParams> RPAREN RETURNS <Type> | TFN LPAREN RPAREN RETURNS <Type>`: Function type signature.
 
+- **Description**: Functions are first-class, supporting closures via captured variables. Function calls can be chained (e.g., `f(10)(5)` for nested functions). Types specify return and parameter types.
+
+- **Example**:
+
+  ```py
+  def i32 counter() {
+    var i32 count := 0;
+    def i32 inc() {
+        count := count + 1;
+        return count;
+    }
+    return inc;
+  }
+  var fn()->i32 c1 := counter();
+  log c1(); // Prints 1
+  ```
+
+  ```py
+  def nav bar() {
+    log 7;
+  }
+
+  def nav foo(fn()->nav f) {
+    f();
+    log 5;
+  }
+
+  foo(bar);
+  ```
+
+  A closure example with a counter function.
+
 ### 7. Pointers and Dereferencing
 
 - **Rules**:
@@ -143,213 +259,60 @@ The grammar is organized into several categories: program structure, declaration
   - `<PtrDeref> ::= AT <UnAmb>`: Dereference a pointer.
   - `<PtrType> ::= HASH <Type>`: Pointer type.
 
+- **Description**: Pointers reference memory locations, and dereferencing accesses the pointed-to value. Pointer types are explicitly declared, supporting low-level memory operations.
+
+- **Example**:
+  ```py
+  var i32 x := 5;
+  var #i32 p := #x; // Pointer to x
+  @p := 10; // Dereference and set x to 10
+  log x; // Prints 10
+  ```
+  Demonstrates pointer creation and dereferencing.
+
 ### 8. Types and Literals
 
 - **Rules**:
+
   - `<Type> ::= <AtomType> | <CompType>`: Types are atomic or composite.
   - `<AtomType> ::= NULL | TBOOL | TC8 | TU8 | ... | TF128`: Basic types (null, bool, integers, floats, char).
   - `<CompType> ::= <FunType> | <ArrType> | <PtrType>`: Composite types (functions, arrays, pointers).
   - `<Atom> ::= NULL | <Bool> | <Char> | <Number>`: Literals for null, booleans, characters, and numbers.
   - `<Number> ::= BIN | OCT | DEC | HEX`: Numeric literals in binary, octal, decimal, or hexadecimal.
 
-<!--
-# OSL Grammar (Recursive Descent Style)
+- **Description**: OSL’s type system includes primitive types (`i32`, `bool`, `f64`), composite types (arrays, functions, pointers), and literals for various numeric formats.
 
-Below is the OSL grammar presented in a recursive descent style using arrow notation (`→`). This format avoids Markdown table complexities and focuses on clarity for parsing and implementation.
+- **Example**:
+  ```py
+  var bool flag := true;
+  var i32 num := 0xFF; // Hexadecimal 255
+  var f64 pi := 3.14;
+  ```
+  Shows type declarations and literals.
 
-## Program Structure
+## Design Choices and Features
 
-- `Prog` → `Decl* EOF`
-- `Decl` → `FunDecl` | `FunDeclB` | `VarDecl` | `Stmt`
-- `Block` → `"{" Decl* "}"`
+1. **Unambiguity**:
 
-## Function Declarations and Calls
+   - Mandatory blocks in `if`, `elif`, `else`, and `while` eliminate dangling-else ambiguities.
+   - Separate rules for locations (`Loc`) and values (`Val`) clarify assignment targets.
+   - Explicit typing reduces parsing conflicts (e.g., `i32` vs. `fn` types).
 
-- `FunDecl` → `"fn" Type FunIden "(" Params? ")" Block`
-- `FunDeclB` → `"fn" Type FunIdenB "(" Params? ")" Block`
-- `FunCall` → `FunIden "(" Params? ")"`
-- `FunCallB` → `FunIdenB "(" Params? ")"`
-- `Params` → `Param ("," Param)*`
-- `Param` → `Type (Iden | IdenB)`
+2. **Recursive Descent**:
 
-## Statements
+   - Left-recursive rules (e.g., `Add`, `Mul`) are iterable in a parser.
+   - Right-recursive rules (e.g., `UnNot`, `UnSign`) fit recursive descent naturally.
+   - Parenthesized expressions (`LPAREN <Exp> RPAREN`) resolve operator precedence.
 
-- `Stmt` → `IfStmt` | `LogStmt` | `RetStmt` | `Block` | `ExpStmt`
-- `IfStmt` → `"if" ValB Block ("elif" ValB Block)* ("else" Block)?`
-- `LogStmt` → `"log" (Val | ValB) ";"`
-- `RetStmt` → `"return" (Val | ValB) ";"`
-- `ExpStmt` → `(Val | ValB) ";"`
-- `VarDecl` → `"var" Type (IdenB | Iden | Assn | AssnB) ";"`
+3. **Rich Type System**:
 
-## Expressions and Values
+   - Supports multiple integer (`i8` to `i128`), unsigned integer (`u8` to `u128`), and floating-point (`f16` to `f128`) types.
+   - Composite types enable complex data structures and function signatures.
 
-### Value Variants
+4. **Closure Support**:
 
-- `Val` → `Assn` | `Exp` | `Null`
-- `ValB` → `AssnB` | `ExpB` | `Null`
-- `Assn` → `Iden ":=" (Exp | Null)` | `Iden ":=" Assn`
-- `AssnB` → `IdenB ":=" (ExpB | Null)` | `IdenB ":=" AssnB`
+   - Functions can capture variables, enabled by the VM’s linked-list environment and escape analysis in codegen.
 
-### Expressions (Typed: `ExpB`)
-
-- `ExpB` → `UnAmbB` | `OrB` | `NotB` | `AndB` | `Less` | `Greater` | `Eq` | `NotEq`
-- `UnAmbB` → `Bool` | `"(" ExpB ")"` | `IdenB` | `FunCallB`
-- `OrB` → `UnAmbB` | `UnAmbB "||" OrB`
-- `AndB` → `UnAmbB` | `UnAmbB "&&" AndB`
-- `NotB` → `UnAmbB` | `"~" NotB`
-- `Eq` → `UnAmbB` | `Val "=" Val` | `ValB "=" ValB`
-- `NotEq` → `UnAmbB` | `Val "~=" Val` | `ValB "~=" ValB`
-- `Less` → `Val "<" Val` | `Val "<=" Val` | `Val "=" Val` | `Val "<" Less` | `Val "<=" Less` | `Val "=" Less`
-- `Greater` → `Val ">" Val` | `Val ">=" Val` | `Val "=" Val` | `Val ">" Greater` | `Val ">=" Greater` | `Val "=" Greater`
-
-### Expressions (Untyped: `Exp`)
-
-- `Exp` → `Add` | `Multiply` | `Divide` | `Subtract` | `Power` | `Modulo` | `And` | `Or` | `Not` | `Xor` | `Xand` | `Shift` | `UnaryNeg` | `UnAmb`
-- `UnAmb` → `Number` | `"(" Exp ")"` | `Iden` | `FunCall`
-- `Add` → `UnAmb` | `UnAmb "+" Add`
-- `Multiply` → `UnAmb` | `UnAmb "*" Multiply`
-- `Divide` → `UnAmb` | `Multiply "/" UnAmb`
-- `Subtract` → `UnAmb` | `Add "-" UnAmb`
-- `Power` → `UnAmb` | `UnAmb "^" UnAmb`
-- `Modulo` → `UnAmb` | `UnAmb "%" UnAmb`
-- `Or` → `UnAmb` | `UnAmb "|" Or`
-- `And` → `UnAmb` | `UnAmb "&" And`
-- `Xor` → `UnAmb` | `UnAmb "!|" Xor`
-- `Xand` → `UnAmb` | `UnAmb "!&" Xand`
-- `Shift` → `UnAmb ">>" UnAmb` | `UnAmb "<<" UnAmb`
-- `Not` → `UnAmb` | `"~" Not`
-- `UnaryNeg` → `UnAmb` | `"-" UnaryNeg` | `"+" UnaryNeg`
-
-## Types and Literals
-
-- `Type` → `"bool"` | `"i8"` | `"i16"` | `"i32"` | `"i64"` | `"i128"` | `"u8"` | `"u16"` | `"u32"` | `"u64"` | `"u128"` | `"f8"` | `"f16"` | `"f32"` | `"f64"` | `"f128"` | `"c8"`
-- `Number` → `(bINTEGER bFRACTION bEXPONENT)` | `(oINTEGER oFRACTION oEXPONENT)` | `(dINTEGER dFRACTION dEXPONENT)` | `(hINTEGER hFRACTION hEXPONENT)`
-
-### Numeric Literal Components
-
-- `bINTEGER` → `"0b" BITS` | `"0B" BITS`
-- `oINTEGER` → `"0o" OCTS` | `"0O" OCTS`
-- `dINTEGER` → `DIGITS`
-- `hINTEGER` → `"0x" HEXES` | `"0X" HEXES`
-- `bFRACTION` → `""` | `"." BITS`
-- `oFRACTION` → `""` | `"." OCTS`
-- `dFRACTION` → `""` | `"." DIGITS`
-- `hFRACTION` → `""` | `"." HEXES`
-- `bEXPONENT` → `""` | `"e" BITS`
-- `oEXPONENT` → `""` | `"e" OCTS`
-- `dEXPONENT` → `""` | `"e" DIGITS`
-- `hEXPONENT` → `""` | `"p" HEXES`
-
-### Token Definitions
-
-- `BIT` → `"0"` | `"1"`
-- `BITS` → `BIT?`
-- `OCT` → `"0".."7"`
-- `OCTS` → `OCT?`
-- `DIGIT` → `"0".."9"`
-- `DIGITS` → `DIGIT?`
-- `HEX` → `"0".."9"` | `"a".."f"` | `"A".."F"`
-- `HEXES` → `HEX?`
-- `Bool` → `"true"` | `"false"`
-- `Iden` → `LETTER (LETTER | DIGIT | "_")*`
-- `IdenB` → `LETTER (LETTER | DIGIT | "_")*`
-- `LETTER` → `"a".."z"` | `"A".."Z"`
-
-## Notes on Recursive Descent
-
-- **Left Recursion**: Productions like `Add`, `Multiply`, `OrB`, etc., are left-recursive and can be parsed iteratively to avoid infinite recursion.
-- **Right Recursion**: `Not`, `UnaryNeg`, etc., are right-recursive, fitting naturally into recursive descent parsing.
-- **Ambiguity**: The grammar separates typed (`B` suffix) and untyped constructs to minimize ambiguity, though overlaps (e.g., `Val` vs. `ValB`) may need precedence rules.
-- **Null**: Represents an uninitialized or void value, applicable in assignments and returns.
-
-# Promised Unambiguous Grammar
-
-```py
-program → declaration* EOF;
-
-declaration → funDecl | funcDeclB | varDecl | statement;
-
-funDeclB → "fn" TYPE FUNIDENB "(" parameters? ")" block;
-funDecl → "fn" TYPE FUNIDEN "(" parameters? ")" block;
-varDecl → "var" TYPE IDENTIFIER (":=" expression)? ";";
-statement → ifStmt | printStmt | returnStmt | block | expressionStmt;
-
-ifStmt → "if" expression block ("else" block)?; // block is mandatory to avoid ambiguity
-printStmt → "print" "(" expression ")" ";";
-returnStmt → "return" (expression)? ";";
-block → "{" declaration* "}";
-expressionStmt → expression ";";
-
-expression → assignment | ExpB;
-assignment → IDENTIFIER ":=" ExpB;
-
-parameters → IDENTIFIER ("," IDENTIFIER)*;
-
-ExpB → UnAmbB | OrB | NotB | AndB | Less | Greater;
-OrB → UnAmbB | UnAmbB "|" OrB;
-NotB → UnAmbB | "~" NotB;
-AndB → UnAmbB | UnAmbB "&" AndB;
-Less → Exp ("<" | "<=" | "=") Exp | Exp "<" Less | Exp "<=" Less | Exp "=" Less;
-Greater → Exp (">" | ">=" | "=") Exp | Exp ">" Greater | Exp ">=" Greater | Exp "=" Greater;
-UnAmbB → BOOL | IDENTIFIER | funCall | "(" ExpB ")";
-
-Exp → Add | Multiply | Divide | Subtract | Power | Modulo | And | Or | Not | Xor
-    | Xand | Shift | UnaryNeg | UnAmb;
-Add → UnAmb | UnAmb "+" Add;
-Multiply → UnAmb | UnAmb "*" Multiply;
-Divide → UnAmb | Multiply "/" UnAmb;
-Subtract → UnAmb | Add "-" UnAmb;
-Power → UnAmb | UnAmb "^" UnAmb;
-Modulo → UnAmb | UnAmb "%" UnAmb;
-Or → UnAmb | UnAmb "|" Or;
-And → UnAmb | UnAmb "&" And;
-Xor → UnAmb | UnAmb "!|" Xor;
-Xand → UnAmb | UnAmb "!&" Xand;
-Shift → UnAmb (">>" | "<<") UnAmb;
-Not → UnAmb | "~" Not;
-UnaryNeg → ("-" | "+") UnaryNeg | UnAmb;
-
-UnAmb → NUMBER | IDENTIFIER | funCall | "(" Exp ")";
-funCall → IDENTIFIER "(" arguments? ")";
-arguments → ExpB ("," ExpB)*;
-
-NUMBER → (bINTEGER bFRACTION bEXPONENT)
-    | (oINTEGER oFRACTION oEXPONENT)
-    | (dINTEGER dFRACTION dEXPONENT)
-    | (hINTEGER hFRACTION hEXPONENT);
-hEXPONENT → ""
-    | "p" HEXES;
-bEXPONENT → ""
-    | "e" BITS;
-oEXPONENT → ""
-    | "e" OCTS;
-dEXPONENT → ""
-    | "e" DIGITS;
-bfraction → ""
-    | "." BITS;
-ofraction → ""
-    | "." OCTS;
-dfraction → ""
-    | "." DIGITS;
-hfraction → ""
-    | "." HEXES;
-bINTEGER → "0b" BITS
-    | "0B" BITS;
-oINTEGER → "0o" OCTS
-    | "0O" OCTS;
-dINTEGER → DIGITS;
-hINTEGER → "0x" HEXES
-    | "0X" HEXES;
-BIT → "0" | "1";
-BITS → BIT?;
-OCT → "0".."7";
-OCTS → OCT?;
-DIGIT → "0".."9";
-DIGITS → DIGIT?;
-HEX → "0".."9" | "a".."f" | "A".."F";
-HEXES → HEX?;
-BOOL → "true" | "false";
-IDENTIFIER → LETTER (LETTER | DIGIT | "_")*;
-LETTER → "a" .. "z" | "A" .. "Z";
-TYPE → "i8" | "i16" | "i32" | "i64" | "i128" | "u8" | "u16" | "u32" | "u64" | "u128" | "bool";
-``` -->
+5. **Array Flexibility**:
+   - Dynamic arrays (`{1, 2, 3}`) and declared arrays (`i32[2][3]`) support diverse use cases.
+   - Multi-dimensional access (`arr[0][1]`) is integrated into expressions.

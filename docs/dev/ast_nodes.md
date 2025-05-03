@@ -146,6 +146,139 @@ class FunObj:
 
 Represents a function object, including parameters, a body, and an environment for closures.
 
+```py
+def foo(y)
+{
+    var x := 3;
+    def bar(z)
+    {
+        return x + y + z;
+    }
+    return bar;
+}
+log foo(1)(5);
+```
+
+```py
+Program(decls=[LetFun(name=Variable(varName='foo', id=1),
+                      params=[Variable(varName='y', id=2)],
+                      body=Statements(stmts=[Let(var=Variable(varName='x',
+                                                              id=3),
+                                                 e1=Number(val=3)),
+                                             LetFun(name=Variable(varName='bar',
+                                                                  id=4),
+                                                    params=[Variable(varName='z',
+                                                                     id=5)],
+                                                    body=Statements(stmts=[ReturnStmt(expr=BinOp(op='+',
+                                                                                                 left=BinOp(op='+',
+                                                                                                            left=Variable(varName='x',
+                                                                                                                          id=3),
+                                                                                                            right=Variable(varName='y',
+                                                                                                                           id=2)),
+                                                                                                 right=Variable(varName='z',
+                                                                                                                id=5)))])),
+                                             ReturnStmt(expr=Variable(varName='bar',
+                                                                      id=4))])),
+               PrintStmt(expr=CallFun(fn=CallFun(fn=Variable(varName='foo',
+                                                             id=1),
+                                                 args=[Number(val=1)]),
+                                      args=[Number(val=5)]))])
+```
+
+## Array nodes
+
+### Array Defining
+
+```python
+@dataclass
+class Arr(AST):
+    arr: List[AST]
+    size: int
+```
+
+Represents an array definition with a list of elements (`arr`) and a size (`size`).
+
+### Array Declaration
+
+```python
+@dataclass
+class ArrDecl(AST):
+    arr: AST
+```
+
+Represents an array declaration.
+
+### Array Access
+
+```python
+@dataclass
+class ArrAccess(AST):
+    arr: AST
+    index: AST
+```
+
+Represents an array access with an array (`arr`) and an index (`index`).
+
+### Array Assignment
+
+```python
+@dataclass
+class AssignArr(AST):
+    ArrAccessNode: AST
+    e1: AST
+```
+
+```py
+var arr := [1, [2, 3, [4, 5]], 6, 7];
+```
+
+```py
+Program(decls=[Let(var=Variable(varName='arr', id=1),
+                   e1=Arr(arr=[Number(val=1),
+                               Arr(arr=[Number(val=2),
+                                        Number(val=3),
+                                        Arr(arr=[Number(val=4), Number(val=5)],
+                                            size=2)],
+                                   size=3),
+                               Number(val=6),
+                               Number(val=7)],
+                          size=4))])
+```
+
+```py
+var x := arr[1][0] + arr[1][2][1];
+```
+
+```py
+Program(decls=[Let(var=Variable(varName='x', id=2),
+                   e1=BinOp(op='+',
+                            left=ArrAccess(arr=ArrAccess(arr=Variable(varName='arr',
+                            id=1),
+                                                        index=Number(val=1)),
+                                            index=Number(val=0)),
+                            right=ArrAccess(arr=ArrAccess(arr=ArrAccess(arr=Variable(varName='arr', id=1),
+                                                        index=Number(val=1)),
+                                                          index=Number(val=2)),
+                                            index=Number(val=1))))])
+```
+
+```py
+arr[1][2][x - 7] := 10;
+```
+
+```py
+Program(decls=[AssignArr(ArrAccessNode=ArrAccess(arr=ArrAccess(arr=ArrAccess(arr=Variable(varName='arr',
+                                                                                          id=1),
+                                                                             index=Number(val=1)),
+                                                               index=Number(val=2)),
+                                                 index=BinOp(op='-',
+                                                             left=Variable(varName='x',
+                                                                           id=2),
+                                                             right=Number(val=7))),
+                         e1=Number(val=10))])
+
+```
+
 ## Statement Nodes
 
 ### Sequence of Statements
@@ -189,144 +322,3 @@ class Program(AST):
 ```
 
 Represents the root node of the program, containing a list of declarations.
-
-# Scope & Closure Support
-
-## The `Environment` class
-
-The `Environment` class is used to manage variable scopes in the interpreter. It provides methods to add, get, and update variables within the current scope.
-
-```py
-class Environment:
-    envs: List
-
-    def __init__(self):
-        self.envs = [{}]
-
-    def enter_scope(self):
-        self.envs.append({})
-
-    def exit_scope(self):
-        assert self.envs
-        self.envs.pop()
-
-    def add(self, var, val):
-        assert var not in self.envs[-1], f"Variable {var} already defined"
-        self.envs[-1][var] = val
-
-    def get(self, var):
-        for env in reversed(self.envs):
-            if var in env:
-                return env[var]
-        raise ValueError(f"Variable {var} not defined")
-
-    def update(self, var, val):
-        for env in reversed(self.envs):
-            if var in env:
-                env[var] = val
-                return
-        raise ValueError(f"Variable {var} not defined")
-
-    def copy(self):
-        new_env = Environment()
-        new_env.envs = [dict(scope) for scope in self.envs]
-        return new_env
-```
-
-## Closure Support
-
-```py
-def e(tree: AST, env: Environment = None) -> int | float | bool:
-
-    match tree:
-        case LetFun(Variable(varName, i), params, body):
-            # Closure -> Copy of Environment taken along with the declaration!
-            funObj = FunObj(params, body, None)
-            env.add(f"{varName}:{i}", funObj)
-            funObj.env = env.copy()
-            return None
-
-        case CallFun(Variable(varName, i), args):
-            fun = env.get(f"{varName}:{i}")
-            rargs = [e_(arg) for arg in args]
-
-            # use the environment that was copied when the function was defined
-            call_env = fun.env.copy()
-            call_env.enter_scope()
-            for param, arg in zip(fun.params, rargs):
-                call_env.add(f"{param.varName}:{param.id}", arg)
-
-            rbody = e(fun.body, call_env)
-            return rbody
-```
-
-# Implementation of the Top-Level Grammar
-
-## Program as a Sequence of Declarations
-
-```py
-program → declaration* EOF;
-declaration → funDecl | varDecl | statement;
-```
-
-```py
-def parse(s: str) -> AST:
-
-    def parse_program():
-        decls = []
-        while peek():
-            decls.append(parse_declaration())
-        return Program(decls)
-
-    def parse_declaration():
-        match peek():
-            case KeyWordToken("fn"):
-                return parse_func()
-            case KeyWordToken("var"):
-                return parse_let()
-            case _:
-                return parse_statement()
-```
-
-## Assignment
-
-```py
-expression → assignment | expB;
-```
-
-```py
-def parse(s: str) -> AST:
-
-    def parse_expression():
-        # expression -> expB | assignment
-        # first parse the lhs, if it's a variable and next token is ':=' then it's an assignment
-        # otherwise it's an expB so return it as is.
-        ast = parse_bool()
-        if not isinstance(ast, Variable) and peek() == OperatorToken(":="):
-            raise ParseErr(f"Expected variable on the left side of assignment := operator at index {i}")
-        if isinstance(ast, Variable) and peek() == OperatorToken(":="):
-            consume(OperatorToken, ":=")
-            e1 = parse_bool()
-            return Assign(ast, e1)
-        return ast
-```
-
-## Unmatched If
-
-```py
-ifStmt → "if" expression statement ("else" statement)?;
-```
-
-```py
-def parse(s: str) -> AST:
-
-    def parse_if():
-        consume(KeyWordToken, "if")
-        condition = parse_expression()
-        then_body = parse_statement()
-        if peek() == KeyWordToken("else"):
-            consume(KeyWordToken, "else")
-            else_body = parse_statement()
-            return If(condition, then_body, else_body)
-        return IfUnM(condition, then_body)
-```

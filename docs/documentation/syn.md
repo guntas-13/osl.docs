@@ -132,6 +132,7 @@ Functions are called using the function name or a variable holding a function, f
 log fact(5);           // Call fact with argument 5
 var f := counter();    // Call counter to get inc function
 log f();               // Call inc
+log counter()();       // Chained call -> creates a new instance of inc and calls it right away
 ```
 
 ### Features
@@ -234,6 +235,7 @@ var y := x - 1.5;  // y = 3.5
 log x < y;         // Prints 0 (false)
 log 1.5 + 2;       // Prints 3.5
 log x % 2;         // Prints 1
+log x ~= y;        // Prints 1 (true)
 ```
 
 ### Features

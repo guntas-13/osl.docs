@@ -4,7 +4,7 @@ icon: material/language-cpp
 
 # Array Declaration
 
-```cpp
+```py
 def i32 a(i32[][] b, i32 c){
     var #i32 a := 3;
     while (a < b)
@@ -24,7 +24,7 @@ var i32[x][y] brr := a();
 
 ## Example 1
 
-```cpp
+```py
 def i32 a(i32 b, i32 c, fn(i32[][], f64)->nav f){
     var i32 v := 3;
 }
@@ -34,7 +34,7 @@ var fn(i32, i32)->i32 b := a;
 
 ## Example 2
 
-```cpp
+```py
 def i32 F(i32 b, i32 c, u8[][] bts, fn(i32)->nav p, fn(u8[][], fn(i32)->nav)->c8 Q)
 {
     var c8 chr := Q(bts, p);
@@ -49,7 +49,7 @@ def i32 F(i32 b, i32 c, u8[][] bts, fn(i32)->nav p, fn(u8[][], fn(i32)->nav)->c8
 
 ## Example 1
 
-```cpp
+```py
 def i32 a(i32 b, i32 c){
     var i32 a := 3;
 }
@@ -60,7 +60,7 @@ a()();
 
 ## Example 2
 
-```cpp
+```py
 def i32 F(i32 b, i32 c, u8[][] bts, fn(i32)->nav p, fn(u8[][], fn(i32)->nav)->c8 Q)
 {
     var c8 chr := Q(bts, p);
@@ -92,7 +92,7 @@ var i32 gt := G(54, 54, {{5, 254},{24, 6}}, A, B);
 
 ## Example 1
 
-```cpp
+```py
 var i32 a := 98;
 var i32 b := 78;
 if a = 98 {
@@ -107,7 +107,7 @@ else {
 
 ## Example 1
 
-```cpp
+```c
 var u32 x := 47680678;
 var #u32 ptr := #x;
 const c8 k := 'a';
@@ -120,13 +120,13 @@ var u32 copy := @(@ptrr);
 
 ## Example 1
 
-```cpp
+```py
 var i32 a := 4;
 ```
 
 ## Example 2
 
-```cpp
+```py
 var i64 m := 54;
 var bool x;
 var i32 n := x + m - x;
@@ -136,7 +136,7 @@ var i32 n := x + m - x;
 
 ## Example 1
 
-```cpp
+```py
 def i32 a(i32 b, i32 c){
     var i32 a := 3;
     while a<b {
@@ -171,7 +171,7 @@ log F(0, 0);
 
 ## Q2
 
-```cpp
+```py
 def i32 fib(i32 a, i32 b, i32 s) {
     while a < 4000000
     {
@@ -194,7 +194,7 @@ log fib(0, 1, 0);
 
 ## Q3
 
-```cpp
+```py
 def i64 prime(i64 n, i64 i)
 {
     while (i * i) <= n
@@ -220,7 +220,7 @@ log prime(n, 2);
 
 ## Q4
 
-```cpp
+```py
 def bool isPal(i32 n)
 {
     var i32 rev := 0;
@@ -260,7 +260,7 @@ log maxPal;
 
 ## Q5
 
-```cpp
+```py
 def i32 gcd(i32 a, i32 b)
 {
     var i32 temp;
@@ -293,7 +293,7 @@ log F(1, 20);
 
 ## Q6
 
-```cpp
+```py
 def i32 F(i32 n, i32 sum, i64 sumSq)
 {
     while n > 0
@@ -313,7 +313,7 @@ log F(100, 0, 0);
 
 ## Q7
 
-```cpp
+```py
 def i32 find_nth_prime(i32 n)
 {
     var i32 limit := 150000;
@@ -373,7 +373,7 @@ log find_nth_prime(n);
 
 ## Q9
 
-```cpp
+```py
 def i32 find_pythagorean_triplet()
 {
     var i32 a := 1;

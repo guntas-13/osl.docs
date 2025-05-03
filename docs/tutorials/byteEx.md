@@ -12,7 +12,7 @@ icon: material/hexadecimal
 
 ## Factorial Function
 
-```python
+```py
 def fact(n) {
     if (n = 0) {
         return 1;
@@ -24,7 +24,7 @@ log fact(5);
 
 ## Bytecode
 
-```
+```py
 JUMP 92                  # Skip function body to setup code (jump forward 92 bytes)
 BIND 2                   # Bind parameter n to ID 2 in the current scope
 GET 2                    # Push value of n (ID 2) onto the stack
@@ -68,7 +68,7 @@ HALT                     # Terminate execution
 
 ## Array Manipulation
 
-```python
+```py
 var arr := [1, [2, 3, [4, 5]], 6, 7];
 var x := arr[1][0] + arr[1][2][1];
 arr[1][2][x - 7] := 10;
@@ -80,7 +80,7 @@ var a[M][M + N];
 
 ## Bytecode
 
-```
+```py
 PUSH_INT 7               # Push 7 (last element of arr)
 PUSH_INT 6               # Push 6 (third element of arr)
 PUSH_INT 5               # Push 5 (second element of [4, 5])
@@ -146,9 +146,75 @@ HALT                     # Terminate execution
   - `MAKE_ARRAY_DECL`: Creates a zero-initialized 2D array `[1][3]`.
 - **Comments**: Detail the construction of nested arrays, index calculations, and array modifications, making the sequence of `ARRACC` calls clear.
 
+## Closures
+
+```py
+def foo(y)
+{
+    var x := 3;
+    def bar(z)
+    {
+        return x + y + z;
+    }
+    return bar;
+}
+log foo(1)(5);
+```
+
+```py
+JUMP 148    # <- definition of foo
+BIND 2      # <- foo's entry point of body
+PUSH_INT 3
+BIND 3      # <- var x := 3;
+
+
+JUMP 40     # <- definition of bar
+BIND 5      # <- bar's entry point of body
+GET 3
+GET 2
+ADD
+GET 5
+ADD
+RETURN
+RETURN
+PUSH_INT 37
+PUSH_INT 77
+MAKE_FUNC
+BIND 4
+GET 4
+PUSH_INT 2    # <- bar requires x (id=3), y(id=2) from outer scope.
+PUSH_INT 3    # z(id=5) is not required in the closure since that is a parameter (escape analysis)
+PUSH_INT 2
+MAKE_CLOSURE
+
+
+GET 4       # <- body of foo continues
+RETURN
+RETURN
+PUSH_INT 5
+PUSH_INT 153
+MAKE_FUNC
+BIND 1
+GET 1
+PUSH_INT 0    # <- since foo is global, it does not require any variables from outer scope to close
+MAKE_CLOSURE
+
+
+# main program starts here
+PUSH_INT 247  # <- return address for bar's call
+PUSH_INT 5    # <- argument for bar
+PUSH_INT 246  # <- return address for foo's call
+PUSH_INT 1    # <- argument for foo
+GET 1         # <- foo's function object is fetched in the VM
+CALL
+CALL
+LOG
+HALT
+```
+
 ## Counter with Closure
 
-```python
+```py
 def counter() {
     var count := 0;
     def inc() {
@@ -168,7 +234,7 @@ log c2();
 
 #### Commented Bytecode
 
-```
+```py
 JUMP 127                 # Skip counter body to setup code (jump forward 127 bytes)
 PUSH_INT 0               # Push 0 (initial count)
 BIND 2                   # Bind 0 to count (ID 2)
@@ -236,7 +302,7 @@ HALT                     # Terminate execution
 
 ## Nested Closures
 
-```python
+```py
 var x := 5;
 def f(a) {
     var c := 0;
@@ -263,7 +329,7 @@ log t;
 
 ## Bytecode
 
-```
+```py
 PUSH_INT 5               # Push 5
 BIND 1                   # Bind 5 to x (ID 1)
 JUMP 529                 # Skip f body to setup code (jump forward 529 bytes)
